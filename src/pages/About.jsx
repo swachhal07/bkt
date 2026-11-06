@@ -1,9 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 /* Client-supplied photography — each photograph used once. */
+import tyreDetail from '../assets/tyre-detail.webp' // BKT sidewall close-up
 import tractorField from '../assets/tractor-field.webp' // John Deere on BKT Flotation 648
-import dugarLogo from '../assets/dugar-logo.png'
+import bktTruck from '../assets/bkt-truck.webp' // BKT display truck
+import bktLogo from '../assets/logo-solid.png' // BKT lockup, dark tagline
+import dugarLogoHd from '../assets/dugar-logo-hd.png' // 1899px, from mvdugar.com/dugar.svg
 
 /* ────────────────────────────────────────────────────────────────────
    ABOUT — redesigned to sit in the same world as Home rather than in a
@@ -21,12 +24,10 @@ import dugarLogo from '../assets/dugar-logo.png'
      1  HERO          white, centred, no imagery — one screen carried by
                       type alone, headline tracking down line by line,
                       facts ruled along the bottom edge
-     2  THE TRADE     white — centred marked-up headline, taped photographic
-                      plate left, drop-capped essay column right
-     3  COMMITMENTS   brand-green drench, three ruled undertakings
-     4  THE GROUP     white — a centred colophon plate on a narrow measure:
-                      the group mark, the statement at scale, and the
-                      explanation stacked down one axis
+     2  THE TRADE     carbon — four skewed terrain photo slabs; hover opens one
+     3  COMMITMENTS   white — zigzag photo / text rows with skewed number tiles
+     4  THE GROUP     carbon — MV Dugar and BKT as two magnetic discs;
+                      hovering one swaps the line beneath
 
    Below the hero this is three folds, not five. The earlier page put a
    type-only spread directly under a type-only hero, so nothing changed
@@ -110,22 +111,233 @@ const facts = [
   { label: 'Dispatch', value: 'Nationwide · 48h' },
 ]
 
+/* Number tile on each commitment photo, in the greens of the logo. */
+const commitmentTone = ['bg-brand-glow text-carbon', 'bg-[#22b14c] text-white', 'bg-brand text-white']
+
 /* Each commitment is traceable to wording already on Contact — none of it is
    new claim-making. */
 const commitments = [
   {
     head: 'Genuine stock',
     body: 'Every tyre we sell is genuine BKT, bought through the proper channel. Read the sidewall when it arrives — the size, the load index, the manufacturing week. If those markings are ever incomplete or inconsistent, it did not come from us.',
+    img: tyreDetail,
+    pos: 'object-[55%_60%]',
+    alt: 'Close-up of a BKT tyre sidewall',
   },
   {
     head: 'Advice before the sale',
     body: 'Tell us the machine and the ground it works, and we size from the axle load rather than from whatever is in the rack. Sometimes that means a smaller order than you came in for, or a straight answer that we do not have the right tyre today.',
+    img: tractorField,
+    pos: 'object-[55%_62%]',
+    alt: 'A tractor on BKT Flotation 648 tyres in a meadow',
   },
   {
     head: 'The warranty, honoured',
     body: 'Every tyre carries the full manufacturer warranty and we honour it in full. A claim is a conversation with the same desk that sold you the tyre — not a form, and not somebody else’s problem.',
+    img: bktTruck,
+    pos: 'object-center',
+    alt: 'A BKT-liveried display truck',
   },
 ]
+
+/* ── The Trade · terrain slabs ──────────────────────────────────────── */
+
+/* Terrain photographs — all free under the Unsplash License, hotlinked
+   from Unsplash's CDN (permitted by their API guidelines). Swap for the
+   client's own Nepal photographs when they are supplied.
+     Hill roads     unsplash.com/photos/a-truck-navigates-a-narrow-mountain-road-9AFp_3XuUgk
+     Monsoon mud    unsplash.com/photos/a-jeep-driving-through-a-muddy-area-3QsGS2Vsab4
+     Broken tarmac  unsplash.com/photos/severely-cracked-and-damaged-asphalt-pavement-in-black-and-white-Y0K03LqiSFc
+     Heavy loads    unsplash.com/photos/a-truck-with-a-load-of-sand-bags-on-the-back-of-it-MwSbimkm50I
+   `grey` asks Unsplash's CDN for a desaturated copy (sat=-100), so the
+   closed slabs never run a CSS filter. */
+const unsplash = (id, grey = false) =>
+  `https://images.unsplash.com/${id}?fm=jpg&q=70&w=1200&auto=format&fit=crop${grey ? '&sat=-100' : ''}`
+
+/* Each terrain carries one line on what that ground does to a tyre. */
+const terrain = [
+  { name: 'Hill roads', line: 'Long climbs, tight bends and hot brakes all the way down.', id: 'photo-1758701321116-985af34d993f', alt: 'A truck on a narrow road cut into a mountainside' },
+  { name: 'Monsoon mud', line: 'Three months of rain, and roads that turn to clay.', id: 'photo-1670450268251-9d7afb07a74a', alt: 'A jeep driving through deep mud' },
+  { name: 'Broken tarmac', line: 'Potholes and sharp edges that find a weak sidewall.', id: 'photo-1784548789954-655c9a9e1a64', alt: 'Cracked and broken asphalt' },
+  { name: 'Heavy loads', line: 'Trucks loaded past what the road was built for.', id: 'photo-1709967244464-914490ecea95', alt: 'A truck loaded high with sandbags' },
+]
+
+/* The bar under the open slab, in the greens of the logo (as Home's stat slabs). */
+const slabTone = ['bg-brand-glow', 'bg-[#22b14c]', 'bg-brand', 'bg-white']
+
+/* Home's skewed slab shape, one photo
+   per terrain. On desktop the open slab is wide and in colour with its name
+   and line; the others are narrow, greyscale, number only. Hover, focus or
+   tap opens one. Below lg the slabs stack upright with everything shown.
+
+   Kept smooth by doing as little as possible per frame while the slabs
+   resize: the photos are a fixed width centred in their slab (the slab
+   only changes how much of the photo it clips, so nothing is rescaled),
+   colour ↔ grey is an opacity crossfade between two images rather than a
+   filter, and hover waits a moment before switching so a cursor sweeping
+   across the row doesn't restart the animation on every slab it crosses. */
+const TerrainSlabs = () => {
+  const [on, setOn] = useState(0)
+  const timer = useRef(0)
+  const hover = (i) => {
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setOn(i), 90)
+  }
+  useEffect(() => () => clearTimeout(timer.current), [])
+
+  return (
+    <section className="overflow-hidden bg-carbon py-24 text-white sm:py-32">
+      <div className="mx-auto max-w-[100rem] px-4 sm:px-6 lg:px-10">
+        <h2 className="reveal text-center font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight">
+          Built for the roads
+          <br />
+          <span className="text-brand-glow">Nepal actually has.</span>
+        </h2>
+
+        <div className="mt-16 flex flex-col gap-3 lg:h-[34rem] lg:flex-row lg:gap-4 lg:px-6" onPointerLeave={() => clearTimeout(timer.current)}>
+          {terrain.map((t, i) => {
+            const active = on === i
+            return (
+              <button
+                key={t.name}
+                type="button"
+                aria-pressed={active}
+                onPointerEnter={() => hover(i)}
+                onFocus={() => setOn(i)}
+                onClick={() => setOn(i)}
+                className={`relative isolate min-h-[16rem] overflow-hidden rounded-[1.6rem_0.4rem_1.6rem_0.4rem] text-left outline-none transition-[flex-grow] duration-700 ease-[cubic-bezier(.16,1,.3,1)] [contain:layout_paint] focus-visible:ring-2 focus-visible:ring-brand-glow motion-reduce:transition-none lg:-skew-x-[9deg] ${active ? 'lg:flex-[2.6]' : 'lg:flex-1'}`}
+              >
+                <div className="absolute inset-0 lg:inset-auto lg:left-1/2 lg:top-0 lg:h-full lg:w-[56rem] lg:-translate-x-1/2 lg:skew-x-[9deg]">
+                  <img
+                    src={unsplash(t.id)}
+                    alt={t.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 will-change-transform motion-reduce:transition-none ${active ? 'scale-100' : 'lg:scale-110'}`}
+                  />
+                  <img
+                    src={unsplash(t.id, true)}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    className={`absolute inset-0 hidden h-full w-full object-cover transition-[opacity,transform] duration-700 will-change-transform motion-reduce:transition-none lg:block ${active ? 'scale-100 opacity-0' : 'scale-110 opacity-100'}`}
+                  />
+                </div>
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/25 to-transparent" />
+                <div
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 bottom-0 h-2 origin-left transition-transform duration-700 motion-reduce:transition-none ${slabTone[i]} ${active ? 'scale-x-100' : 'scale-x-0'}`}
+                />
+                <div className="relative flex h-full flex-col justify-end p-7 sm:p-9 lg:skew-x-[9deg] lg:pl-12">
+                  <span className="font-display text-5xl font-black italic leading-none text-white/80">0{i + 1}</span>
+                  <h3 className={`mt-2 whitespace-nowrap font-wide text-[clamp(1.5rem,2.4vw,2.6rem)] font-extrabold uppercase leading-[0.9] tracking-tight transition-opacity duration-500 ${active ? '' : 'lg:opacity-0'}`}>
+                    {t.name}
+                  </h3>
+                  <p className={`mt-3 max-w-[34ch] font-sans text-base text-white/80 transition-opacity duration-500 lg:w-[34ch] ${active ? 'lg:delay-200' : 'lg:opacity-0'}`}>
+                    {t.line}
+                  </p>
+                </div>
+              </button>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── The Group · magnetic discs ──────────────────────────────────────── */
+
+/* Chosen from /group-lab (option 7), on carbon at the client's request.
+   Just the two marks as discs that lean toward the cursor; hovering one
+   grows it, dims the other, and swaps the line underneath for that side's
+   sentence. Tap toggles on touch; focus does the same for keyboard. */
+const groupLine = 'BKT Tyres is brought to Nepal by the MV Dugar Group — a Nepali business house since 1884.'
+
+const discCopy = {
+  null: groupLine,
+  mv: 'The group — a Nepali business house since 1884, working across six industries with more than 4,000 people.',
+  bkt: 'The brand — genuine BKT tyres for the farm, the site and the road, brought to Nepal since 2021.',
+}
+
+const Disc = ({ id, active, setActive, children, className = '' }) => {
+  const ref = useRef(null)
+  const [off, setOff] = useState({ x: 0, y: 0 })
+  const on = active === id
+  const dim = active && !on
+
+  /* Magnetic pull: the disc follows the pointer by a fraction of its offset. */
+  const move = (e) => {
+    if (e.pointerType !== 'mouse') return
+    const r = ref.current.getBoundingClientRect()
+    setOff({ x: (e.clientX - r.left - r.width / 2) * 0.18, y: (e.clientY - r.top - r.height / 2) * 0.18 })
+  }
+
+  return (
+    <button
+      ref={ref}
+      type="button"
+      onPointerEnter={() => setActive(id)}
+      onPointerMove={move}
+      onPointerLeave={() => {
+        setActive(null)
+        setOff({ x: 0, y: 0 })
+      }}
+      onFocus={() => setActive(id)}
+      onBlur={() => setActive(null)}
+      onClick={() => setActive(on ? null : id)}
+      className={`relative grid aspect-square w-[clamp(9rem,24vw,20rem)] place-items-center rounded-full outline-none focus-visible:ring-4 focus-visible:ring-brand-glow motion-reduce:!transition-none ${className}`}
+      style={{
+        transform: `translate(${off.x}px, ${off.y}px) scale(${on ? 1.1 : dim ? 0.86 : 1})`,
+        opacity: dim ? 0.55 : 1,
+        transition: 'transform 600ms cubic-bezier(.16,1,.3,1), opacity 400ms ease',
+      }}
+    >
+      {children}
+    </button>
+  )
+}
+
+const GroupDiscs = () => {
+  const [active, setActive] = useState(null)
+  return (
+    <section className="overflow-hidden bg-carbon py-24 text-white sm:py-32">
+      <div className="mx-auto max-w-[100rem] px-4 text-center sm:px-6 lg:px-10">
+        <h2 className="reveal font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight">
+          Part of the <span className="text-brand">MV Dugar Group.</span>
+        </h2>
+        <div className="reveal mt-16 flex items-center justify-center gap-4 sm:gap-10">
+          <Disc id="mv" active={active} setActive={setActive} className="shadow-[0_30px_60px_-25px_rgba(0,0,0,0.9)]">
+            <img src={dugarLogoHd} alt="MV Dugar Group" className="h-full w-full rounded-full" />
+          </Disc>
+          <span aria-hidden="true" className={`font-wide text-3xl font-extrabold transition-colors duration-500 sm:text-5xl ${active ? 'text-brand-glow' : 'text-white/25'}`}>
+            ×
+          </span>
+          <Disc id="bkt" active={active} setActive={setActive} className="bg-white shadow-[0_30px_60px_-25px_rgba(0,0,0,0.9)]">
+            <img src={bktLogo} alt="BKT — Growing Together" className="w-[72%]" />
+          </Disc>
+        </div>
+        {/* Caption swaps with the hovered mark */}
+        <div className="relative mx-auto mt-14 h-28 max-w-[52ch] sm:h-20">
+          {Object.entries(discCopy).map(([k, t]) => (
+            <p
+              key={k}
+              aria-hidden={String(active) !== k}
+              className="absolute inset-0 font-sans text-base leading-relaxed text-white/70 transition-[opacity,transform] duration-500 sm:text-lg"
+              style={{ opacity: String(active) === k ? 1 : 0, transform: `translateY(${String(active) === k ? 0 : 10}px)` }}
+            >
+              {t}
+            </p>
+          ))}
+        </div>
+        <div className="mt-6">
+          <WipeLink to="/leadership" tone="dark">Meet the leadership</WipeLink>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function About() {
   /* Reveal-on-scroll, matching Home and Contact: content is visible unless the
@@ -237,274 +449,101 @@ export default function About() {
       </section>
 
       {/* ══ 2 · THE TRADE ════════════════════════════════════════════ */}
-      {/* Redesigned again, from the headline-left / plate-right split into a
-          broadsheet interlock. The headline no longer shares its columns with
-          anything: it runs the full measure at the fold's largest scale, each
-          line stepping in from behind its own mask, with the green phrase
-          carrying the marker stroke. The photograph then climbs up behind the
-          headline's last line instead of standing politely beside it, so type
-          and plate genuinely overlap — the one move the old fold gestured at
-          but never made. Prose reads down the left: the lead sentence at
-          display weight, then the ruled reading column, both sitting clear of
-          the plate on a 5/7 split. The fold opens on the headline itself —
-          no rule, no running head above it. Copy unchanged, word for word. */}
-      <section className="overflow-hidden bg-white">
-        <div className="relative z-20 mx-auto max-w-[100rem] px-4 pt-20 sm:px-6 sm:pt-28 lg:px-10 lg:pt-36">
-          {/* Headline — centred, at a quieter scale, with no marker stroke
-              under the green phrase. The last line is the one the photograph
-              will rise up behind. */}
-          <h2 className="reveal text-center font-wide text-[clamp(2rem,4.6vw,4.25rem)] font-extrabold uppercase leading-[0.92] tracking-tight text-ink">
-            <span className="line-mask">
-              <span>Two decades</span>
-            </span>
-            <span className="line-mask">
-              <span>
-                keeping <span className="whitespace-nowrap text-brand">Nepal moving.</span>
-              </span>
-            </span>
-          </h2>
-        </div>
-
-        <div className="mx-auto max-w-[100rem] px-4 pb-20 sm:px-6 sm:pb-28 lg:px-10 lg:pb-36">
-          {/* The pair sits centred on its own measure rather than spanning the
-              full 100rem shell — at that width the plate and the essay drift to
-              opposite edges of the screen and stop reading as one composition. */}
-          <div className="mx-auto mt-14 grid max-w-[78rem] items-start gap-x-14 gap-y-14 sm:mt-16 lg:grid-cols-12">
-            {/* Left — the plate in the site's own card language: the same
-                rounded 4/5 panel and full-bleed photograph the Home category
-                cards use. No caption and no scrim — the scrim existed only to
-                carry type that is no longer there. */}
-            <div
-              className="reveal relative z-0 lg:col-span-5 lg:mt-[clamp(0.5rem,1.5vw,1.5rem)]"
-              style={{ transitionDelay: '120ms' }}
-            >
-              <figure className="clip-rise relative m-0 aspect-[4/5] w-full overflow-hidden rounded-2xl bg-steel">
-                <img
-                  src={tractorField}
-                  alt="A tractor working a flowering meadow on BKT Flotation 648 tyres"
-                  className="h-full w-full object-cover object-[center_62%]"
-                  loading="lazy"
-                />
-              </figure>
-            </div>
-
-            {/* Right — the essay. One voice throughout, opened by a drop cap
-                so the column starts on a mark rather than on a margin. */}
-            <div className="flex flex-col justify-center lg:col-span-7 lg:py-4">
-              <div
-                className="reveal max-w-[64ch] font-sans text-base font-medium leading-[1.65] text-ink sm:text-[17px]"
-                style={{ transitionDelay: '90ms' }}
-              >
-                <p className="text-pretty first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-wide first-letter:text-[3.6rem] first-letter:font-extrabold first-letter:uppercase first-letter:leading-[0.74] first-letter:text-brand">
-                  BKT Tyres has been supplying tyres in Nepal for over two decades — for
-                  passenger cars, for farm machinery, and for the heavy commercial fleets
-                  that keep goods moving between them.
-                </p>
-
-                <p className="mt-7 text-pretty">
-                  BKT is an off-highway tyre maker: tractor and harvester fitments,
-                  earthmoving and construction patterns, industrial and material-handling
-                  sizes — tyres built for ground that would finish an ordinary road tyre
-                  inside a season. That range is what brought the brand to Nepal, and it
-                  is still the heart of what we stock.
-                </p>
-
-                <p className="mt-7 text-pretty">
-                  The country asks a lot of a tyre. Hill roads that climb and drop all
-                  day, monsoon mud on the approach to every field, gravel and broken
-                  tarmac between the towns, and loads that are rarely light. A casing
-                  that survives that has to be chosen for it, not simply sold.
-                </p>
-
-                <p className="mt-7 text-pretty">
-                  We are an authorised BKT distributor. The tyres themselves are built and
-                  tested by BKT and carry the full manufacturer warranty. What this
-                  business adds is the rest of it — stock you can actually get hold of,
-                  sizing checked against your own machine, and someone who will tell you
-                  when the answer is no.
-                </p>
-
-                <p className="mt-7 text-pretty">
-                  The machines have changed a great deal in two decades. The part we are
-                  judged on has not: whether the tyre we put on your vehicle was the
-                  right one for it.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Terrain slabs. The four kinds of ground Nepal throws at a tyre, as
+          skewed photo slabs in the shape of Home's stat tiles.
+          See TerrainSlabs. */}
+      <TerrainSlabs />
 
       {/* ══ 3 · COMMITMENTS ══════════════════════════════════════════ */}
-      {/* Brand green carrying the whole surface — the one place on the site
-          where it does, and the reason the fog band that used to follow it
-          is gone.
+      {/* Zigzag on white, so the fold
+          breaks cleanly from the carbon terrain slabs above it and no longer
+          repeats their expanding-panel motion. Photo and text swap sides row
+          by row; each photo carries a skewed number tile in the logo greens,
+          the same shape as Home's stat slabs. The sidewall for genuine stock
+          (the copy tells you to read it), the tractor for advice, the truck
+          for the warranty. Below lg the rows stack photo-first. Copy unchanged. */}
+      <section className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="reveal text-center font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink">
+            What we <span className="text-brand">stand for</span>
+          </h2>
 
-          Redesigned from three stacked rows into three standing columns. The
-          old shape put each heading in a left column and its paragraph in a
-          right one, so every undertaking left a heading-shaped hole beneath
-          it and the band ran three screens deep on the strength of 500 words.
-          Worse, it read as three unrelated rows rather than as the set of
-          three the lede promises. Here each undertaking is a column: index,
-          heading and paragraph in one measure, standing beside its siblings
-          and separated by a rule that draws downward as the band arrives —
-          the same drawn-rule device as before, turned ninety degrees so the
-          structure is the thing you actually see on a flat green field.
-          Copy unchanged, word for word.
-
-          Surface: the green drench is now a light green-tinted paper
-          (--color-mist), so the brand green itself can carry the accent —
-          #007735 on that paper is 4.9:1, which clears AA at every size the
-          band uses, where green-on-green never could. */}
-      <section className="bg-mist text-ink">
-        <div className="mx-auto max-w-[100rem] px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
-          {/* Head: the headline alone, centred over the three columns it
-              introduces, sitting on the rule that opens the set. The lede that
-              used to sit opposite it only restated what the three columns say
-              in full — with the set now legible at a glance, it was a caption
-              on something already captioned. */}
-          <div className="reveal border-b border-ink/15 pb-10 lg:pb-12">
-            <h2 className="font-wide mx-auto max-w-[18ch] text-center text-[clamp(2rem,4.4vw,3.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-balance">
-              What we <span className="text-brand">stand for</span>
-            </h2>
-          </div>
-
-          <ol className="grid list-none grid-cols-1 p-0 lg:grid-cols-3">
+          <ol className="mt-16 flex list-none flex-col gap-16 p-0 lg:gap-24">
             {commitments.map((c, i) => (
-              <li
-                key={c.head}
-                className={`reveal relative pb-12 pt-10 sm:pt-12 lg:pb-16 lg:pt-14 ${
-                  i === 0 ? 'lg:pr-12' : i === 1 ? 'lg:px-12' : 'lg:pl-12'
-                }`}
-                style={{ transitionDelay: `${i * 130}ms` }}
-              >
-                {/* Divider between siblings: a drawn rule above on the stacked
-                    layout, the same rule stood on its end once the columns sit
-                    side by side. The first item never carries one — the head's
-                    own rule is already above it. */}
-                {i > 0 && (
-                  <>
-                    <span
-                      aria-hidden="true"
-                      className="rule-draw absolute inset-x-0 top-0 h-px bg-ink/15 lg:hidden"
-                    />
-                    <span
-                      aria-hidden="true"
-                      className="rule-draw-y absolute left-0 top-0 hidden h-full w-px bg-ink/15 lg:block"
-                    />
-                  </>
-                )}
-
-                <span className="block font-mono text-[11px] font-medium uppercase tracking-[0.3em] text-brand tabular-nums">
-                  {String(i + 1).padStart(2, '0')}
-                  <span className="text-ash/70"> / 03</span>
-                </span>
-
-                {/* Condensed display against the wide heading above it — the
-                    page's one real type-contrast, and the reason these read
-                    as headings rather than as bold paragraphs. */}
-                {/* Sized to the narrowest column rather than to the page: the
-                    longest of the three headings ("The warranty, honoured") has
-                    to sit on one line inside a third of the measure, so the
-                    ceiling is set by that heading, not by how large the type
-                    could go. Condensed display is what buys the room. */}
-                <h3 className="font-display mt-6 text-[clamp(1.5rem,1.95vw,1.9rem)] font-bold uppercase leading-[1.05] tracking-tight whitespace-nowrap">
-                  {c.head}
-                </h3>
-
-                <p className="mt-5 max-w-[44ch] font-sans text-[15px] leading-[1.75] text-ash sm:text-base">
-                  {c.body}
-                </p>
+              <li key={c.head} className="reveal grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+                <div className={`relative ${i % 2 ? 'lg:order-2' : ''}`}>
+                  <img
+                    src={c.img}
+                    alt={c.alt}
+                    loading="lazy"
+                    className={`aspect-[4/3] w-full rounded-3xl object-cover ${c.pos}`}
+                  />
+                  <div
+                    aria-hidden="true"
+                    className={`absolute -bottom-6 -skew-x-[9deg] rounded-[1.4rem_0.4rem_1.4rem_0.4rem] px-8 py-5 ${i % 2 ? 'left-4 lg:-left-6' : 'right-4 lg:-right-6'} ${commitmentTone[i]}`}
+                  >
+                    <span className="block skew-x-[9deg] font-display text-6xl font-black italic leading-none">0{i + 1}</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-wide text-[clamp(2rem,3.6vw,3.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink">
+                    {c.head}
+                  </h3>
+                  <div aria-hidden="true" className="mt-6 h-1 w-16 bg-brand" />
+                  <p className="mt-6 max-w-[46ch] font-sans text-base leading-relaxed text-ash sm:text-lg">{c.body}</p>
+                </div>
               </li>
             ))}
           </ol>
-
-          {/* Closes the set off, drawn the same way the dividers are. */}
-          <div className="reveal relative h-px" style={{ transitionDelay: '390ms' }}>
-            <span aria-hidden="true" className="rule-draw absolute inset-0 bg-ink/15" />
-          </div>
         </div>
       </section>
 
       {/* ══ 4 · THE GROUP ════════════════════════════════════════════ */}
-      {/* The finale: the ownership band alone, on white. The closing statement
-          that used to sit under it — headline, the two buttons and the Monster
-          Jam plate — is gone at the client's request; the hero at the top of
-          the page carries the same two calls to action, so the page still has
-          a door out of it. White rather than carbon because the footer
-          directly below is black, and a dark finale would dissolve into it. */}
-      {/* Composition: a colophon plate — the closing page of a book, not a
-          band with things arranged across it.
+      {/* The two marks as magnetic discs; hovering one tells its side. */}
+      <GroupDiscs />
 
-          Every earlier attempt spread the same three items (mark, statement,
-          paragraph) sideways across the full 100rem shell: as cells on one
-          vertically-centred line, then as a mark hanging in its own margin
-          column beside a left-set text column. Both fail the same way. There
-          is only one heading, one paragraph and one logo here, and no
-          arrangement of three small things fills 1,400px — so whichever
-          columns they are put in, the leftovers show up as a hole, either in
-          the middle of the row or under the mark.
-
-          The fix is to stop claiming the width. The plate is 64rem, centred,
-          and the statement is scaled up to the largest type on the page after
-          the hero, so the fold reads as one mass instead of three fragments,
-          and the white either side is symmetrical air rather than a gap where
-          something is missing. Kicker, mark, statement, a signature rule and
-          the explanation stack down one axis, ruled top and bottom, so the
-          page ends the way its sections are divided. Copy unchanged. */}
-      <section className="bg-white text-ink">
-        <div className="mx-auto max-w-[100rem] px-4 py-20 sm:px-6 sm:py-24 lg:px-10">
-          {/* No panel, no tint — white paper, and structure drawn with rules
-              instead of a fill, as everywhere else on the page. */}
-          <div className="reveal relative mx-auto flex max-w-[64rem] flex-col items-center py-16 text-center sm:py-20">
-            <span aria-hidden="true" className="rule-draw absolute inset-x-0 top-0 h-px bg-ink/15" />
-
-            <div className="flex items-center gap-2.5">
-              <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-brand" />
-              <span className="font-mono text-[11px] font-medium uppercase tracking-[0.3em] text-ash">
-                Group ownership
+      {/* ══ 5 · CLOSING CTA ══════════════════════════════════════════ */}
+      {/* Centred sign-off. One huge outlined line that is itself the link to
+          Contact: on hover a solid brand-green copy wipes in over the
+          outline from the left and an arrow slides in after it. Sized so the line never wraps, down to phone
+          width. A rule, then a smaller link to the range. */}
+      <section className="overflow-hidden bg-white py-20 sm:py-28">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 text-center sm:px-6 lg:px-8">
+          <p className="font-mono text-xs uppercase tracking-[0.26em] text-ash">Need the right tyre?</p>
+          <div className="mt-6 flex flex-col items-center">
+            <Link
+              to="/contact"
+              className="group flex items-center whitespace-nowrap font-wide text-[clamp(1.6rem,10vw,7.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-brand"
+            >
+              <span className="relative block">
+                <span className="block text-transparent [-webkit-text-stroke:2px_var(--color-ink)]">Let's talk tyres</span>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 block text-brand transition-[clip-path] duration-700 ease-[cubic-bezier(.16,1,.3,1)] [clip-path:inset(0_100%_0_0)] group-hover:[clip-path:inset(0_0_0_0)] group-focus-visible:[clip-path:inset(0_0_0_0)] motion-reduce:transition-none"
+                >
+                  Let's talk tyres
+                </span>
               </span>
-            </div>
-
-            {/* The mark at seal scale, unaltered and on nothing — no plate, no
-                ring, no wash. It carries its own circle, and anything drawn
-                behind it either reads as a target or as a smudge. */}
-            <img
-              src={dugarLogo}
-              alt="MV Dugar Group"
-              className="mt-9 h-20 w-auto sm:h-24"
-              loading="lazy"
-            />
-
-            {/* The statement at the largest scale on the page after the hero —
-                the mass the fold was missing when this was three small things
-                spread across the shell. The green phrase is kept whole: "MV"
-                belongs to the group's name, not to the line above it, so the
-                break falls before the name rather than inside it, which is
-                also what gives the statement its two masked lines. */}
-            {/* Floor of 2rem, not 2.25: the group's name is set nowrap, and at
-                any larger minimum it runs off a 320px screen. */}
-            <h2 className="font-wide mt-9 text-[clamp(2rem,6.4vw,5rem)] font-extrabold uppercase leading-[0.86] tracking-tight">
-              <span className="line-mask">
-                <span>Part of the</span>
+              {/* The arrow's slot grows from nothing on hover, so the line
+                  slides left to make room and stays centred as a whole. */}
+              <span
+                aria-hidden="true"
+                className="hidden w-0 shrink-0 justify-end overflow-hidden text-brand transition-[width] duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:w-[1em] group-focus-visible:w-[1em] motion-reduce:transition-none sm:flex"
+              >
+                <Arrow className="h-[0.8em] w-[0.8em] shrink-0 -translate-x-[0.4em] opacity-0 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 motion-reduce:transition-none" />
               </span>
-              <span className="line-mask">
-                <span className="whitespace-nowrap text-brand">MV Dugar Group</span>
-              </span>
-            </h2>
+            </Link>
+          </div>
 
-            {/* Change of voice made visible, at the width of a signature
-                underline rather than a divider. */}
-            <span aria-hidden="true" className="mt-11 block h-px w-20 bg-brand" />
-
-            <p className="mt-8 max-w-[58ch] font-sans text-base leading-[1.8] text-ash sm:text-[17px] text-pretty">
-              The tyre business sits inside a larger group, and that is the part you
-              never see: the buying, the warehousing, the working capital that keeps
-              stock on the shelf when a season turns. It is why we can say yes to a
-              fleet order and still have your size next week.
-            </p>
-
-            <span aria-hidden="true" className="rule-draw absolute inset-x-0 bottom-0 h-px bg-ink/15" />
+          <div className="mt-12 flex w-full flex-col items-center gap-4 border-t border-ink/15 pt-8">
+            <span className="font-sans text-base text-ash sm:text-lg">Sizing, fitment or a fleet order — ask a person.</span>
+            <Link
+              to="/products"
+              className="group inline-flex items-center gap-3 font-mono text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:text-brand"
+            >
+              Or browse the range
+              <Arrow className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5 motion-reduce:transition-none" />
+            </Link>
           </div>
         </div>
       </section>

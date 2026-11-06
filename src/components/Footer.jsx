@@ -47,6 +47,7 @@ const nav = [
   { to: '/', label: 'Home' },
   { to: '/products', label: 'Products' },
   { to: '/about', label: 'About' },
+  { to: '/leadership', label: 'Leadership' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact' },
 ]
@@ -139,7 +140,7 @@ export default function Footer() {
             use, turned to run along the rule instead of across a panel. */}
         <nav
           aria-label="Footer"
-          className="grid grid-cols-1 border-t border-white/10 lg:grid-cols-5"
+          className="grid grid-cols-1 border-t border-white/10 lg:grid-cols-6"
         >
           {nav.map((item, i) => (
             /* One column until the row can hold all five. Two- and three-column

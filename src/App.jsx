@@ -8,6 +8,9 @@ import About from './pages/About'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
+import Leadership from './pages/Leadership'
+import HeroLab from './pages/HeroLab'
+import GroupLab from './pages/GroupLab'
 import NotFound from './pages/NotFound'
 
 /* A route change is a new page, so it starts at the top. React Router keeps
@@ -45,6 +48,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
+          <Route path="/leadership" element={<Leadership />} />
+          <Route path="/about-heroes" element={<HeroLab />} />
+          <Route path="/group-lab" element={<GroupLab />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />

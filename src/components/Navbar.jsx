@@ -171,6 +171,8 @@ export default function Navbar() {
 
           <NavLink to="/about" className={linkClass}>About</NavLink>
 
+          <NavLink to="/leadership" className={linkClass}>Leadership</NavLink>
+
           <NavLink to="/blog" className={linkClass}>Blog</NavLink>
 
           <NavLink to="/contact" className={linkClass}>Contact Us</NavLink>
@@ -232,6 +234,10 @@ export default function Navbar() {
 
             <NavLink to="/about" onClick={() => setOpen(false)} className="text-base font-medium text-ink hover:text-brand">
               <span className="block py-3">About</span>
+            </NavLink>
+
+            <NavLink to="/leadership" onClick={() => setOpen(false)} className="text-base font-medium text-ink hover:text-brand">
+              <span className="block py-3">Leadership</span>
             </NavLink>
 
             <NavLink to="/blog" onClick={() => setOpen(false)} className="text-base font-medium text-ink hover:text-brand">
