@@ -107,9 +107,11 @@ export function ProductCard({ product: p, index = 0, tile = 'bg-white' }) {
               New
             </span>
           )}
-          <span className="rounded-full border border-ink/15 bg-white/80 px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink">
-            3D
-          </span>
+          {p.model && (
+            <span className="rounded-full border border-ink/15 bg-white/80 px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink">
+              3D
+            </span>
+          )}
         </span>
       </div>
 

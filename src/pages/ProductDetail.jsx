@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { productBySlug, productsIn, sketchfabSrc } from '../data/products'
+import { productBySlug, relatedTo, sketchfabSrc, rangeGroups } from '../data/products'
 import { Kicker, WipeLink, ProductCard, useReveal } from '../components/productUi'
 import NotFound from './NotFound'
 import { FeatureNut } from '../components/featureGlyphs'
@@ -74,7 +74,8 @@ function Stage({ p }) {
         </div>
       )}
 
-      {/* Toggle */}
+      {/* Toggle — only when BKT publishes a 3D model for this pattern */}
+      {p.model && (
       <div
         role="group"
         aria-label="View"
@@ -98,8 +99,9 @@ function Stage({ p }) {
           </button>
         ))}
       </div>
+      )}
 
-      {!is3d && (
+      {p.model && !is3d && (
         <button
           type="button"
           onClick={() => setMode('3d')}
@@ -278,6 +280,8 @@ function Film({ video, name }) {
   )
 }
 
+const otrGroupName = (id) => rangeGroups.find((g) => g.id === id)?.name ?? id
+
 export default function ProductDetail() {
   const { slug } = useParams()
   const p = productBySlug(slug)
@@ -285,7 +289,7 @@ export default function ProductDetail() {
 
   if (!p) return <NotFound />
 
-  const siblings = productsIn(p.sector).filter((x) => x.slug !== p.slug)
+  const siblings = relatedTo(p)
 
   return (
     <div key={p.slug}>
@@ -408,6 +412,22 @@ export default function ProductDetail() {
               Sizes &amp; specs
             </h2>
           </div>
+          {/* Sizes stocked in Nepal, as listed in the client's OTR range PDF
+              (ply rating included where the PDF gives one). */}
+          {p.stock.length > 0 && (
+            <div className="reveal mx-auto mt-10 max-w-4xl text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ash">
+                Stocked in Nepal{p.groups.length > 0 && <> · {p.groups.map((g) => otrGroupName(g)).join(' · ')}</>}
+              </p>
+              <ul className="mt-4 flex flex-wrap justify-center gap-2">
+                {p.stock.map((s) => (
+                  <li key={s} className="rounded-full bg-mist px-3.5 py-1.5 font-mono text-[11px] font-medium tracking-[0.04em] text-brand">
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div className="reveal mt-12">
             <SizeTable p={p} />
           </div>

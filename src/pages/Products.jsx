@@ -1,4 +1,6 @@
+import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import BktLoader from '../components/BktLoader'
 import { products, sectors, productBySlug } from '../data/products'
 import { Kicker, WipeLink, ProductCard, useReveal } from '../components/productUi'
 
@@ -11,6 +13,14 @@ import { Kicker, WipeLink, ProductCard, useReveal } from '../components/productU
                  tyre cards; each card opens /products/:slug
    ──────────────────────────────────────────────────────────────────── */
 
+/* Infinite scroll, as on BKT's product list: 12 tyres first, then 10 more
+   each time the end of the grid comes within 600px of the screen, with the
+   loading overlay up while a batch lands. Sector changes show it too. */
+const FIRST = 12
+const NEXT = 10
+const AHEAD = 600
+const LOAD_MS = 600
+
 /* Hero lineup: back-left, back-right, front-centre. */
 const lineup = [
   { p: productBySlug('earthmax-sr-45-m'), cls: 'left-0 bottom-[11%] h-[64%] -rotate-[5deg]', delay: 260 },
@@ -21,12 +31,58 @@ const lineup = [
 export default function Products() {
   const [params, setParams] = useSearchParams()
   const active = sectors.some((s) => s.id === params.get('sector')) ? params.get('sector') : 'all'
-  const shown = active === 'all' ? products : products.filter((p) => p.sector === active)
+  const shown = active === 'all' ? products : products.filter((p) => p.sectors.includes(active))
   const activeSector = sectors.find((s) => s.id === active)
 
   useReveal('products')
 
+  const [count, setCount] = useState(FIRST)
+  const [loading, setLoading] = useState(false)
+  const sentinel = useRef(null)
+  const more = count < shown.length
+  const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
+  useEffect(() => {
+    setCount(FIRST)
+  }, [active])
+
+  const loadMore = () => {
+    if (loading || !more) return
+    setLoading(true)
+    setTimeout(() => {
+      setCount((c) => c + NEXT)
+      setLoading(false)
+    }, reduced() ? 0 : LOAD_MS)
+  }
+
+  /* Watch the end of the grid. An IntersectionObserver with BKT's 600px
+     margin, backed by a scroll/resize check for browsers that don't fire it. */
+  useEffect(() => {
+    if (!more || loading) return
+    const near = () => {
+      const el = sentinel.current
+      if (el && el.getBoundingClientRect().top < window.innerHeight + AHEAD) loadMore()
+    }
+    const io = 'IntersectionObserver' in window
+      ? new IntersectionObserver((e) => e.some((x) => x.isIntersecting) && loadMore(), { rootMargin: `${AHEAD}px` })
+      : null
+    if (io && sentinel.current) io.observe(sentinel.current)
+    near()
+    window.addEventListener('scroll', near, { passive: true })
+    window.addEventListener('resize', near)
+    return () => {
+      io?.disconnect()
+      window.removeEventListener('scroll', near)
+      window.removeEventListener('resize', near)
+    }
+  })
+
   const pick = (id) => {
+    if (id === active) return
+    if (!reduced()) {
+      setLoading(true)
+      setTimeout(() => setLoading(false), LOAD_MS)
+    }
     const next = new URLSearchParams(params)
     if (id === 'all') next.delete('sector')
     else next.set('sector', id)
@@ -35,7 +91,7 @@ export default function Products() {
 
   const tabs = [
     { id: 'all', name: 'All tyres', count: products.length },
-    ...sectors.map((s) => ({ id: s.id, name: s.name, count: products.filter((p) => p.sector === s.id).length })),
+    ...sectors.map((s) => ({ id: s.id, name: s.name, count: products.filter((p) => p.sectors.includes(s.id)).length })),
   ]
 
   return (
@@ -62,8 +118,8 @@ export default function Products() {
               className="anim-rise mt-8 max-w-[50ch] text-base leading-relaxed text-ash sm:text-lg text-pretty"
               style={{ animationDelay: '420ms' }}
             >
-              The BKT range we supply across Nepal — agricultural, industrial and
-              off-the-road tyres, each with its full size table and a 3D model you
+              The BKT range we supply across Nepal — agricultural and
+              off-the-road tyres, each with its full size table — and most with a 3D model you
               can turn and inspect before you buy.
             </p>
             <div className="anim-rise mt-10 flex flex-wrap gap-4" style={{ animationDelay: '520ms' }}>
@@ -107,7 +163,7 @@ export default function Products() {
             <p className="mx-auto mt-6 max-w-[52ch] text-base leading-relaxed text-ash sm:text-lg">
               {activeSector
                 ? activeSector.lede
-                : 'Three sectors, one standard. Choose where your machine works, then open any tyre for sizes, specs and its 3D model.'}
+                : 'Two sectors, one standard. Choose where your machine works, then open any tyre for sizes, specs and, where BKT has one, its 3D model.'}
             </p>
           </div>
 
@@ -152,12 +208,17 @@ export default function Products() {
             key={active}
             className="mt-16 grid grid-cols-1 gap-x-10 gap-y-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-14"
           >
-            {shown.map((p, i) => (
-              <li key={p.slug} className="anim-rise" style={{ animationDelay: `${Math.min(i, 8) * 70}ms` }}>
+            {shown.slice(0, count).map((p, i) => (
+              <li key={p.slug} className="anim-rise" style={{ animationDelay: `${Math.min(i < FIRST ? i : (i - FIRST) % NEXT, 8) * 60}ms` }}>
                 <ProductCard product={p} index={i} />
               </li>
             ))}
           </ul>
+
+          {/* End-of-grid marker the scroll loading watches; the loading overlay. */}
+          {more && <div ref={sentinel} aria-hidden="true" className="h-px" />}
+          <BktLoader show={loading} />
+
         </div>
       </section>
 

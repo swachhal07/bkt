@@ -1,0 +1,1926 @@
+{
+ "groups": {
+  "tipper": "Tipper",
+  "backhoe": "Backhoe loader",
+  "loader": "Wheel loader",
+  "grader": "Grader",
+  "crane": "Crane",
+  "skid": "Skid steer",
+  "compactor": "Compactor",
+  "port": "Port",
+  "forklift": "Forklift & tow"
+ },
+ "products": [
+  {
+   "slug": "steer-grip",
+   "name": "STEER GRIP",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "ccd01d2ba6914a29b367187000690269",
+   "text": "STEER GRIP is the perfect steering-axle fitment for on/off trucks. The wide central rib with straight lugs makes the tyre suitable for free rolling applications and provides enhanced grip for excellent performance on both wet and dry conditions off the road. The special tread compound has been designed for combining best wear resistance with cut- and-chip resistance whereas the strong casing ensures an extended tyre life-cycle.",
+   "machines": [
+    "On/Off Truck"
+   ],
+   "applications": [
+    "Transport"
+   ],
+   "features": [
+    "Heavy Duty",
+    "Stability",
+    "Durability"
+   ],
+   "sizes": [
+    "10.00 - 20|STANDARD||7.5|1085",
+    "11.00 - 20|STANDARD||8.0|1120",
+    "12.00 - 24|STANDARD||8.5|1248"
+   ],
+   "stock": [
+    "10.00-20 18PR",
+    "11.00-20 18PR",
+    "12.00-24 20PR"
+   ],
+   "groups": [
+    "tipper"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/76c7864d-5aba-4fa2-8e1f-493fa6233877"
+  },
+  {
+   "slug": "xl-grip-t",
+   "name": "XL GRIP (T)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "2a7745201324483f9f061db35aa37b36",
+   "text": "XL GRIP (E-3) best suits on/off trucks carrying heavy loads in mining applications. Its tread compound is designed to minimize cuts and punctures on harshest ground conditions. XL GRIP (E-3) offers exceptional traction and provides an extended tyre life- cycle.",
+   "machines": [
+    "On/Off Truck"
+   ],
+   "applications": [
+    "Transport"
+   ],
+   "features": [
+    "Heavy Duty",
+    "Traction",
+    "Cut Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "10.00 - 20|STANDARD||7.5|1075",
+    "11.00 - 20|STANDARD||8.0|1115"
+   ],
+   "stock": [
+    "10.00-20 18PR",
+    "11.00-20 18PR"
+   ],
+   "groups": [
+    "tipper"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/881254d1-57b2-4549-8cf3-4f3ae9cd42fe"
+  },
+  {
+   "slug": "xl-grip-ultra",
+   "name": "XL GRIP ULTRA",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "91bd951bd1c848a687b3fd2a4cd10d0a",
+   "text": "XL GRIP ULTRA is a bias-ply tyre, suitable for on/off trucks in heavy-duty service conditions such as mining applications, quarries and construction sites. The non- directional tread design provides front and lateral traction. The tyre features a strong nylon casing with optimized tie bars and a special tread compound to ensure high cut and puncture resistance as well as excellent durability and wear resistance in addition to best self-cleaning properties even on rocky surfaces.",
+   "machines": [
+    "On/Off Truck"
+   ],
+   "applications": [
+    "Transport",
+    "Mining"
+   ],
+   "features": [
+    "Comfort",
+    "Self-Cleaning",
+    "Heavy Duty",
+    "Traction",
+    "Durability",
+    "Cut and Chip Resistance"
+   ],
+   "sizes": [
+    "10.00 - 20|STANDARD||7.5|1075",
+    "11.00 - 20|STANDARD||8.0|1115",
+    "12.00 - 20|CUT RESISTANT COMPOUND||8.5|1155",
+    "12.00 - 20|STANDARD||8.5|1155",
+    "12.00 - 24|STANDARD||8.5|1250",
+    "12.00 - 24|CUT RESISTANT COMPOUND||8.5|1250",
+    "12.00 - 24|INDUSTRIAL||8.5|1250"
+   ],
+   "stock": [
+    "10.00-20 18PR",
+    "11.00-20 18PR",
+    "12.00-20 20PR",
+    "12.00-24 20PR"
+   ],
+   "groups": [
+    "tipper"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/c9966db9-b315-4a44-87c1-e1b017637312"
+  },
+  {
+   "slug": "rock-grip-t",
+   "name": "ROCK GRIP (T)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "e4ba93d31de24387bd006d5bab60faaa",
+   "text": "ROCK GRIP (E-4) best suits on/off trucks in quarries and short-haul mining applications to carry heavy loads. The special tread compound minimizes cuts and punctures on roughest ground conditions. ROCK GRIP (E-4) offers exceptional traction and an extended tyre life-cycle.",
+   "machines": [
+    "Rigid Dump Truck",
+    "On/Off Truck"
+   ],
+   "applications": [
+    "Surface Mining"
+   ],
+   "features": [
+    "Hard Rocky Surface",
+    "Heavy Duty",
+    "Cut Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "10.00 - 20|STANDARD||7.5|1090",
+    "11.00 - 20|STANDARD||8.0|1135",
+    "12.00 - 24|STANDARD||8.5|1265"
+   ],
+   "stock": [
+    "10.00-20 18PR",
+    "11.00-20 18PR",
+    "12.00-24 20PR"
+   ],
+   "groups": [
+    "tipper"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/2476792d-42a9-4360-b328-b128bdb166a9"
+  },
+  {
+   "slug": "earthmax-sr-425",
+   "name": "EARTHMAX SR 425",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "c310d739585a47d9a2f69e0fc693de3a",
+   "text": "EARTHMAX SR 425 is an All Steel radial tyre designed for transport applications, both on and off the road, as well as mining operations. It features enhanced durability and mileage along with high load capacity thanks to the strong steel-belted construction and casing. The block-type tread pattern provides excellent traction. In addition, EARTHMAX SR 425 ensures excellent riding comfort, less driving fatigue and superior handling.",
+   "machines": [
+    "On/Off Truck"
+   ],
+   "applications": [
+    "Transport",
+    "Mining"
+   ],
+   "features": [
+    "Traction",
+    "High Load Capacity",
+    "Durability",
+    "Handling & Comfort"
+   ],
+   "sizes": [
+    "12.00 R 24|STANDARD|160/156 K|8.50|1230"
+   ],
+   "stock": [
+    "10.00R20 18PR",
+    "11.00R20 18PR"
+   ],
+   "groups": [
+    "tipper"
+   ],
+   "sizesFiltered": false,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/dbe2314e-91c4-42d9-990a-5031bbd1783a"
+  },
+  {
+   "slug": "loader-plus",
+   "name": "LOADER PLUS",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "cc1fef695d354809a2e81a313e8334e2",
+   "text": "LOADER PLUS (L-3) is a bias-ply tyre specially designed for loaders. The tread compound provides cut-and-chip-resistant properties and suites best for loading and dozing operations.",
+   "machines": [
+    "Loader",
+    "Dozer"
+   ],
+   "applications": [
+    "Loading",
+    "Dozing"
+   ],
+   "features": [
+    "Traction",
+    "Cut Resistance"
+   ],
+   "sizes": [
+    "14.00 - 25|STANDARD||10.00/1.5|1368",
+    "17.5 - 25|STANDARD||14.00/1.5|1345",
+    "17.5 - 25|DUAL BEAD||14.00/1.5|1345",
+    "20.5 - 25|STANDARD||17.00/2.0|1490",
+    "23.5 - 25|STANDARD||19.50/2.5|1640",
+    "26.5 - 25|STANDARD||22.00/3.0|1740",
+    "29.5 - 25|STANDARD||25.00/3.5|1860"
+   ],
+   "stock": [
+    "14.00-25 20PR",
+    "17.5-25 20PR",
+    "20.5-25 20PR",
+    "23.5-25 20PR",
+    "23.5-25 24PR",
+    "26.5-25 28PR",
+    "26.5-25 32PR",
+    "29.5-25 28PR",
+    "29.5-25 32PR"
+   ],
+   "groups": [
+    "backhoe",
+    "loader",
+    "crane"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/4f2d6af7-fa1f-4bb4-990a-0b198756c519"
+  },
+  {
+   "slug": "at-621",
+   "name": "AT 621",
+   "construction": "Bias",
+   "range": "Atv",
+   "isNew": false,
+   "model": "1d24b0c6bc4f4feba1216d28ed5e546b",
+   "text": "AT 621 is suitable for backhoe loaders and compact loaders in all digging and loading operations in agriculture. The AT 621 tyre features an extra deep tread which ensures great cut and chip resistance and higher durability. In addition, this BKT tyre ensures great durability and self cleaning properties. AT 621 is available in several versions to meet the most differing user requirements.",
+   "machines": [
+    "Backhoe Loader",
+    "Compact Loader",
+    "Loader"
+   ],
+   "applications": [
+    "Digging",
+    "Loading"
+   ],
+   "features": [
+    "Self-Cleaning",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "12.5/80 - 18|INDUSTRIAL HD||W 9|987",
+    "12.5/80 - 18|STANDARD||W 9|987",
+    "12.5/80 - 18|SPECIAL||W 9|987",
+    "16.9 - 28|INDUSTRIAL|152 A8|DW 15 L|1410",
+    "16.9 - 28|INDUSTRIAL|154 A8|DW 15 L|1410"
+   ],
+   "stock": [
+    "12.5/80-18 16PR",
+    "16.9-28 12PR"
+   ],
+   "groups": [
+    "backhoe"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/c3181a40-5691-4c5d-96bc-59051b4944c7"
+  },
+  {
+   "slug": "at-625",
+   "name": "AT 625",
+   "construction": "Bias",
+   "range": "Atv",
+   "isNew": false,
+   "model": "92db9a90076f40e4b9c39edd4951cc8f",
+   "text": "AT 625 is suitable for backhoe loaders and compact loaders in all farming digging and loading operations. Its extra deep tread ensures increased puncture resistance and durability. AT 625 features excellent traction and stability as well as improved cut and chip resistance.",
+   "machines": [
+    "Harvester",
+    "Backhoe Loader",
+    "Compact Loader"
+   ],
+   "applications": [
+    "Digging",
+    "Loading"
+   ],
+   "features": [
+    "High Puncture Resistance",
+    "Cut and Chip Resistance",
+    "Traction",
+    "Stability"
+   ],
+   "sizes": [
+    "14.9 - 24|STANDARD|145 A8|DW 13|1265",
+    "16.9 - 28|INDUSTRIAL|152 A8|DW 15 L|1415",
+    "16.9 - 28|SPECIAL|152 A8|DW 15 L|1415"
+   ],
+   "stock": [
+    "14.9-24 12PR",
+    "16.9-28 12PR"
+   ],
+   "groups": [
+    "backhoe"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/419fce13-0860-419d-b244-d213b14933a4"
+  },
+  {
+   "slug": "em-937-e3",
+   "name": "EM 937 (E3)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "a127fdf913b1408b9eb00b17110f9b4f",
+   "text": "EM 937 (E-3) has been specially designed for rigid dumpers in surface mining applications. It features excellent durability and provides high cut and chip resistance. EM 937 (E-3) is particularly suitable for heavy duty service.",
+   "machines": [
+    "Rigid Dump Truck"
+   ],
+   "applications": [
+    "Surface Mining"
+   ],
+   "features": [
+    "Heavy Duty",
+    "Durability",
+    "Cut and Chip Resistance"
+   ],
+   "sizes": [
+    "14.00 - 25|STANDARD||10.00/1.5|1368"
+   ],
+   "stock": [
+    "14.00-25 20PR",
+    "14.00-25 24PR"
+   ],
+   "groups": [
+    "backhoe",
+    "loader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/bcdc4e89-d389-448b-a456-727e436e53e1"
+  },
+  {
+   "slug": "xl-grip-bhl",
+   "name": "XL GRIP (BHL)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "2a7745201324483f9f061db35aa37b36",
+   "text": "XL GRIP has been specially designed for backhoe loaders that are employed in heavy-duty operations in excavation, dozing and loading applications. The non-directional tread pattern provides best traction and stability. The special tread compound results in excellent cut and chip resistance and an extended tread life.",
+   "machines": [
+    "Backhoe Loader"
+   ],
+   "applications": [
+    "Loading",
+    "Dozing"
+   ],
+   "features": [
+    "Durability",
+    "Cut Resistance",
+    "Stability"
+   ],
+   "sizes": [
+    "9.00 - 16|STANDARD|132 A6|6.50 H|910",
+    "9.00 - 16|STANDARD|137 A6|6.50 H|910",
+    "12.5/80 - 18|STANDARD||W 9|980",
+    "16.9 - 28|INDUSTRIAL|152 A8|DW 15L|1400"
+   ],
+   "stock": [
+    "9.00-16 16PR",
+    "12.5/80-18 16PR",
+    "16.9-28 12PR"
+   ],
+   "groups": [
+    "backhoe"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/881254d1-57b2-4549-8cf3-4f3ae9cd42fe"
+  },
+  {
+   "slug": "bk-6060",
+   "name": "BK 6060",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "bbb283b5014b4a4387a0588cf1b87ce8",
+   "text": "BK 6060 is a both field- and road-oriented tyre for trailers and backhoe loaders in transport as well as digging and loading applications. This block pattern tyre provides an extended tyre life-cycle.",
+   "machines": [
+    "Trailer",
+    "Backhoe Loader"
+   ],
+   "applications": [
+    "Digging",
+    "Loading",
+    "On-Off Road Transport"
+   ],
+   "features": [
+    "On/Off Road",
+    "Durability"
+   ],
+   "sizes": [
+    "9.00 - 16|INDUSTRIAL||6.50 H|925"
+   ],
+   "stock": [
+    "9.00-16 16PR"
+   ],
+   "groups": [
+    "backhoe"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/a3e0349c-1d6c-4bca-9643-8e5ff4bfdbf6"
+  },
+  {
+   "slug": "xl-grip-l3",
+   "name": "XL GRIP (L3)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "a66a95dd75c44bdc9714187cc58de746",
+   "text": "XL GRIP (E-3/L-3) is a wide-base bias-ply tyre for loaders designed to minimize cuts and punctures in heavy-duty loading applications. It provides exceptional traction as well as an extended tyre life.",
+   "machines": [
+    "Loader",
+    "Dozer"
+   ],
+   "applications": [
+    "Construction",
+    "Loading",
+    "Dozing"
+   ],
+   "features": [
+    "Traction",
+    "Heavy Duty",
+    "Durability",
+    "Cut Resistance",
+    "Stability"
+   ],
+   "sizes": [
+    "17.5 - 25|DUAL BEAD||14.00/1.5|1345",
+    "17.5 - 25|STANDARD||14.00/1.5|1345",
+    "20.5 - 25|STANDARD||17.00/2.0|1485",
+    "23.5 - 25|STANDARD||19.50/2.5|1625",
+    "23.5 - 25|ARAMID BELTED HD||19.50/2.5|1625",
+    "26.5 - 25|STANDARD||22.00/3.0|1740",
+    "29.5 - 25|STANDARD||25.00/3.5|1860"
+   ],
+   "stock": [
+    "17.5-25 16PR",
+    "17.5-25 20PR",
+    "17.5-25 24PR",
+    "20.5-25 20PR",
+    "20.5-25 24PR",
+    "23.5-25 20PR",
+    "23.5-25 24PR",
+    "26.5-25 20PR",
+    "26.5-25 28PR",
+    "26.5-25 32PR",
+    "29.5-25 28PR",
+    "29.5-25 32PR"
+   ],
+   "groups": [
+    "loader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/e4139a8d-f023-4e5a-9fc5-32666642f477"
+  },
+  {
+   "slug": "rock-grip-l4",
+   "name": "ROCK GRIP L4",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "e4ba93d31de24387bd006d5bab60faaa",
+   "text": "ROCK GRIP (L-4) is a bias-ply tyre designed for wheel loader operations in severe loading service and on rough ground conditions. Its specially designed, cut-and-chip-resistant tread compound minimizes punctures thereby reducing machine downtime. The (L-4) tread depth provides an extended tyre life-cycle.",
+   "machines": [
+    "Loader",
+    "Dozer"
+   ],
+   "applications": [
+    "Loading",
+    "Dozing"
+   ],
+   "features": [
+    "Cut and Chip Resistance",
+    "Heavy Duty",
+    "Stability",
+    "High Puncture Resistance"
+   ],
+   "sizes": [
+    "14.00 - 25|STANDARD||10.00/1.5|1410"
+   ],
+   "stock": [
+    "14.00-25 24PR",
+    "14.00-25 28PR",
+    "14.00-25 32PR"
+   ],
+   "groups": [
+    "loader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/152a61b1-7c8c-4e8d-a840-884066eaeffa"
+  },
+  {
+   "slug": "earthmax-sr-30",
+   "name": "EARTHMAX SR 30",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "a6ca0c2e3ec04f1e9e5195647787e551",
+   "text": "EARTHMAX SR 30 (E-3/L-3) is an All Steel radial tyre which is dual-purposed for loaders and articulated dump trucks. The multi-layer steel belts and the rigid block pattern provide excellent traction, stability and durability. The special cut-resistant compound makes EARTHMAX SR 30 the ideal solution for a variety of harsh operating conditions.",
+   "machines": [
+    "Loader",
+    "Dozer",
+    "Articulated Dump Truck (ADT)"
+   ],
+   "applications": [
+    "Transport",
+    "Surface Mining",
+    "Loading",
+    "Dozing"
+   ],
+   "features": [
+    "Traction",
+    "Stability",
+    "Cut Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "17.5 R 25|CUT RESISTANT COMPOUND|167 B, 176 A2|14.00/1.5|1347",
+    "17.5 R 25|CUT RESISTANT COMPOUND|182 A2|14.00/1.5|1347",
+    "17.5 R 25|CUT RESISTANT COMPOUND|188 A2|14.00/1.5|1347",
+    "20.5 R 25|CUT RESISTANT COMPOUND|177 B, 186 A2|17.00/2.0|1487",
+    "20.5 R 25|CUT RESISTANT COMPOUND|193 A2|17.00/2.0|1487",
+    "23.5 R 25|CUT RESISTANT COMPOUND|201 A2|19.50/2.5|1607",
+    "23.5 R 25|CUT RESISTANT COMPOUND|185 B, 195 A2|19.50/2.5|1607",
+    "26.5 R 25|CUT RESISTANT COMPOUND|202 A2|22.00/3.0|1742",
+    "26.5 R 25|CUT RESISTANT COMPOUND|209 A2|22.00/3.0|1742",
+    "26.5 R 25|CUT RESISTANT COMPOUND|193 B|22.00/3.0|1742",
+    "26.5 R 25|CUT RESISTANT COMPOUND|193 B, 202 A2|22.00/3.0|1742",
+    "29.5 R 25|CUT RESISTANT COMPOUND|216 A2|25.00/3.5|1861",
+    "29.5 R 25|CUT RESISTANT COMPOUND|200 B, 208 A2|25.00/3.5|1861",
+    "29.5 R 25|CUT RESISTANT COMPOUND|200 B|25.00/3.5|1861",
+    "29.5 R 25|CUT RESISTANT COMPOUND|208 A2|25.00/3.5|1861"
+   ],
+   "stock": [
+    "17.5R25",
+    "20.5R25",
+    "23.5R25",
+    "26.5R25",
+    "29.5R25"
+   ],
+   "groups": [
+    "loader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/bd7961e6-f647-4657-b899-dfecfd73b4fb"
+  },
+  {
+   "slug": "earthmax-sr-31",
+   "name": "EARTHMAX SR 31",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "048663de96064da9b31ff8ceb7dd23d5",
+   "text": "EARTHMAX SR 31 is an All Steel radial tyre specially designed for articulated dump trucks and wheel loaders. It provides extraordinary strength and stability, whilst the non-directional rigid block pattern stands for both excellent traction and maneuverability even on muddy ground. EARTHMAX SR 31 also features a special tread compound which is particularly cut-and-heat resistant. The radial casing structure also provides reduced rolling resistance offering significant fuel savings.",
+   "machines": [
+    "Loader",
+    "Dozer",
+    "Articulated Dump Truck (ADT)"
+   ],
+   "applications": [
+    "Transport",
+    "Loading",
+    "Dozing"
+   ],
+   "features": [
+    "Comfort",
+    "Traction",
+    "Stability",
+    "Cut Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "20.5 R 25|CUT RESISTANT COMPOUND|177 B, 186 A2|17.00/2.0|1480",
+    "23.5 R 25|CUT RESISTANT COMPOUND|185 B, 195 A2|19.50/2.5|1607",
+    "26.5 R 25|CUT RESISTANT COMPOUND|193 B, 202 A2|22.00/3.0|1742",
+    "26.5 R 25|CUT RESISTANT COMPOUND|209 A2|22.00/3.0|1742",
+    "29.5 R 25|CUT RESISTANT COMPOUND|200 B, 208 A2|25.00/3.5|1861",
+    "29.5 R 25|CUT RESISTANT COMPOUND|216 A2|25.00/3.5|1861"
+   ],
+   "stock": [
+    "20.5R25",
+    "23.5R25",
+    "26.5R25",
+    "29.5R25"
+   ],
+   "groups": [
+    "loader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/db0eb9f4-36a6-4215-9cc2-ecc9d3b111a1"
+  },
+  {
+   "slug": "earthmax-sr-loader",
+   "name": "EARTHMAX SR LOADER",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "820d9f3ecbfd42be8a8cf6a20e2977f5",
+   "text": "EARTHMAX SR LOADER is an OTR tyre specifically designed for loading and dozing operations. Its All Steel casing along with multi-layer steel belts and a unique tread compound provide exceptional resistance to snags and punctures resulting in an extended service life. EARTHMAX SR LOADER features a unique tread pattern providing top selfcleaning properties and excellent traction on several types of terrain.",
+   "machines": [
+    "Loader",
+    "Dozer",
+    "Articulated Dump Truck (ADT)"
+   ],
+   "applications": [
+    "Transport",
+    "Surface Mining",
+    "Loading",
+    "Dozing"
+   ],
+   "features": [
+    "Self-Cleaning",
+    "Traction",
+    "Durability",
+    "High Puncture Resistance",
+    "Cut and Chip Resistance"
+   ],
+   "sizes": [
+    "20.5 R 25|CUT RESISTANT COMPOUND|177 B, 186 A2|17.00/2.0|1475",
+    "23.5 R 25|CUT RESISTANT COMPOUND|185 B, 195 A2|19.50/2.5|1605",
+    "26.5 R 25|CUT RESISTANT COMPOUND|193 B, 202 A2|22.00/3.0|1735",
+    "29.5 R 25|CUT RESISTANT COMPOUND|200 B, 208 A2|25.00/3.5|1859"
+   ],
+   "stock": [
+    "20.5R25",
+    "23.5R25",
+    "26.5R25",
+    "29.5R25"
+   ],
+   "groups": [
+    "loader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/ce26e4a5-eeb0-4e06-bdeb-27f033273fff"
+  },
+  {
+   "slug": "earthmax-sr-53",
+   "name": "EARTHMAX SR 53",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "d3757a6ac82b474f9c31d6ce22caabdd",
+   "text": "EARTHMAX SR 53 is an All Steel radial tyre specially designed for loaders, dozers and low profile dump trucks (LPDT) operating in severe rocky conditions, including underground operations and scrap yards. The deep L-5 tread and the cut-resistant compound provide an extended wear life in addition to excellent traction and stability. In case of underground mine application, consult your servicing dealer or BKT representative.",
+   "machines": [
+    "Loader",
+    "Dozer",
+    "Low Profile Dump Truck (LPDT)"
+   ],
+   "applications": [
+    "Loading",
+    "Dozing",
+    "Scraping",
+    "Underground Mining"
+   ],
+   "features": [
+    "Hard Rocky Surface",
+    "Traction",
+    "Stability",
+    "Cut Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "17.5 R 25|CUT RESISTANT COMPOUND|182 A2|14.00/1.5|1400",
+    "17.5 R 25|CUT RESISTANT COMPOUND (UMS)||14.00/1.5|1400",
+    "17.5 R 25|CUT RESISTANT COMPOUND|188 A2|14.00/1.5|1400",
+    "17.5 R 25|CUT RESISTANT COMPOUND|176 A2|14.00/1.5|1400",
+    "20.5 R 25|CUT RESISTANT COMPOUND|186 A2|17.00/2.0|1550",
+    "23.5 R 25|CUT RESISTANT COMPOUND|195 A2|19.50/2.5|1666",
+    "23.5 R 25|CUT RESISTANT COMPOUND (UMS)||19.50/2.5|1666",
+    "23.5 R 25|CUT RESISTANT COMPOUND|201 A2|19.50/2.5|1666",
+    "26.5 R 25|CUT RESISTANT COMPOUND|202 A2|22.00/3.0|1788",
+    "26.5 R 25|CUT RESISTANT COMPOUND|214 A2|22.00/3.0|1788",
+    "26.5 R 25|CUT RESISTANT COMPOUND (UMS)||22.00/3.0|1788",
+    "26.5 R 25|CUT RESISTANT COMPOUND|209 A2|22.00/3.0|1788",
+    "29.5 R 25|CUT RESISTANT COMPOUND|208 A2|25.00/3.5|1912",
+    "29.5 R 25|CUT RESISTANT COMPOUND|216 A2|25.00/3.5|1912",
+    "29.5 R 25|CUT RESISTANT COMPOUND (UMS)||25.00/3.5|1912",
+    "29.5 R 29|CUT RESISTANT COMPOUND|223 A2|25.00/3.5|2015",
+    "29.5 R 29|CUT RESISTANT COMPOUND|218 A2|25.00/3.5|2015",
+    "29.5 R 29|CUT RESISTANT COMPOUND (UMS)||25.00/3.5|2015",
+    "35/65 R 33|CUT RESISTANT COMPOUND|229 A2|28.00/3.5|2063",
+    "35/65 R 33|CUT RESISTANT COMPOUND|224 A2|28.00/3.5|2063",
+    "35/65 R 33 (LPDT)|CUT RESISTANT COMPOUND (UMS)||28.00/3.5|2063",
+    "35/65 R 33|CUT RESISTANT COMPOUND (UMS)||28.00/3.5|2063",
+    "45/65 R 39|CUT RESISTANT COMPOUND|242 A2|36.00/4.5|2577",
+    "45/65 R 45|CUT RESISTANT COMPOUND|250 A2|36.00/4.5|2730",
+    "45/65 R 45|CUT RESISTANT COMPOUND|245 A2|36.00/4.5|2730",
+    "50/65 R 51|CUT RESISTANT COMPOUND|253 A2|40.00/4.5|3090"
+   ],
+   "stock": [
+    "17.5R25",
+    "20.5R25",
+    "23.5R25",
+    "26.5R25",
+    "29.5R25",
+    "29.5R29",
+    "35/65R33",
+    "45/65R39",
+    "45/65R45",
+    "50/65R51"
+   ],
+   "groups": [
+    "loader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/ca9a88d7-1790-46d8-a98f-2b8b31a3212c"
+  },
+  {
+   "slug": "earthmax-sr-51",
+   "name": "EARTHMAX SR 51",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "0e2e8fddc2bb418e95c686c0c7f67a55",
+   "text": "EARTHMAX SR 51 (L-5) is an All Steel radial tyre specially designed for loaders or dozers. EARTHMAX SR 51 is ideal for severe operations requiring added cut resistance, sidewall protection and exceptional traction. The extra deep tread ensures also great stability and an extended tyre life.",
+   "machines": [
+    "Loader",
+    "Dozer"
+   ],
+   "applications": [
+    "Loading",
+    "Dozing"
+   ],
+   "features": [
+    "Self-Cleaning",
+    "Traction"
+   ],
+   "sizes": [
+    "17.5 R 25|CUT RESISTANT COMPOUND|176 A2|14.00/1.5|1398",
+    "20.5 R 25|CUT RESISTANT COMPOUND|193 A2|17.00/2.0|1545",
+    "20.5 R 25|CUT RESISTANT COMPOUND|186 A2|17.00/2.0|1545",
+    "23.5 R 25|CUT RESISTANT COMPOUND|201 A2|19.50/2.5|1660",
+    "23.5 R 25|CUT RESISTANT COMPOUND|195 A2|19.50/2.5|1660",
+    "875/65 R 29 (35/65 R 29)|CUT RESISTANT COMPOUND|221 A2|27.00/3.5|1872"
+   ],
+   "stock": [
+    "17.5R25",
+    "20.5R25",
+    "23.5R25",
+    "29.5R25",
+    "875/65R29",
+    "35/65R33"
+   ],
+   "groups": [
+    "loader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/0c7e4d2d-6e81-4964-a1c9-d8d712734a24"
+  },
+  {
+   "slug": "super-grader",
+   "name": "SUPER GRADER",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "dfa476e12eaa4b07b126ed7dcac2d2d6",
+   "text": "SUPER GRADER (G-2) is a bias tyre particularly designed for graders. It shows excellent traction and self-cleaning features. SUPER GRADER is made of a special compound which enables an extended tyre life-cycle and heavy-duty service.",
+   "machines": [
+    "Grader"
+   ],
+   "applications": [
+    "Scraping"
+   ],
+   "features": [
+    "Self-Cleaning",
+    "Heavy Duty",
+    "Traction",
+    "Durability"
+   ],
+   "sizes": [
+    "13.00 - 24|STANDARD||8.00 TG SDC|1275",
+    "14.00 - 24|STANDARD||8.00 TG SDC|1335",
+    "16.00 - 24|STANDARD||10.00 VA SDC|1450"
+   ],
+   "stock": [
+    "13.00-24 12PR",
+    "13.00-24 16PR",
+    "14.00-24 12PR",
+    "14.00-24 16PR",
+    "16.00-24 16PR"
+   ],
+   "groups": [
+    "grader",
+    "crane"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/1a522511-05fe-44ea-aa19-383658eb97e2"
+  },
+  {
+   "slug": "xl-grip-g3",
+   "name": "XL GRIP (G3)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": null,
+   "text": "XL GRIP (G-3) is a bias-ply tyre for graders designed to minimize cuts and punctures in heavy-duty grading environments where exceptional traction is required.",
+   "machines": [
+    "Grader"
+   ],
+   "applications": [
+    "Grading"
+   ],
+   "features": [
+    "Heavy Duty",
+    "Traction",
+    "Cut Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "13.00 - 24|STANDARD||8.00 TG SDC|1295",
+    "14.00 - 24|STANDARD||8.00 TG SDC|1345",
+    "16.00 - 24 (-)|STANDARD||10.00 VA SDC|1450"
+   ],
+   "stock": [
+    "13.00-24 16PR",
+    "14.00-24 16PR",
+    "16.00-24 16PR"
+   ],
+   "groups": [
+    "grader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/881254d1-57b2-4549-8cf3-4f3ae9cd42fe"
+  },
+  {
+   "slug": "earthmax-sr-23",
+   "name": "EARTHMAX SR 23",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "7ce9bf5ca40c4523bcfcb97c918d592c",
+   "text": "EARTHMAX SR 23 (G-2/L-2) is an All Steel radial tyre specially designed for motor graders and loaders. It features superior forward and lateral traction as well as exceptional self-cleaning properties. The durable casing and the particularly cut-resistant tread provide a long service life.",
+   "machines": [
+    "Loader",
+    "Grader"
+   ],
+   "applications": [
+    "Loading",
+    "Dozing",
+    "Mining"
+   ],
+   "features": [
+    "Self-Cleaning",
+    "Traction",
+    "Durability",
+    "High Puncture Resistance"
+   ],
+   "sizes": [
+    "15.5 R 25|CUT RESISTANT COMPOUND|146 A8, 169 A2|12.00/1.3|1264",
+    "17.5 R 25|CUT RESISTANT COMPOUND|153 A8, 176 A2|14.00/1.5|1345",
+    "20.5 R 25|CUT RESISTANT COMPOUND|161 A8, 186 A2|17.00/2.0|1490"
+   ],
+   "stock": [
+    "15.5R25",
+    "17.5R25",
+    "20.5R25"
+   ],
+   "groups": [
+    "grader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/3ba01787-33dc-4ed7-ae85-e17f781b7db5"
+  },
+  {
+   "slug": "earthmax-sr-25-plus",
+   "name": "EARTHMAX SR 25 PLUS",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "c5a94b93bf974e03984d0f781c8b0c1b",
+   "text": "EARTHMAX SR 25 PLUS (G-2/L-2) is an All Steel radial tyre, which has been specially designed for motor graders and loaders operating in the most severe road construction or mining applications. Its non-directional tread design offers excellent self-cleaning properties in addition to traction and stability off the road.",
+   "machines": [
+    "Loader",
+    "Dozer",
+    "Grader"
+   ],
+   "applications": [
+    "Construction",
+    "Loading",
+    "Dozing",
+    "Mining",
+    "Grading",
+    "Site Preparation / Grading"
+   ],
+   "features": [
+    "Self-Cleaning",
+    "Traction",
+    "Stability",
+    "Durability"
+   ],
+   "sizes": [
+    "14.00 R 24|CUT RESISTANT COMPOUND|153 A8, 175 A2|8.00TG|1372"
+   ],
+   "stock": [
+    "14.00R24"
+   ],
+   "groups": [
+    "grader"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/bd57e83c-9888-486c-8931-94f997d34ec3"
+  },
+  {
+   "slug": "earthmax-sr-423",
+   "name": "EARTHMAX SR 423",
+   "construction": "Radial",
+   "range": "Earthmax",
+   "isNew": false,
+   "model": "b950c4cfabc7470f9a6e644ca80cd4c8",
+   "text": "EARTHMAX SR 423 is an All Steel radial tyre suitable for a variety of applications including quarry, haulage and logging operations. The non-directional tread pattern provides excellent traction and stability on any type of terrain. The tyre is ideal for handling heavy loads. The strong All Steel casing features excellent wear and resistance to snag and punctures. Its reinforced bead and the shoulder design contribute to an extended tyre life-cycle even under heavy-duty service conditions.",
+   "machines": [
+    "On/Off Truck"
+   ],
+   "applications": [
+    "Transport"
+   ],
+   "features": [
+    "Traction",
+    "High Load Capacity",
+    "Durability"
+   ],
+   "sizes": [
+    "325/95 R 24 (12.00 R 24)|STANDARD|160/156 K|9.00|1243"
+   ],
+   "stock": [
+    "325/95R24"
+   ],
+   "groups": [
+    "crane"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/cb79a858-a5ed-4758-a5cc-ef6675b1a433"
+  },
+  {
+   "slug": "airomax-am-27",
+   "name": "AIROMAX AM 27",
+   "construction": "Radial",
+   "range": "Airomax",
+   "isNew": false,
+   "model": "e4ffae1e952d4566b0070335f398d6d2",
+   "text": "AIROMAX AM 27 is the ideal road-oriented tyre for construction applications with cranes. It features extraordinary heat resistance and outstanding riding comfort. AIROMAX AM 27 is a high-speed tyre particularly suitable for all operations requiring a high level of handling.",
+   "machines": [
+    "Mobile Crane"
+   ],
+   "applications": [
+    "Construction"
+   ],
+   "features": [
+    "Road Oriented",
+    "Heat Resistance",
+    "Handling & Comfort"
+   ],
+   "sizes": [
+    "385/95 R 24 (14.00 R 24)|STANDARD|170 F|10.00W|1363",
+    "385/95 R 25 (14.00 R 25)|STANDARD|170 F|10.00/1.5|1363",
+    "445/95 R 25 (16.00 R 25)|STANDARD|174 F|11.25/2.0|1490",
+    "505/95 R 25 (18.00 R 25)|STANDARD|186 E|13.00/2.5|1600",
+    "525/80 R 25 (20.5 R 25)|STANDARD|176 F|17.00/2.0|1481"
+   ],
+   "stock": [
+    "385/95R24",
+    "385/95R25",
+    "445/95R25",
+    "505/95R25",
+    "525/80R25"
+   ],
+   "groups": [
+    "crane"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/e250cd89-2297-4f7d-b4fb-40314d3465a7"
+  },
+  {
+   "slug": "crane-special",
+   "name": "CRANE SPECIAL",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "9994d53f2b4f43aba95e6aeeb43f30c6",
+   "text": "CRANE SPECIAL is suitable for pick & carry cranes on rough terrains. The tyre is made of a special compound which provides high stability and durability.",
+   "machines": [
+    "Mobile Crane"
+   ],
+   "applications": [
+    "Construction"
+   ],
+   "features": [
+    "Stability"
+   ],
+   "sizes": [
+    "14.00 - 24|STANDARD||10.00 W|1368",
+    "16.00 - 25|STANDARD||11.25/2.0|1485",
+    "18.00 - 25|STANDARD||13.00/2.5|1615"
+   ],
+   "stock": [
+    "14.00-24 24PR",
+    "16.00-25 28PR",
+    "18.00-25 32PR"
+   ],
+   "groups": [
+    "crane"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/0704049b-481f-426b-ae7b-3bdd22c0f786"
+  },
+  {
+   "slug": "rm-2002",
+   "name": "RM 2002",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "697eaaf9fe564d3db9e1e615e69e2ad9",
+   "text": "RM 2002 is suitable for transport operations with trailers and light trucks, both on and off the road. It ensures long durability and top performance along the entire product life-cycle. Its \"industrial\" version is ideal for pick & carry cranes.",
+   "machines": [
+    "Trailer",
+    "Implements",
+    "Mobile Crane"
+   ],
+   "applications": [
+    "Field and Road Transport",
+    "Transport"
+   ],
+   "features": [
+    "Durability"
+   ],
+   "sizes": [
+    "11.00 - 20|STANDARD||8.0|1101",
+    "11.00 - 20|INDUSTRIAL||8.0|1101",
+    "12.00 - 20|STANDARD||8.5|1145"
+   ],
+   "stock": [
+    "11.00-20 16PR",
+    "11.00-20 18PR",
+    "12.00-20 18PR"
+   ],
+   "groups": [
+    "crane"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/c131aea7-288d-4355-95e3-2d2da2bd0365"
+  },
+  {
+   "slug": "xl-grip-e3",
+   "name": "XL GRIP (E3)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "2a7745201324483f9f061db35aa37b36",
+   "text": "XL GRIP (E-3) is a bias-ply tyre for rigid dump trucks designed to minimize cuts and punctures in severe conditions where exceptional traction is required. These features result in an extended tyre life.",
+   "machines": [
+    "Rigid Dump Truck"
+   ],
+   "applications": [
+    "Surface Mining",
+    "Transport"
+   ],
+   "features": [
+    "Heavy Duty",
+    "Traction",
+    "Cut Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "16.00 - 25|STANDARD||11.25/2.0|1485"
+   ],
+   "stock": [
+    "12.00-24 24PR",
+    "16.00-25 28PR"
+   ],
+   "groups": [
+    "crane"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/881254d1-57b2-4549-8cf3-4f3ae9cd42fe"
+  },
+  {
+   "slug": "power-trax-hd-ss",
+   "name": "POWER TRAX HD (SS)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "0454f2f5763745f2a1784f5967eaa8ed",
+   "text": "POWER TRAX HD premium tyre is specially designed for equipment in port and underground mining applications. Its deep tread, the extra thick sidewall and the tough casing provide exceptional durability minimizing the risk of punctures and accidental damages. The tyre features excellent cut and chip resistance, which is particularly suitable for rough and hard surfaces. The specially designed rim guard ensures protection against flats and wheel damage in the rim flange area.",
+   "machines": [
+    "Skid Steer"
+   ],
+   "applications": [
+    "Port Operations"
+   ],
+   "features": [
+    "Cut and Chip Resistance",
+    "Durability",
+    "High Puncture Resistance"
+   ],
+   "sizes": [
+    "10 - 16.5|STANDARD||8.25|790",
+    "10 - 16.5|IMPLEMENT|120 A8|8.25|790",
+    "12 - 16.5|STANDARD||9.75|865"
+   ],
+   "stock": [
+    "10-16.5 10PR",
+    "12-16.5 10PR",
+    "12-16.5 12PR",
+    "12-16.5 14PR"
+   ],
+   "groups": [
+    "skid"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/cd191d26-d30e-44e1-a71e-48a3c2156abd"
+  },
+  {
+   "slug": "skid-power-hd-a",
+   "name": "SKID POWER HD (A)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "b203e1ce56ae4b65958ac4e0f464dda6",
+   "text": "SKID POWER HD (A) has been designed for skid steers in construction applications. The tyre features an extra deep tread and sidewall protection providing excellent cut and chip resistance and outstanding durability. SKID POWER HD (A) is the ideal tyre for loose surfaces and heavy-duty service.",
+   "machines": [
+    "Skid Steer"
+   ],
+   "applications": [
+    "Construction",
+    "Loose Soil"
+   ],
+   "features": [
+    "Cut and Chip Resistance",
+    "Heavy Duty",
+    "Durability"
+   ],
+   "sizes": [
+    "10 - 16.5|STANDARD||8.25|780",
+    "10 - 16.5|IMPLEMENT|116 A8|8.25|780",
+    "12 - 16.5|STANDARD||9.75|850",
+    "12 - 16.5|IMPLEMENT|125 A8|9.75|850",
+    "12 - 16.5|STANDARD|145 A2|9.75|850",
+    "12 - 16.5|IMPLEMENT|130 A8|9.75|850",
+    "14 - 17.5|IMPLEMENT|140 A8|10.50|930",
+    "14 - 17.5|STANDARD||10.50|930"
+   ],
+   "stock": [
+    "10-16.5 10PR",
+    "12-16.5 12PR",
+    "14-17.5 14PR"
+   ],
+   "groups": [
+    "skid"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/bde10f00-475a-4301-9461-26c76366be04"
+  },
+  {
+   "slug": "tr-387",
+   "name": "TR 387",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "5a19d5b3effb49b38fea9224c468593a",
+   "text": "TR 387 is an agro-industrial tyre suitable for sugar cane trailers and compactors. It features high load capacity and is available in different versions to meet specific user requirements in terms of cut and chip resistance, heavy-duty services and durability. The \"dual bead\" version is particularly suitable for industrial tractors and transport operations using trailers.",
+   "machines": [
+    "Trailer",
+    "Implements",
+    "Compactor"
+   ],
+   "applications": [
+    "Transport",
+    "Agro-Industrial"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Durability"
+   ],
+   "sizes": [
+    "18.4 - 26|STANDARD|146 A6|DW 16 L|1450",
+    "18.4 - 26|HD|152 A6|DW 16 L|1450",
+    "18.4 - 26|STANDARD|142 A6|DW 16 L|1450",
+    "23.1 - 26|HD|164 A6|DW 20 B|1560",
+    "23.1 - 26|HD DUAL BEAD SPECIAL|161 A6|DW 20 B|1560",
+    "23.1 - 26|DUAL BEAD|159 A6|DW 20 B|1560",
+    "23.1 - 26|STANDARD|159 A6|DW 20 B|1560",
+    "23.1 - 26|STANDARD|145 A6|DW 20 B|1560",
+    "23.1 - 26|DUAL BEAD HD|161 A6|DW 20 B|1560",
+    "23.1 - 26|STANDARD|153 A6|DW 20 B|1560"
+   ],
+   "stock": [
+    "18.4-26 16PR",
+    "23.1-26 8PR",
+    "23.1-26 12PR",
+    "23.1-26 16PR",
+    "23.1-26 18PR"
+   ],
+   "groups": [
+    "compactor"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/9d484441-1b62-4d29-8f05-8879eab0821e"
+  },
+  {
+   "slug": "tr-390",
+   "name": "TR 390",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "8817fdd1a06342daa45416630df15ed0",
+   "text": "TR 390 is an agro-industrial tyre suitable for sugar cane trailers and compactors. TR 390 features high load capacity and increased durability. Its dual bead HD version is particularly suitable for industrial tractors and transport operations using trailers, whereas its dual bead HD special version is ideal for heavy-duty service.",
+   "machines": [
+    "Trailer",
+    "Implements",
+    "Compactor"
+   ],
+   "applications": [
+    "Transport",
+    "Agro-Industrial",
+    "Compacting"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Durability"
+   ],
+   "sizes": [
+    "23.1 - 26|STANDARD|153 A6|DW 20 B|1560",
+    "23.1 - 26|HD DUAL BEAD SPECIAL|161 A6|DW 20 B|1560",
+    "23.1 - 26|DUAL BEAD HD|161 A6|DW 20 B|1560",
+    "23.1 - 26|STANDARD|145 A6|DW 20 B|1560",
+    "23.1 - 26|STANDARD|159 A6|DW 20 B|1560",
+    "28 L - 26|DUAL BEAD HD|172 A6|DW 25 B|1560",
+    "28 L - 26|DUAL BEAD|160 A6|DW 25 B|1560",
+    "28 L - 26|STANDARD|154 A6|DW 25 B|1560"
+   ],
+   "stock": [
+    "23.1-26 8PR",
+    "23.1-26 12PR",
+    "23.1-26 16PR",
+    "23.1-26 18PR",
+    "28L-26 12PR",
+    "28L-26 16PR"
+   ],
+   "groups": [
+    "compactor"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/cd86979c-2031-485d-93db-a41df34219a3"
+  },
+  {
+   "slug": "pac-master",
+   "name": "PAC MASTER",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "436467ee0d434ec4ab5214f0edc6e3c5",
+   "text": "PAC MASTER is a bias tyre for compactors. It shows high stability and ensures an extended tyre life-cycle. It is made of a special compound that provides particular heat resistance.",
+   "machines": [
+    "Compactor"
+   ],
+   "applications": [
+    "Compacting"
+   ],
+   "features": [
+    "Heat Resistance",
+    "Durability",
+    "Stability"
+   ],
+   "sizes": [
+    "7.50 - 15|STANDARD||6.0|790",
+    "7.50 - 16|STANDARD||6.0|815",
+    "9.00 - 20|STANDARD||7.0|1016",
+    "11.00 - 20|SPECIAL||8.0|1070"
+   ],
+   "stock": [
+    "7.50-15 6PR",
+    "7.50-15 12PR",
+    "7.50-15 14PR",
+    "7.50-16 14PR",
+    "9.00-20 12PR",
+    "9.00-20 14PR",
+    "9.00-20 16PR",
+    "11.00-20 16PR",
+    "11.00-20 18PR",
+    "14.0/70-20 12PR"
+   ],
+   "groups": [
+    "compactor"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/d6afbf59-d007-4a95-aa9a-bebc24fe15ee"
+  },
+  {
+   "slug": "pac-master-plus",
+   "name": "PAC MASTER PLUS",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "9c6fcd29e3af40e48c00cc8fb7ae5f4f",
+   "text": "PAC MASTER PLUS is a bias tyre for compactors. It features high stability and a wider contact area. It is made of a special compound providing high heat resistance. PAC MASTER PLUS ensures an extended tyre life-cycle.",
+   "machines": [
+    "Compactor"
+   ],
+   "applications": [
+    "Compacting"
+   ],
+   "features": [
+    "Heat Resistance",
+    "Durability",
+    "Stability"
+   ],
+   "sizes": [
+    "7.50 - 15|STANDARD||6.0|790",
+    "9.00 - 20|STANDARD||7.0|1005"
+   ],
+   "stock": [
+    "7.50-15 14PR",
+    "9.00-20 10PR",
+    "9.00-20 12PR",
+    "9.00-20 14PR"
+   ],
+   "groups": [
+    "compactor"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/4e74eaee-7f2e-4c2e-9a95-766647689b7d"
+  },
+  {
+   "slug": "container-king",
+   "name": "CONTAINER KING",
+   "construction": "Bias",
+   "range": "Container_king",
+   "isNew": false,
+   "model": "76cc5ca5cf094fd9add925d12d3cf726",
+   "text": "CONTAINER KING has been designed for reach stackers in intermodal transport and logistics applications. This extraordinary tyre is made of a highly wear-and- tear-resistant tread compound which minimizes tread cracks. CONTAINER KING ensures an extended tyre life-cycle plus exceptional stability in lift mode.",
+   "machines": [
+    "Reach Stacker"
+   ],
+   "applications": [
+    "Intermodal Transport / Logistics",
+    "Stacking"
+   ],
+   "features": [
+    "Durability",
+    "Stability"
+   ],
+   "sizes": [
+    "12.00 - 24|INDUSTRIAL||8.5|1285"
+   ],
+   "stock": [
+    "12.00-24 24PR"
+   ],
+   "groups": [
+    "port"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/253f1de9-7839-4a8b-8e4d-179ffdde4ab1"
+  },
+  {
+   "slug": "em-937-ind3-ech",
+   "name": "EM 937 IND3 (ECH)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "a127fdf913b1408b9eb00b17110f9b4f",
+   "text": "EM 937 (E-3) IND is specially designed for empty-container-handling operations in stacking and loading applications. It features excellent durability and a long tyre life. EM 937 (E-3) IND is ideal on paved surfaces and for all operations requiring a high level of handling in the port.",
+   "machines": [
+    "Empty Container Handler"
+   ],
+   "applications": [
+    "Industrial Handling",
+    "Stacking",
+    "Loading"
+   ],
+   "features": [
+    "Cut and Chip Resistance",
+    "Durability",
+    "Hard Surfaces",
+    "Stability",
+    "Handling & Comfort"
+   ],
+   "sizes": [
+    "14.00 - 24|PORT INDUSTRIAL||10.00 W|1368",
+    "14.00 - 24|PORT INDUSTRIAL||10.00 WA|1368"
+   ],
+   "stock": [
+    "14.00-24 28PR"
+   ],
+   "groups": [
+    "port"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/bcdc4e89-d389-448b-a456-727e436e53e1"
+  },
+  {
+   "slug": "rock-grip-ind4-ech",
+   "name": "ROCK GRIP IND4 (ECH)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": null,
+   "text": "ROCK GRIP PORT INDUSTRIAL IND-4 (ECH) is a bias-ply tyre designed for Empty container handler in several applications including industrial handling and steelworks. The special ROCK GRIP compound ensure particular heat resistance along with great stability and durability.",
+   "machines": [
+    "Empty Container Handler"
+   ],
+   "applications": [
+    "Industrial Handling",
+    "Steelworks"
+   ],
+   "features": [
+    "Heat Resistance",
+    "Durability",
+    "Stability"
+   ],
+   "sizes": [
+    "12.00 - 24|PORT INDUSTRIAL||8.5|1265",
+    "14.00 - 24|PORT INDUSTRIAL||10.00 W|1410",
+    "14.00 - 24|PORT INDUSTRIAL||10.00 WA|1410",
+    "16.00 - 25|PORT INDUSTRIAL||11.25/2.0|1525"
+   ],
+   "stock": [
+    "12.00-24 20PR",
+    "12.00-24 24PR",
+    "14.00-24 28PR",
+    "14.00-24 32PR",
+    "16.00-25 32PR",
+    "16.00-25 36PR",
+    "18.00-25 40PR"
+   ],
+   "groups": [
+    "port"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/98f78f9f-37b5-40b9-bbbd-f3b49e0b77a1"
+  },
+  {
+   "slug": "sm-55-ind-5s",
+   "name": "SM 55 IND-5S",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": null,
+   "text": "SM 55 IND-5S has been specially designed for reach stackers and container handlers. Its special abrasion-resistant tread compound provides an extended tyre life on asphalt or concrete surfaces and offers excellent stability to vehicles in lift mode.",
+   "machines": [
+    "Container Handler"
+   ],
+   "applications": [
+    "Intermodal Transport / Logistics"
+   ],
+   "features": [
+    "Cut and Chip Resistance",
+    "Durability",
+    "Hard Surfaces",
+    "Stability"
+   ],
+   "sizes": [
+    "18.00 - 25|PORT SPECIAL||13.00/2.5|1665"
+   ],
+   "stock": [
+    "18.00-25 40PR"
+   ],
+   "groups": [
+    "port"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/b845c0e4-19b7-4ad6-b19b-b0fc2a7d66c4"
+  },
+  {
+   "slug": "port-king-classic",
+   "name": "PORT KING CLASSIC",
+   "construction": "Bias",
+   "range": "Port_king",
+   "isNew": false,
+   "model": "7ba56e4259ee4ece923c3288b39f251c",
+   "text": "PORT KING CLASSIC is BKT's latest-generation port tyre, which has been specially engineered for container handling equipment. The tyre ensures maximum operating efficiency and exceptional stability in lift mode. Thanks to its strong nylon casing, PORT KING CLASSIC stands out for higher load capacity minimizing the risk of impact breaks, snags, and punctures. The new wear-resistant compound has been developed to ensure an extended product life-cycle, and to provide the best return on investment.",
+   "machines": [
+    "Reach Stacker"
+   ],
+   "applications": [
+    "Industrial Handling"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Durability",
+    "Stability",
+    "High Puncture Resistance"
+   ],
+   "sizes": [
+    "18.00 - 25|INDUSTRIAL||13.00 /2.5|1675"
+   ],
+   "stock": [
+    "18.00-25 40PR"
+   ],
+   "groups": [
+    "port"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/c92ee87b-1615-498a-a0ea-275607f0489b"
+  },
+  {
+   "slug": "xl-grip-ind3-rtg",
+   "name": "XL GRIP IND3 (RTG)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "2a7745201324483f9f061db35aa37b36",
+   "text": "XL GRIP (IND-3) is a bias-ply tyre for RTG cranes in stacking and lifting applications. The tyre features a strong casing made of a specially formulated tread compound, which provides an extended tyre life-cycle.",
+   "machines": [
+    "RTG Crane"
+   ],
+   "applications": [
+    "Stacking",
+    "Lifting"
+   ],
+   "features": [
+    "Cut and Chip Resistance",
+    "Durability",
+    "Hard Surfaces",
+    "Stability"
+   ],
+   "sizes": [
+    "16.00 - 25|INDUSTRIAL||11.25/2.0|1485",
+    "18.00 - 25|INDUSTRIAL||13.00/2.5|1615",
+    "18.00 - 25|PORT SPECIAL||13.00/2.5|1615",
+    "21.00 - 25|INDUSTRIAL||15.00/3.0|1750",
+    "24.00 - 29|INDUSTRIAL||17.00/3.5|1994",
+    "21.00 - 35|INDUSTRIAL||15.00/3.0|2020",
+    "24.00 - 35|INDUSTRIAL||17.00/3.5|2130"
+   ],
+   "stock": [
+    "16.00-25 32PR",
+    "18.00-25 40PR",
+    "21.00-25 40PR",
+    "21.00-25 44PR",
+    "21.00-35 36PR",
+    "21.00-35 40PR",
+    "24.00-29 42PR",
+    "24.00-35 48PR"
+   ],
+   "groups": [
+    "port"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/881254d1-57b2-4549-8cf3-4f3ae9cd42fe"
+  },
+  {
+   "slug": "con-trailer",
+   "name": "CON TRAILER",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "0112a03b942740caab09cf01284a17e1",
+   "text": "CON TRAILER is a trailer tyre particularly suitable for port applications. It is the ideal tyre for on-and-off-the-road applications. Its robust construction results in high load capacity, whereas its extra-deep tread allows for a better mileage.",
+   "machines": [
+    "Trailer"
+   ],
+   "applications": [
+    "Intermodal Transport / Logistics",
+    "Industrial Handling"
+   ],
+   "features": [
+    "High Load Capacity",
+    "High Mileage"
+   ],
+   "sizes": [
+    "10.00 - 20|PORT INDUSTRIAL||7.5|1080"
+   ],
+   "stock": [
+    "10.00-20 18PR"
+   ],
+   "groups": [
+    "port"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/2db353e4-69db-41ce-aef5-4863901ad1c3"
+  },
+  {
+   "slug": "maglift",
+   "name": "MAGLIFT",
+   "construction": "Solid",
+   "range": "Maglift",
+   "isNew": false,
+   "model": "9f1577a94b1643c48cd6176c6ac5dca3",
+   "text": "MAGLIFT has been particularly designed for forklift in industrial and logistic operations. This solid tyre features high load capacity and outstanding comfort. MAGLIFT shows excellent cut and chip resistance resulting in a long tyre life. Its reinforced structure eliminates slippage risks whilst the special bead shape simplifies mounting operations on the rim.",
+   "machines": [
+    "Forklift"
+   ],
+   "applications": [
+    "Industrial Handling",
+    "Logistics Operations"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Comfort"
+   ],
+   "sizes": [
+    "4.00 - 8|LIP - NON MARKING||3.00 D - 8|406",
+    "4.00 - 8|STANDARD||3.00 D - 8|406",
+    "4.00 - 8|LIP||3.00 D - 8|406",
+    "4.00 - 8|STANDARD - NON MARKING||3.00 D - 8|406",
+    "5.00 - 8|STANDARD - NON MARKING||3.00 D - 8|462",
+    "5.00 - 8|LIP - NON MARKING||3.00 D - 8|462",
+    "5.00 - 8|LIP||3.00 D - 8|462",
+    "5.00 - 8|STANDARD||3.00 D - 8|462",
+    "18 x 7 - 8 (180/70 - 8)|LIP||4.33 R - 8|457",
+    "18 x 7 - 8 (180/70 - 8)|STANDARD||4.33 R - 8|457",
+    "18 x 7 - 8 (180/70 - 8)|STANDARD - NON MARKING||4.33 R - 8|457",
+    "18 x 7 - 8 (180/70 - 8)|LIP - NON MARKING||4.33 R - 8|457",
+    "6.00 - 9|LIP - NON MARKING||4.00 E - 9|529",
+    "6.00 - 9|LIP||4.00 E - 9|529",
+    "6.00 - 9|STANDARD - NON MARKING||4.00 E - 9|529",
+    "6.00 - 9|STANDARD||4.00 E - 9|529",
+    "21 x 8 - 9 (200/75 - 9)|STANDARD||6.00 E - 9|525",
+    "21 x 8 - 9 (200/75 - 9)|STANDARD - NON MARKING||6.00 E - 9|525",
+    "21 x 8 - 9 (200/75 - 9)|LIP||6.00 E - 9|525",
+    "21 x 8 - 9 (200/75 - 9)|LIP - NON MARKING||6.00 E - 9|525",
+    "6.50 - 10|LIP - NON MARKING||5.00 F - 10|575",
+    "6.50 - 10|STANDARD||5.00 F - 10|575",
+    "6.50 - 10|LIP||5.00 F - 10|575",
+    "6.50 - 10|STANDARD - NON MARKING||5.00 F - 10|575",
+    "23 x 9 - 10 (225/75 - 10)|STANDARD||6.50 F - 10|585",
+    "23 x 9 - 10 (225/75 - 10)|LIP - NON MARKING||6.50 F - 10|585",
+    "23 x 9 - 10 (225/75 - 10)|STANDARD - NON MARKING||6.50 F - 10|585",
+    "23 x 9 - 10 (225/75 - 10)|LIP||6.50 F - 10|585",
+    "7.00 - 12|LIP - NON MARKING||5.00 S - 12|658",
+    "7.00 - 12|LIP||5.00 S - 12|658",
+    "7.00 - 12|STANDARD - NON MARKING||5.00 S - 12|658",
+    "7.00 - 12|STANDARD||5.00 S - 12|658",
+    "23 x 10 - 12 (250/60 - 12)|LIP||8.00 G - 12|584",
+    "23 x 10 - 12 (250/60 - 12)|STANDARD||8.00 G - 12|584",
+    "23 x 10 - 12 (250/60 - 12)|LIP - NON MARKING||8.00 G - 12|584",
+    "23 x 10 - 12 (250/60 - 12)|STANDARD - NON MARKING||8.00 G - 12|584",
+    "7.00 - 15|STANDARD||5.5 - 15|730",
+    "7.00 - 15|LIP||5.5 - 15|730",
+    "7.00 - 15|STANDARD - NON MARKING||5.5 - 15|730",
+    "7.00 - 15|LIP - NON MARKING||5.5 - 15|730",
+    "7.50 - 15|LIP - NON MARKING||5.5 - 15|756",
+    "7.50 - 15|STANDARD - NON MARKING||6.0 - 15|756",
+    "7.50 - 15|STANDARD - NON MARKING||5.5 - 15|756",
+    "7.50 - 15|LIP - NON MARKING||6.0 - 15|756",
+    "7.50 - 15|STANDARD||5.5 - 15|756",
+    "7.50 - 15|LIP||5.5 - 15|756",
+    "7.50 - 15|STANDARD||6.0 - 15|756",
+    "7.50 - 15|LIP||6.0 - 15|756",
+    "8.15 - 15 (28X9-15; 225/75-15)|STANDARD - NON MARKING||7.0 - 15|691",
+    "8.15 - 15 (28X9-15; 225/75-15)|STANDARD||7.0 - 15|691",
+    "8.15 - 15 (28X9-15; 225/75-15)|LIP - NON MARKING||7.0 - 15|691",
+    "8.15 - 15 (28X9-15; 225/75-15)|LIP||7.0 - 15|691",
+    "8.25 - 15|STANDARD - NON MARKING||6.5 - 15|818",
+    "8.25 - 15|STANDARD||6.5 - 15|818",
+    "8.25 - 15|LIP||6.5 - 15|818",
+    "8.25 - 15|LIP - NON MARKING||6.5 - 15|818",
+    "250 - 15 (250/70 - 15)|LIP - NON MARKING||7.0 - 15|718",
+    "250 - 15 (250/70 - 15)|STANDARD||7.0 - 15|718",
+    "250 - 15 (250/70 - 15)|STANDARD - NON MARKING||7.0 - 15|718",
+    "250 - 15 (250/70 - 15)|LIP||7.0 - 15|718",
+    "300 - 15 (315/70 - 15)|STANDARD - NON MARKING||8.0 - 15|820",
+    "300 - 15 (315/70 - 15)|LIP - NON MARKING||8.0 - 15|820",
+    "300 - 15 (315/70 - 15)|LIP||8.0 - 15|820",
+    "300 - 15 (315/70 - 15)|STANDARD||8.0 - 15|820"
+   ],
+   "stock": [
+    "4.00-8",
+    "5.00-8",
+    "18X7-8",
+    "6.00-9",
+    "21X8-9",
+    "6.50-10",
+    "23X9-10",
+    "7.00-12",
+    "23X10-12",
+    "7.00-15",
+    "7.50-15",
+    "8.15-15",
+    "28X9-15",
+    "8.25-15",
+    "250-15",
+    "300-15"
+   ],
+   "groups": [
+    "forklift"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/fba060e8-8039-4562-89f7-c860e800cdb6"
+  },
+  {
+   "slug": "maglift-eco",
+   "name": "MAGLIFT ECO",
+   "construction": "Solid",
+   "range": "Maglift",
+   "isNew": false,
+   "model": "6954fc13688a4cf59f8ab6a743b4beae",
+   "text": "MAGLIFT ECO has been particularly designed for forklifts. The tyre features a wide lug pattern providing maximum stability and optimized load distribution. Its reinforced structure eliminates slippage risks whilst the specifically designed rim guard ensures protection against wheel damage. MAGLIFT ECO shows excellent traction as well as low rolling resistance and low heat built up for improved efficiency.",
+   "machines": [
+    "Forklift"
+   ],
+   "applications": [
+    "Logistics Operations"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Comfort",
+    "Stability"
+   ],
+   "sizes": [
+    "4.00 - 8|LIP||3.00 D - 8|404",
+    "4.00 - 8|STANDARD||3.00 D - 8|404",
+    "5.00 - 8|LIP||3.00 D - 8|455",
+    "5.00 - 8|STANDARD||3.00 D - 8|455",
+    "6.00 - 9|LIP||4.00 E - 9|522",
+    "6.00 - 9|STANDARD||4.00 E - 9|522",
+    "6.50 - 10|STANDARD||5.00 F - 10|571",
+    "6.50 - 10|LIP||5.00 F - 10|571",
+    "7.00 - 12|STANDARD||5.00 S - 12|645",
+    "7.00 - 12|LIP||5.00 S - 12|645",
+    "8.25 - 15|LIP||6.5 - 15|808",
+    "8.25 - 15|STANDARD||6.5 - 15|808"
+   ],
+   "stock": [
+    "4.00-8",
+    "5.00-8",
+    "6.00-9",
+    "6.50-10",
+    "7.00-12",
+    "8.25-15"
+   ],
+   "groups": [
+    "forklift"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/2d6cdf0d-2128-4fbe-9c2b-5a2b600b08b8"
+  },
+  {
+   "slug": "power-trax-hd-fl",
+   "name": "POWER TRAX HD (FL)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "0454f2f5763745f2a1784f5967eaa8ed",
+   "text": "POWER TRAX HD is a premium bias-ply tyre that is specially designed for forklift equipment in industrial applications. The deep tread, the extra thick sidewall and the tough casing provide exceptional durability minimizing the risk of punctures and accidental damages. The tyre features excellent cut, chip and tear resistance suitable for rough and hard concrete surface. The specially designed rim guard ensures protection against flats and wheel damages in the rim flange area.",
+   "machines": [
+    "Forklift"
+   ],
+   "applications": [
+    "Industrial Handling"
+   ],
+   "features": [
+    "Cut and Chip Resistance",
+    "Durability",
+    "High Puncture Resistance"
+   ],
+   "sizes": [
+    "5.00 - 8|STANDARD||3.00 D|480",
+    "18 x 7 - 8 (180/70 - 8)|STANDARD||4.33 R|470",
+    "6.00 - 9|STANDARD||4.00 E|543",
+    "6.50 - 10|STANDARD||5.00 F|595",
+    "7.00 - 12|STANDARD||5.00 S|675",
+    "8.15 - 15 (28 X 9 - 15)|STANDARD||7.00|710",
+    "8.25 - 15|STANDARD||6.50|845",
+    "9.00 - 20|STANDARD||7.0|1050",
+    "10.00 - 20|IMPLEMENT|160 A8|7.5|1080",
+    "10.00 - 20|STANDARD||7.5|1080"
+   ],
+   "stock": [
+    "18X7-8 16PR",
+    "5.00-8 10PR",
+    "6.00-9 10PR",
+    "6.50-10 10PR",
+    "7.00-12 14PR",
+    "8.15-15 14PR",
+    "8.25-15 14PR",
+    "9.00-20 16PR",
+    "10.00-20 16PR",
+    "12.00-20 20PR"
+   ],
+   "groups": [
+    "forklift"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/e0221e6e-5114-4402-91dc-264e1acc6bc9"
+  },
+  {
+   "slug": "liftmax-lm-81",
+   "name": "LIFTMAX LM 81",
+   "construction": "Radial",
+   "range": "",
+   "isNew": false,
+   "model": "825f0caa3ff841f89526929ca95c32d4",
+   "text": "LIFTMAX LM 81 has been specifically designed and engineered for heavy forklift. Its aggressive and robust tread pattern together with the unique Antistatic tread compound ensures excellent wear properties and a long service life. The strong All Steel casing and the reinforced sidewall provide maximum stability and handling ring lift mode, together with superior traction. In addition, its radial casing absorbs surfaces irregularities to provide better riding comfort and increase operator's confidence. LIFTMAX LM 81 is Antistatic compliant, and all its sizes are capable of dissipating static charge from the vehicle.",
+   "machines": [
+    "Forklift",
+    "Empty Container Handler"
+   ],
+   "applications": [
+    "Industrial Handling"
+   ],
+   "features": [
+    "Durability",
+    "Stability"
+   ],
+   "sizes": [
+    "5.00 R 8|STANDARD|111 A5|3.00D|471",
+    "150/75 R 8|STANDARD|113 A5|4.33R|430",
+    "150/75 R 8 IMP|STANDARD|109 A8|4.33R|430",
+    "180/70 R 8|STANDARD|125 A5|4.33R|453",
+    "180/70 R 8 IMP (18X7 R 8)|STANDARD|120 A8|4.33R|453",
+    "6.00 R 9|STANDARD|121 A5|4.00E|540",
+    "200/75 R 9|STANDARD|134 A5|6.00E|530",
+    "6.50 R 10|STANDARD|128 A5|5.00F|590",
+    "225/75 R 10|STANDARD|142 A5|6.50F|595",
+    "7.00 R 12|STANDARD|136 A5|5.00S|675",
+    "250/75 R 12|STANDARD|152 A5|8.0|680",
+    "7.00 R 15|STANDARD|143 A5|5.50|745",
+    "7.50 R 15|STANDARD|146 A5|6.00|778",
+    "8.25 R 15|STANDARD|153 A5|6.5|836",
+    "250/70 R 15|STANDARD|153 A5|7.00|735",
+    "315/70 R 15|STANDARD|165 A5|8.00|834",
+    "10.00 R 20|STANDARD|166 A5|7.50|1066",
+    "11.00 R 20|STANDARD|170 A5|8.00|1092",
+    "12.00 R 20|STANDARD|176 A5|8.50|1134",
+    "12.00 R 20|INDUSTRIAL|176 A5|8.50|1134",
+    "12.00 R 24|STANDARD|178 A5|8.5|1235",
+    "12.00 R 24|STANDARD|178 A5|8.50|1235",
+    "14.00 R 24|INDUSTRIAL|193 A5|10.00W|1415",
+    "14.00 R 24|STANDARD|193 A5|10.00W|1415",
+    "16.00 R 25|STANDARD|200 A5|11.25/2.0|1530"
+   ],
+   "stock": [
+    "150/75R8",
+    "180/70R8",
+    "18X7R8",
+    "5.00R8",
+    "200/75R9",
+    "6.00R9",
+    "225/75R10",
+    "6.50R10",
+    "250/75R12",
+    "7.00R12",
+    "28X9R15",
+    "250/70R15",
+    "315/70R15",
+    "7.00R15",
+    "7.50R15",
+    "8.25R15",
+    "10.00R20",
+    "11.00R20",
+    "12.00R20",
+    "12.00R24",
+    "14.00R24",
+    "16.00R25"
+   ],
+   "groups": [
+    "forklift"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/c5547f0d-35fa-4185-919b-95229c3b8f70"
+  },
+  {
+   "slug": "liftmax-lm-63",
+   "name": "LIFTMAX LM 63",
+   "construction": "Radial",
+   "range": "",
+   "isNew": false,
+   "model": "e638add8340744c4bc8fe91c02914a34",
+   "text": "LIFTMAX LM 63 has been specially developed for industrial and logistics operations. The All-Steel radial tyre features a strong casing reinforced by multilayer steel belts that reduce vibration while providing enhanced stability and comfort. LIFTMAX LM 63 features a 3-rib tread design that ensures low rolling resistance as well as good wet grip and uniform tread wear, delivering improved handling performance. In addition, the deep tread extends the tyre's service life.",
+   "machines": [
+    "Trailer",
+    "Tow Tractor"
+   ],
+   "applications": [
+    "Industrial Handling",
+    "Logistics Operations"
+   ],
+   "features": [
+    "Comfort",
+    "Stability"
+   ],
+   "sizes": [
+    "180/70 R 8 (18X7 R 8)|STANDARD|125 A5|4.33R|460",
+    "180/70 R 8 IMP (18X7 R 8)|STANDARD|120 A8|4.33R|460",
+    "6.00 R 9|STANDARD|121 A5|4.00E|542",
+    "6.50 R 10|STANDARD|128 A5|5.00F|592",
+    "7.00 R 12|STANDARD|136 A5|5.00S|675",
+    "7.00 R 15|STANDARD|143 A5|5.50|738",
+    "8.25 R 15|STANDARD|153 A5|6.5|844"
+   ],
+   "stock": [
+    "180/70R8",
+    "18X7R8",
+    "6.00R9",
+    "6.50R10",
+    "7.00R12",
+    "7.00R15",
+    "8.25R15"
+   ],
+   "groups": [
+    "forklift"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/96c4538c-f535-4db1-9d89-987c807d088c"
+  }
+ ]
+}

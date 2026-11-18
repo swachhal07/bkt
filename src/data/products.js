@@ -9,6 +9,13 @@
    size/version/load-index combination as BKT lists it.
    ──────────────────────────────────────────────────────────────────── */
 
+/* The client's two range PDFs — "OTR Tire Product Range" and "Agriculture
+   Tires Product Range - Nepal" — every pattern in each, matched to its BKT
+   pattern page (agriculture from BKT's India site). In each JSON, `groups`
+   are the PDF's machine sections and `stock` the sizes it lists for Nepal. */
+import otrRange from './otrRange.json'
+import agriRange from './agriRange.json'
+
 const images = import.meta.glob('../assets/products/*.webp', { eager: true, import: 'default' })
 const imageFor = (slug) => images[`../assets/products/${slug}.webp`]
 
@@ -20,16 +27,10 @@ export const sectors = [
     lede: 'Tyres for tractors, harvesters and trailers — traction in the field, comfort on the road, and less compaction in the soil.',
   },
   {
-    id: 'industrial',
-    name: 'Industrial & Construction',
-    short: 'Industrial',
-    lede: 'For loaders, backhoes and compactors on construction sites and yards, where cuts, heat and heavy loads are daily work.',
-  },
-  {
     id: 'otr',
     name: 'OTR',
     short: 'OTR',
-    lede: 'Off-the-road tyres for dumpers, loaders and mining equipment — built for quarries, haul roads and extreme ground.',
+    lede: 'Off-the-road tyres for tippers, loaders, graders, cranes, compactors, port machines and forklifts — built for sites, quarries and heavy work.',
   },
 ]
 
@@ -75,7 +76,7 @@ const raw = [
     sizes: ['IF 600/70 R 28|STANDARD|164 D|DW 21 B|1551', 'IF 710/55 R 28 CFO|STANDARD|165 D|DW 25 B|1493', 'IF 600/70 R 30 CFO|SPECIAL|165 D|DW 21 B ; DW 21 A|1602', 'IF 600/70 R 30 CFO|STANDARD|165 D|DW 21 B ; DW 21 A|1602', 'IF 620/75 R 30 CFO|STANDARD|169 D|DW 23 B|1703', 'IF 710/55 R 30 CFO|STANDARD|166 D|DW 25 B|1544', 'IF 710/60 R 30 CFO|STANDARD|168 D|DW 25 B|1614', 'IF 600/70 R 34|STANDARD|167 D|DW 21 B ; DW 21 A|1704', 'IF 650/60 R 34|STANDARD|165 D|DW 23 B|1644', 'IF 650/65 R 34 CFO|STANDARD|161 D|DW 23 B|1710', 'IF 650/65 R 34 CFO|SPECIAL|161 D|DW 23 B|1710', 'IF 710/55 R 34 CFO|STANDARD|170 D|DW 25 B|1646', 'IF 710/60 R 34 CFO|STANDARD|170 D|DW 25 B|1716', 'IF 710/60 R 34 CFO|SPECIAL|170 D|DW 25 B|1716', 'IF 710/75 R 34 CFO|STANDARD|178 D|DW 25 B|1929', 'IF 380/80 R 38|STANDARD|149 D|W 12|1573', 'IF 420/85 R 38|STANDARD|155 D|DW 14 L|1670', 'IF 650/65 R 38 CFO|STANDARD|169 D|DW 23 B|1830', 'IF 650/75 R 38 CFO|STANDARD|175 D|DW 23 B|1941', 'IF 650/75 R 38 CFO|SPECIAL|175 D|DW 23 B|1941', 'IF 650/85 R 38 CFO|STANDARD|179 D|DW 23 B|2071', 'IF 710/60 R 38|STANDARD|172 D|DW 25 B|1817', 'IF 800/70 R 38 CFO|STANDARD|184 D|DW 27 B|2085', 'IF 900/60 R 38 CFO|STANDARD|184 D|DW 30 A ; DW 30 B|2045', 'IF 650/85 R 42 CFO|STANDARD|180 D|DW 23 B|2173', 'IF 710/70 R 42 CFO|STANDARD|179 D|DW 25 B|2061', 'IF 710/70 R 42 CFO|SPECIAL|179 D|DW 25 B|2061', 'IF 710/75 R 42 CFO|SPECIAL|181 D|DW 25 B|2133', 'IF 710/75 R 42 CFO|STANDARD|181 D|DW 25 B|2133', 'IF 800/70 R 42 CFO|STANDARD|192 D|DW 27 B|2150', 'IF 800/70 R 42 CFO|STANDARD|186 D|DW 27 B|2150', 'IF 900/50 R 42 CFO|STANDARD|180 D|DW 30 B|1955', 'IF 900/60 R 42 CFO|STANDARD|186 D|DW 30 B|2147', 'IF 750/75 R 46 CFO|STANDARD|186 D|DW 25 B|2294', 'IF 480/95 R 50|STANDARD|170 D|DW 16 B|2170'],
   },
   {
-    slug: 'xl-grip-l3', sector: 'industrial', name: 'XL GRIP (L3)', construction: 'Bias', range: '', isNew: false,
+    slug: 'xl-grip-l3', sector: 'otr', name: 'XL GRIP (L3)', construction: 'Bias', range: '', isNew: false,
     model: 'a66a95dd75c44bdc9714187cc58de746',
     text: 'XL GRIP (E-3/L-3) is a wide-base bias-ply tyre for loaders, designed to minimise cuts and punctures in heavy-duty loading. It provides exceptional traction and an extended tyre life.',
     machines: ['Loader', 'Dozer'], applications: ['Construction', 'Loading', 'Dozing'],
@@ -83,7 +84,7 @@ const raw = [
     sizes: ['16.0/70 - 20|STANDARD||13 SDC|1090', '15.5 - 25|STANDARD||12.00/1.3|1285', '17.5 - 25|DUAL BEAD||14.00/1.5|1345', '17.5 - 25|STANDARD||14.00/1.5|1345', '20.5 - 25|STANDARD||17.00/2.0|1485', '23.5 - 25|STANDARD||19.50/2.5|1625', '23.5 - 25|ARAMID BELTED HD||19.50/2.5|1625', '26.5 - 25|STANDARD||22.00/3.0|1740', '29.5 - 25|STANDARD||25.00/3.5|1860'],
   },
   {
-    slug: 'xl-grip-bhl', sector: 'industrial', name: 'XL GRIP (BHL)', construction: 'Bias', range: '', isNew: false,
+    slug: 'xl-grip-bhl', sector: 'otr', name: 'XL GRIP (BHL)', construction: 'Bias', range: '', isNew: false,
     model: '2a7745201324483f9f061db35aa37b36',
     text: 'XL GRIP is designed for backhoe loaders in heavy-duty excavation, dozing and loading. The non-directional tread gives strong traction and stability, and a special compound delivers excellent cut and chip resistance and a longer tread life.',
     machines: ['Backhoe Loader'], applications: ['Loading', 'Dozing'],
@@ -91,7 +92,7 @@ const raw = [
     sizes: ['9.00 - 16|STANDARD|132 A6|6.50 H|910', '9.00 - 16|STANDARD|137 A6|6.50 H|910', '12.5/80 - 18|STANDARD||W 9|980', '10.00 - 20|ARAMID BELTED||7.5|1075', '10.00 - 20|INDUSTRIAL||7.5|1075', '10.00 - 20|STEEL BELTED||7.5|1075', '10.00 - 20|ARAMID + STEEL BELTED||7.5|1075', '12.00 - 20|INDUSTRIAL||8.5|1155', '12.00 - 24|INDUSTRIAL||8.5|1250', '14.9 - 24|INDUSTRIAL|145 A8|DW 13|1240', '16.9 - 28|INDUSTRIAL|152 A8|DW 15L|1400'],
   },
   {
-    slug: 'tr-463', sector: 'industrial', name: 'TR 463', construction: 'Bias', range: '', isNew: false,
+    slug: 'tr-463', sector: 'otr', name: 'TR 463', construction: 'Bias', range: '', isNew: false,
     model: 'd45f0562f4d4447c8649934eeed1cd40',
     text: 'TR 463 is designed for backhoe loaders and industrial tractors. A superior tread compound and strong nylon casing make it a dependable choice for industrial and OTR work and construction sites, with excellent traction on the drive wheels.',
     machines: ['Backhoe Loader', 'Industrial Tractor'], applications: ['Industrial Handling'],
@@ -99,7 +100,7 @@ const raw = [
     sizes: ['16.9 - 24|INDUSTRIAL|152 A8|DW 15 L|1300', '16.9 - 24|INDUSTRIAL|149 A8|DW 15 L|1300', '18.4 - 26|INDUSTRIAL|156 A8|DW 16 L|1425', '18.4 - 26|INDUSTRIAL|158 A8|DW 16 L|1425', '16.9 - 28|INDUSTRIAL|152 A8|DW 15 L|1405'],
   },
   {
-    slug: 'bk-loader-53', sector: 'industrial', name: 'BK-LOADER 53', construction: 'Radial', range: '', isNew: false,
+    slug: 'bk-loader-53', sector: 'otr', name: 'BK-LOADER 53', construction: 'Radial', range: '', isNew: false,
     model: 'a2d501c8dbfa4b32ab8d8a8ef3ebbc7e',
     text: 'BK-LOADER 53 is an aramid-belted tyre for loaders in industrial work. Its tread gives strong lateral stability and long wear, and the extra-deep tread resists cuts and punctures. It self-cleans well and grips on wet and dry surfaces, which makes it particularly suited to recycling operations.',
     machines: ['Loader'], applications: ['Transport', 'Waste Management'],
@@ -107,7 +108,7 @@ const raw = [
     sizes: ['365/70 R 18|ARAMID BELTED|146A2/142A4|11|990', '405/70 R 18|ARAMID BELTED|153A2/149A4|13|1045', '405/70 R 20|ARAMID BELTED|155A2/151A4|13|1097'],
   },
   {
-    slug: 'pac-master', sector: 'industrial', name: 'PAC MASTER', construction: 'Bias', range: '', isNew: false,
+    slug: 'pac-master', sector: 'otr', name: 'PAC MASTER', construction: 'Bias', range: '', isNew: false,
     model: '436467ee0d434ec4ab5214f0edc6e3c5',
     text: 'PAC MASTER is a bias tyre for compactors. It is highly stable, lasts long, and uses a special compound with particular heat resistance.',
     machines: ['Compactor'], applications: ['Compacting'],
@@ -156,7 +157,33 @@ const raw = [
   },
 ]
 
-export const products = raw.map((p) => {
+const ranges = [
+  { sector: 'otr', data: otrRange },
+  { sector: 'agriculture', data: agriRange },
+]
+
+/* Machine groups from both PDFs (e.g. "Tipper", "Tractor rear"), for the
+   "Stocked in Nepal" line on tyre pages. */
+export const rangeGroups = ranges.flatMap(({ data }) =>
+  Object.entries(data.groups).map(([id, name]) => ({ id, name })),
+)
+
+/* slug → { sector, groups, stock } from whichever PDF lists it */
+const pdfBySlug = {}
+for (const { sector, data } of ranges) for (const p of data.products) pdfBySlug[p.slug] = { ...p, pdfSector: sector }
+
+/* PDF patterns not already featured above join under their PDF's sector. */
+const existing = new Set(raw.map((p) => p.slug))
+const rangeRaw = ranges.flatMap(({ sector, data }) =>
+  data.products
+    .filter((p) => !existing.has(p.slug))
+    .map(({ img: _img, sizesFiltered: _f, ...p }) => ({ ...p, sector })),
+)
+
+export const products = [...raw, ...rangeRaw].map((p) => {
+  const pdf = pdfBySlug[p.slug]
+  /* a tyre in a PDF also appears under that PDF's sector, whatever its home */
+  const inSectors = pdf && p.sector !== pdf.pdfSector ? [p.sector, pdf.pdfSector] : [p.sector]
   const sizes = p.sizes.map((s) => {
     const [size, version, load, rim, od] = s.split('|')
     return { size, version, load, rim, od }
@@ -169,11 +196,22 @@ export const products = raw.map((p) => {
     /* distinct nominal sizes, for the "N sizes" count on cards */
     sizeCount: new Set(sizes.map((s) => s.size)).size,
     sectorName: sectors.find((s) => s.id === p.sector).name,
+    sectors: inSectors,
+    groups: pdf ? pdf.groups : [],
+    stock: pdf ? pdf.stock : [],
   }
 })
 
 export const productBySlug = (slug) => products.find((p) => p.slug === slug)
-export const productsIn = (sector) => products.filter((p) => p.sector === sector)
+export const productsIn = (sector) => products.filter((p) => p.sectors.includes(sector))
+
+/* Up to `n` other tyres for the same job: same machine group first, then the
+   rest of the sector. */
+export const relatedTo = (p, n = 4) => {
+  const pool = products.filter((x) => x.slug !== p.slug && x.sectors.some((s) => p.sectors.includes(s)))
+  const same = pool.filter((x) => x.groups.some((g) => p.groups.includes(g)))
+  return [...same, ...pool.filter((x) => !same.includes(x))].slice(0, n)
+}
 
 export const sketchfabSrc = (id) =>
   `https://sketchfab.com/models/${id}/embed?autostart=1&preload=1&transparent=1&ui_theme=dark&ui_infos=0&ui_controls=0&ui_stop=0&ui_inspector=0&ui_watermark_link=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&ui_hint=0&ui_animations=0`

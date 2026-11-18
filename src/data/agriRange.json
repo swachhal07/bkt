@@ -1,0 +1,1172 @@
+{
+ "groups": {
+  "small": "Small tractor",
+  "front": "Tractor front",
+  "rear": "Tractor rear",
+  "implement": "Implement",
+  "trailer": "Tractor trailer",
+  "adv": "ADV"
+ },
+ "products": [
+  {
+   "slug": "farm-2000",
+   "name": "FARM 2000",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "e2299b6b5b8b46118181f454573438dc",
+   "text": "The FARM 2000 tyre is suitable on tractors for soil tillage and transport applications. It is the ideal tyre for heavy-duty use and in all operating conditions where good traction is required.",
+   "machines": [
+    "Tractor"
+   ],
+   "applications": [
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Self-Cleaning",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "8 - 18|STANDARD|85 A6|W 6|840",
+    "8 - 18|STANDARD|94 A6|W 6|840",
+    "8.3 - 20|STANDARD||W 7|895",
+    "8.3 - 24|STANDARD||W 7|995",
+    "8.3 - 24|STANDARD|105 A6|W 7|995",
+    "12.4 - 28|STANDARD|125 A6|W 11|1288",
+    "12.4 - 28|SPECIAL|125 A6|W 11|1288",
+    "12.4 - 28|STANDARD|123 A6|W 11|1288",
+    "12.4 - 28|STANDARD|124 A6|W 11|1288",
+    "13.6 - 28|STANDARD|125 A6|W 12|1335",
+    "13.6 - 28|STANDARD|127 A6|W 12|1335",
+    "13.6 - 28|STANDARD|128 A6|W 12|1335",
+    "13.6 - 28|SPECIAL|128 A6|W 12|1335",
+    "14.9 - 28|STANDARD|136 A6|W 13|1375",
+    "14.9 - 28|STANDARD|130 A6|W 13|1375",
+    "14.9 - 28|STANDARD|132 A6|W 13|1375",
+    "14.9 - 28|STANDARD|134 A6|W 13|1375",
+    "14.9 - 28|SPECIAL|134 A6|W 13|1375",
+    "18.4 - 30|STANDARD|151 A6|W 16 L|1560"
+   ],
+   "stock": [
+    "8-18 4PR",
+    "8.3-20 6PR",
+    "8.3-24 8PR",
+    "9.5-24 8PR",
+    "11.2-24 8PR",
+    "12.4-28 12PR",
+    "13.6-28 12PR",
+    "14.9-28 12PR",
+    "18.4-30 14PR"
+   ],
+   "groups": [
+    "small",
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/ef53ea70-5521-4d0c-a7a8-735720a520b3"
+  },
+  {
+   "slug": "tr-171",
+   "name": "TR 171",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "0dc77bc8372d491c99c2e25044eda02a",
+   "text": "TR 171 is a deep tread tyre suitable for tractors in soil tillage operations. Thanks to its outstanding self-cleaning properties, it is ideal for wet and moist soil. Designed with a special compound, TR 171 provides excellent traction and extraordinary durability also in the harshest operating conditions.",
+   "machines": [
+    "Tractor"
+   ],
+   "applications": [
+    "Soil Tillage",
+    "Wet / Moist Soil"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Self-Cleaning",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "5.00 - 12|STANDARD|67 A6|3.00 D DT ; 3.00 D|580",
+    "5.00 - 12|STANDARD|61 A6|3.00 D DT ; 3.00 D|580",
+    "6.00 - 12|STANDARD|76 A6|4.00 E DT ; 4.00 E|635",
+    "8 - 18|STANDARD|94 A6|W 6|845",
+    "8 - 18|STANDARD|100 A6|W 6|845",
+    "8 - 18|STANDARD|85 A6|W 6|845",
+    "9.5 - 20|STANDARD|107 A6|W 8|955",
+    "9.5 - 20|STANDARD|101 A6|W 8|955",
+    "9.5 - 20|HD|107 A6|W 8|955",
+    "8.3 - 24|STANDARD|100 A6|W 7|1005",
+    "8.3 - 24|HD|105 A6|W 7|1005",
+    "8.3 - 24|STANDARD|105 A6|W 7|1005",
+    "13.6 - 26|STANDARD|110 A6|W 12|1270",
+    "13.6 - 26|STANDARD|120 A6|W 12|1270",
+    "13.6 - 26|STANDARD|126 A6|W 12|1270",
+    "13.6 - 26|HD|135 A6|W 12|1270",
+    "13.6 - 28|STANDARD|134 A6|W 12|1325",
+    "13.6 - 28|HD|134 A6|W 12|1325",
+    "13.6 - 28|STANDARD|112 A6|W 12|1325",
+    "13.6 - 28|HD|125 A6|W 12|1325",
+    "13.6 - 28|STANDARD|125 A6|W 12|1325",
+    "13.6 - 28|STANDARD|121 A6|W 12|1325",
+    "14.9 - 28|STANDARD|130 A6|W 13|1370",
+    "14.9 - 28|STANDARD|137 A6|W 13|1370",
+    "14.9 - 28|HD|137 A6|W 13|1370",
+    "14.9 - 28|HD|130 A6|W 13|1370"
+   ],
+   "stock": [
+    "5.00-12 6PR",
+    "6.00-12 6PR",
+    "8-18 6PR",
+    "8.3-24 8PR",
+    "9.5-20 6PR",
+    "13.6-26 6PR",
+    "13.6-28 8PR",
+    "14.9-28 8PR"
+   ],
+   "groups": [
+    "small",
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/42380f69-d86b-46f9-a00c-9985bcd104f9"
+  },
+  {
+   "slug": "tr-128",
+   "name": "TR 128",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "11ab3940cc184316bda8c62489ebc00c",
+   "text": "TR 128 has been specially designed for utility tractors and rototillers. The wide and deep lug design and the special cut-and-chip resistance compound provide an extended tyre service life. TR 128 features maximum traction on wet soil.",
+   "machines": [
+    "Universal Vehicle",
+    "Implements",
+    "Rototiller"
+   ],
+   "applications": [
+    "Wet / Moist Soil"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Cut and Chip Resistance",
+    "Traction"
+   ],
+   "sizes": [
+    "5 - 12|STANDARD|64 A6|4 JA|554",
+    "5 - 12|STANDARD||4 JA|554",
+    "6.00 - 12|STANDARD|69 A6|4.00 E|635",
+    "6.00 - 12|STANDARD|82 A6|4.00 E|635",
+    "6.00 - 12|STANDARD|76 A6|4.00 E|635"
+   ],
+   "stock": [
+    "5-12 4PR",
+    "6.00-12 6PR",
+    "180/85D12 4PR"
+   ],
+   "groups": [
+    "small"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/535fbf34-dfc8-468e-8e74-3769ed26a082"
+  },
+  {
+   "slug": "rib-f3",
+   "name": "RIB F3",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "63868eccb1244f8cbc28a77d446cc844",
+   "text": "RIB F3 is a field-oriented tyre designed for 2WD tractors in soil tillage and haulage operations. Some sizes are suitable for transport applications using trailers. The RIB F3 tyre is the ideal partner for all operations that require a high level of handling. It has been designed with a hard compound to ensure great durability and stubble resistance.",
+   "machines": [
+    "Tractor",
+    "2WD Tractor",
+    "Trailer",
+    "Implements"
+   ],
+   "applications": [
+    "Transport",
+    "Soil Tillage"
+   ],
+   "features": [
+    "Steering Control",
+    "Durability",
+    "Stubble Resistance"
+   ],
+   "sizes": [
+    "9.00 - 16|STANDARD|120 A6, 112 A8|W 8|878",
+    "9.00 - 16|HD|120 A6, 112 A8|W 8|878"
+   ],
+   "stock": [
+    "9.00-16 12PR"
+   ],
+   "groups": [
+    "implement"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/92184cdf-03d5-488c-a7d7-f10ba012a159"
+  },
+  {
+   "slug": "lg-306",
+   "name": "LG 306",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "caef6b82bf804b4aa9084371fa53ddaf",
+   "text": "LG 306 is a lawn and garden tyre suitable for mowers. In some sizes, LG 306 is also fit for small tractors. The specific tread pattern makes the tyre gentle on the ground, easing handling at the same time. LG 306 is available in an “aramidbelted” version for users who need strengthened puncture resistance.",
+   "machines": [
+    "Mower",
+    "Tractor",
+    "Small Tractor"
+   ],
+   "applications": [
+    "Lawn and Garden"
+   ],
+   "features": [
+    "High Puncture Resistance",
+    "Comfort",
+    "Field Protection"
+   ],
+   "sizes": [
+    "23 x 8.50 - 12|STANDARD||7.00 I - 55 ; I - 70 ; I - 90|575",
+    "23 x 8.50 - 12|ARAMID BELTED||7.00 I - 55 ; I - 70 ; I - 90|575"
+   ],
+   "stock": [
+    "23x8.5-12 12PR"
+   ],
+   "groups": [
+    "implement"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/a8e0c132-e906-4c2c-a5b2-555c87932598"
+  },
+  {
+   "slug": "aw-702",
+   "name": "AW 702",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "c30e75d38f3241ba81696de4071d1427",
+   "text": "AW 702 has been developed for implement machinery, trailers and balers in soil tillage and haulage applications. This heavy-duty tyre has been designed by BKT to provide a new level of durability. AW 702 is available in different versions to meet specific end-user needs: an “aramid belted” version for those who need strengthened puncture resistance, the “HD” version has a special cutand-chip resistant compound, while the “special” version provides extraordinary stubble resistance.",
+   "machines": [
+    "Trailer",
+    "Implements",
+    "Implement Machinery",
+    "Harvester",
+    "Baler"
+   ],
+   "applications": [
+    "Transport",
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "High Puncture Resistance",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Stubble Resistance"
+   ],
+   "sizes": [
+    "10.0/75 - 15.3|STANDARD||9.00|760",
+    "10.0/75 - 15.3|SPECIAL||9.00|760",
+    "10.0/75 - 15.3|HD||9.00|760",
+    "6.00 - 16|STANDARD||4.00 E|722",
+    "10.5/65 - 16|STANDARD||W 9|760",
+    "10.5/65 - 16|SPECIAL||W 9|760",
+    "10.5/65 - 16|INDUSTRIAL||W 9|760",
+    "13.0/55 - 16|STANDARD||11.0|770"
+   ],
+   "stock": [
+    "10.0/75-15.3 18PR",
+    "10.5/65-16 14PR",
+    "13.0/55-16 14PR",
+    "15.0/55-17 18PR",
+    "6.00-16 6PR"
+   ],
+   "groups": [
+    "implement"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/c323e3fd-1c85-4aed-bd90-10be99ee9fa8"
+  },
+  {
+   "slug": "as-504",
+   "name": "AS 504",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "8a10023c516c4c76a002b097e712eb80",
+   "text": "AS 504 is an agro-industrial tyre mainly designed for soil tillage, implement and material-handling operations. This tyre, which features excellent self-cleaning properties and increased grip, is suitable for field trailers and telehandlers. AS 504 is available in several versions to meet specific end-user requirements: an “HD” version with a special cut-and-chip resistance compound, while the “special” version has a reinforced casing that ensures a longer tyre life.",
+   "machines": [
+    "Implements",
+    "Field Trailer",
+    "Telehandler"
+   ],
+   "applications": [
+    "Soil Tillage",
+    "Agro-Industrial",
+    "Industrial Handling",
+    "Implement"
+   ],
+   "features": [
+    "Self-Cleaning",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Traction",
+    "Stability"
+   ],
+   "sizes": [
+    "6.5/80 - 12|STANDARD||5 J|608",
+    "6.5/80 - 12|HD||5 J|608",
+    "7.00 - 12|STANDARD||4.5|683",
+    "7.00 - 12|SPECIAL||4.5|683",
+    "7.00 - 12|ARAMID BELTED||4.5|683",
+    "5.00 - 15|STANDARD||3.50 D|657",
+    "7.5 L - 15|HD||6 LB|765",
+    "7.5 L - 15|STANDARD||6 LB|765",
+    "10.0/75 - 15.3|STANDARD||9.00|785",
+    "10.0/75 - 15.3|INDUSTRIAL||9.00|785",
+    "11.5/80 - 15.3|STANDARD||9.00|867",
+    "11.5/80 - 15.3|STUBBLE RESISTANT||9.00|867",
+    "6.00 - 16|STANDARD||4.00 E|735",
+    "6.00 - 16|HD||4.00 E|735",
+    "7.50 - 16|STANDARD||5.50 F|803",
+    "7.50 - 16|HD||5.50 F|803",
+    "7.50 - 18|STANDARD||5.50 F|854"
+   ],
+   "stock": [
+    "6.5/80-12 6PR",
+    "7.00-12 4PR",
+    "5.00-15 6PR",
+    "7.5L-15 8PR",
+    "10.0/75-15.3 10PR",
+    "11.5/80-15.3 14PR",
+    "6.00-16 8PR",
+    "7.50-16 8PR",
+    "7.50-18 8PR"
+   ],
+   "groups": [
+    "implement"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/a1456912-ee99-4272-b763-586e240ecfcf"
+  },
+  {
+   "slug": "vijeta",
+   "name": "VIJETA",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "72c1cea95a13429f88928eba92845f20",
+   "text": "VIJETA is an agricultural tyre suitable for both on- and off-the-road applications. The 5-rib pattern optimizes load distribution. In addition, the wear-resistant compound and the strong casing stand for a long tyre life-cycle.",
+   "machines": [
+    "Trailer",
+    "Implements"
+   ],
+   "applications": [
+    "Field and Road Transport"
+   ],
+   "features": [
+    "Durability"
+   ],
+   "sizes": [
+    "5.00 - 19|STANDARD|94 A3|3.00|755",
+    "6.00 - 19|STANDARD|105 A3|4.00|810",
+    "7.00 - 19|STANDARD||5.00|852",
+    "8.00 - 19|STANDARD||5.00|912"
+   ],
+   "stock": [
+    "5.00-19",
+    "6.00-19",
+    "7.00-19 10PR",
+    "8.00-19 10PR"
+   ],
+   "groups": [
+    "adv"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/8f308fad-43c7-42e9-84bf-09bb6339da2e"
+  },
+  {
+   "slug": "agrimax-rt-855",
+   "name": "AGRIMAX RT 855",
+   "construction": "Radial",
+   "range": "Agrimax",
+   "isNew": false,
+   "model": "52ff5fab050046279d83e8a725e88189",
+   "text": "AGRIMAX RT 855 provides excellent traction and comfort properties. Mainly designed for soil tillage and both field and road transport, some sizes are also suitable for spraying, and vineyard harvesting. AGRIMAX RT 855 has excellent self-cleaning features that allow for a quick change from field operations to road usage.",
+   "machines": [
+    "Tractor",
+    "Implements",
+    "Harvester",
+    "Vineyard Harvester",
+    "Sprayer"
+   ],
+   "applications": [
+    "Spraying",
+    "Vineyard Harvesting",
+    "Soil Tillage",
+    "Field and Road Transport"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Handling & Comfort",
+    "Self-Cleaning",
+    "Traction"
+   ],
+   "sizes": [
+    "210/95 R 16 (7.50 R 16)|STANDARD|106 A8/B|W 7|806",
+    "210/95 R 16 (7.50 R 16)|IMPLEMENT|116 A8|W 7|806",
+    "250/85 R 20 (9.5 R 20)|STANDARD|116 A8/B|W 8|940",
+    "320/85 R 20 (12.4 R 20)|STANDARD|119 A8/B|W 11|1052"
+   ],
+   "stock": [
+    "210/95R16",
+    "250/85R20",
+    "320/85R20"
+   ],
+   "groups": [
+    "front"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/85878050-53cd-4ef4-8804-27a630411db4"
+  },
+  {
+   "slug": "rt-857",
+   "name": "RT 857",
+   "construction": "Radial",
+   "range": "",
+   "isNew": false,
+   "model": "801c179564434d60a8998a21ee47062f",
+   "text": "RT 857 is a tyre designed for soil tillage applications. Its strong casing offers excellent durability and traction. The stubble-resistant tread compound features high cut-and-chip resistance.",
+   "machines": [
+    "Tractor"
+   ],
+   "applications": [
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "320/85 R 28 (12.4 R 28)|STANDARD|124 A8/B|W 11|1255",
+    "340/85 R 28 (13.6 R 28)|STANDARD|127 A8/B|W 12|1289",
+    "380/85 R 28 (14.9 R 28)|STANDARD|133 A8/B|W 12|1357",
+    "420/85 R 28 (16.9 R 28)|STANDARD|139 A8/B|W 15 L|1425",
+    "420/85 R 30 (16.9 R 30)|STANDARD|140 A8/B|W 15 L|1476",
+    "460/85 R 30 (18.4 R 30)|STANDARD|145 A8/B|W 16 L|1544"
+   ],
+   "stock": [
+    "320/85R28",
+    "340/85R28",
+    "380/85R28",
+    "420/85R28",
+    "420/85R30",
+    "460/85R30"
+   ],
+   "groups": [
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/2ddf1ac3-16ab-4c44-b72a-74649c4745f2"
+  },
+  {
+   "slug": "commander-r",
+   "name": "COMMANDER (R)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "90b50ea4e1b14289b78f2a32aa0a3df6",
+   "text": "COMMANDER (R) is an agricultural tyre featuring a deep tread with strong lug bases for a longer tyre life-cycle. The special dual-angle lug design provides excellent traction in the fields and top self-cleaning properties. The strong casing is made of a cut-and-chip-resistant compound providing better puncture resistance together with high load capacity. COMMANDER (R) is the perfect tyre for soil tillage, haulage and harvesting operations.",
+   "machines": [
+    "Tractor",
+    "Harvester"
+   ],
+   "applications": [
+    "Transport",
+    "Harvesting",
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Self-Cleaning",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "9.5 - 20|STANDARD|109 A6|W 8|970",
+    "9.5 - 24|STANDARD|114 A6|W8|1065",
+    "11.2 - 24|STANDARD|123 A6|W 10|1125",
+    "12.4 - 24|STANDARD|128 A6|W 11|1180",
+    "12.4 - 24|STANDARD|121 A6|W 11|1180",
+    "13.6 - 28|STANDARD|128 A6|W 12|1345",
+    "14.9 - 28|STANDARD|134 A6|W 13|1380",
+    "16.9 - 28 (21L)|STANDARD|143 A6|W 15 L|1435",
+    "16.9 - 28|STANDARD|143 A6|W 15 L|1435",
+    "18.4 - 30|STANDARD|139 A6|W 16 L|1565",
+    "18.4 - 30|STANDARD|155 A6|W 16 L|1565",
+    "18.4 - 30|STANDARD|151 A6|W 16 L|1565"
+   ],
+   "stock": [
+    "9.5-20 12PR",
+    "9.5-24 12PR",
+    "11.2-24 12PR",
+    "12.4-24 12PR",
+    "12.4-28 12PR",
+    "13.6-28 12PR",
+    "14.9-28 12PR",
+    "16.9-28 12PR",
+    "18.4-30 14PR"
+   ],
+   "groups": [
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/ec699250-da49-46bc-960c-ad4e8d8efbe8"
+  },
+  {
+   "slug": "trac-farm-plus",
+   "name": "TRAC FARM PLUS",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "b5efe156861e40d8be67fc7c507b6e02",
+   "text": "TRAC FARM PLUS is a rear tractor tyre specifically designed for soil tillage and haulage applications. The tyre features a deeper tread with dual angle lugs to ensure both excellent traction and a comfortable ride on the road. The special tread design provides more contact for better stability and great self-cleaning properties. TRAC FARM PLUS ensures a longer tyre life-cycle.",
+   "machines": [
+    "Tractor"
+   ],
+   "applications": [
+    "Transport",
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Handling & Comfort",
+    "Self-Cleaning",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "12.4 - 28|STANDARD|125 A6|W 11|1295",
+    "13.6 - 28|STANDARD|128 A6|W 12|1345",
+    "14.9 - 28|STANDARD|134 A6|W 13|1380",
+    "16.9 - 28|STANDARD|143 A6|W 15 L|1435",
+    "16.9 - 30|STANDARD|144 A6|W 15 L|1475"
+   ],
+   "stock": [
+    "12.4-28 12PR",
+    "13.6-28 12PR",
+    "14.9-28 12PR",
+    "16.9-28 12PR",
+    "16.9-30 12PR"
+   ],
+   "groups": [
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/d137189c-aee3-42a2-855b-96b31c1c5ef6"
+  },
+  {
+   "slug": "puddle-special-a",
+   "name": "PUDDLE SPECIAL (A)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "ccb7289c230140a6850e361e616a68b0",
+   "text": "PUDDLE SPECIAL is a R-2 agricultural tyre specifically designed for operations in paddy fields. The extra deep tread design along with the special lug pattern provides best grip and excellent traction even on wet and soft soil. The wide center bar provides better adaptability for road applications and provides extraordinary service performance. In addition, PUDDLE SPECIAL shows superior self-cleaning features and excellent durability.",
+   "machines": [
+    "Tractor"
+   ],
+   "applications": [
+    "Wet / Moist Soil"
+   ],
+   "features": [
+    "Self-Cleaning",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "12.4 - 28|STANDARD|137 A2|W 11|1385",
+    "11 - 32|STANDARD|111 A2|W 10|1465"
+   ],
+   "stock": [
+    "11-32 6PR",
+    "120/90-26 6PR",
+    "12.4-28 12PR"
+   ],
+   "groups": [
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/c4480e41-8977-4649-87b4-0b61fb37ea3a"
+  },
+  {
+   "slug": "trac-farm",
+   "name": "TRAC FARM",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "a8d3e5ba5a3f469a8d62dd444d69bd0d",
+   "text": "TRAC FARM is a heavy-duty tyre specifically designed for tractors in soil tillage and haulage applications. Its deep tread and the special cut-and-chip-resistant compound make the tyre suitable for the most difficult operating conditions, ensuring the best return on investment during the entyre product life-cycle. TRAC FARM has been designed with more lugs providing extraordinary traction and self-cleaning properties.",
+   "machines": [
+    "Tractor"
+   ],
+   "applications": [
+    "Transport",
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Self-Cleaning",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "11.2 - 20|STANDARD|111 A6|W 10|1000",
+    "18.4 - 30|STANDARD|151 A6|W 16 L|1565",
+    "18.4 - 30|HD|151 A6|W 16 L|1565",
+    "18.4 - 30|STANDARD|149 A6|W 16 L|1550"
+   ],
+   "stock": [
+    "11.2-20 8PR",
+    "18.4-30 14PR"
+   ],
+   "groups": [
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/d282baf0-bfb6-44e0-a3ec-2cf4f4ea7c62"
+  },
+  {
+   "slug": "farm-2000-plus",
+   "name": "FARM 2000 PLUS",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "74084823f0104c2cab69ba28fb7ded89",
+   "text": "FARM 2000 PLUS is an agriculture tyre featuring a higher number of lugs for better performance in the fields. The deep tread provides an extended tyre life and great traction, whereas the superior tread compound ensures better cut and chip resistance. FARM 2000 PLUS shows excellent self-cleaning features and specially designed lug angles making the tyre particularly suitable for field and haulage applications.",
+   "machines": [
+    "Tractor"
+   ],
+   "applications": [
+    "Transport"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Self-Cleaning",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "16.9 - 28|STANDARD|143 A6|W 15 L|1435",
+    "16.9 - 28|SPECIAL|143 A6|W 15 L|1435"
+   ],
+   "stock": [
+    "16.9-28 12PR"
+   ],
+   "groups": [
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/1a7e5de3-1abf-470c-a254-e05f94e7ca55"
+  },
+  {
+   "slug": "tr-135",
+   "name": "TR 135",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "4cf92930206d4a1aa8feee57ef62d1e4",
+   "text": "TR 135 is best suitable for tractors in soil tillage applications. Its reinforced casing and the special cut-and-chip resistance compound provide an extended tyre life-cycle. Traction, self-cleaning proprieties and load capacity are key features which make the TR 135 tyre the ideal partner even on the most difficult ground conditions.",
+   "machines": [
+    "Tractor",
+    "Trailer"
+   ],
+   "applications": [
+    "Soil Tillage",
+    "Transport"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Self-Cleaning",
+    "Cut and Chip Resistance",
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "9.5 - 20|STANDARD|102 A6|W 8|955",
+    "9.5 - 20|HD|107 A6|W 8|955",
+    "9.5 - 20|STANDARD|107 A6|W 8|955",
+    "8.3 - 24|STANDARD|105 A6|W 7|995",
+    "8.3 - 24|HD|111 A6|W 7|995",
+    "8.3 - 24|HD|105 A6|W 7|995",
+    "8.3 - 24|STANDARD|100 A6|W 7|995",
+    "9.5 - 24|STANDARD|116 A6|W 8|1060",
+    "9.5 - 24|STANDARD|106 A6|W 8|1060",
+    "9.5 - 24|STANDARD|112 A6|W 8|1060",
+    "9.5 - 24|HD|112 A6|W 8|1060",
+    "9.5 - 24|HD|116 A6|W 8|1060",
+    "11.2 - 24|STANDARD|110 A6|W 10|1105",
+    "11.2 - 24|HD|120 A6|W 10|1105",
+    "11.2 - 24|HD|116 A6|W 10|1105",
+    "11.2 - 24|STANDARD|116 A6|W 10|1105",
+    "11.2 - 28|STANDARD|122 A6|W 10|1205",
+    "11.2 - 28|HD|118 A6|W 10|1205",
+    "11.2 - 28|STANDARD|118 A6|W 10|1205",
+    "8.3 - 32|STANDARD|111 A6|W 7|1195",
+    "8.3 - 32|STANDARD|105 A6|W 7|1195",
+    "13.6 - 38 (14.00 - 38)|STANDARD|131 A6|W 12|1565",
+    "13.6 - 38 (14.00 - 38)|HD|139 A6|W 12|1565",
+    "13.6 - 38 (14.00 - 38)|HD|131 A6|W 12|1565",
+    "13.6 - 38 (14.00 - 38)|STANDARD|142 A6|W 12|1565",
+    "13.6 - 38 (14.00 - 38)|STANDARD|139 A6|W 12|1565",
+    "15.5 - 38|HD|133 A6|W 14 L|1585",
+    "15.5 - 38|HD|138 A6|W 14 L|1585",
+    "15.5 - 38|STANDARD|138 A6|W 14 L|1585",
+    "15.5 - 38|STANDARD|141 A6|W 14 L|1585",
+    "15.5 - 38|STANDARD|133 A6|W 14 L|1585"
+   ],
+   "stock": [
+    "8.3-24 8PR",
+    "8.3-32 6PR",
+    "9.5-20 6PR",
+    "9.5-24 8PR",
+    "11.2-24 8PR",
+    "11.2-28 8PR",
+    "12.2-24 12PR",
+    "13.6-38 8PR",
+    "15.5-38 8PR"
+   ],
+   "groups": [
+    "rear"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/9d7fde6e-a020-4f75-a27c-e1012e503220"
+  },
+  {
+   "slug": "commander-f",
+   "name": "COMMANDER (F)",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "29a69561490044c29d39e3ab6c2e4733",
+   "text": "COMMANDER (F) is a front 3-rib pattern tyre - perfect for soil tillage and haulage applications. Its deep tread made of a cut-and-chip resistant compound ensures a longer tyre life, together with high load capacity.",
+   "machines": [
+    "Tractor",
+    "2WD Tractor"
+   ],
+   "applications": [
+    "Transport",
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Cut and Chip Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "5.50 - 16|STANDARD|86 A6|4.00 E|720",
+    "6.00 - 16|STANDARD|94 A6|4.50 E|750",
+    "6.50 - 16|STANDARD|102 A6|4.50 E|770",
+    "6.50 - 16|STANDARD|98 A6|4.50 E|770",
+    "7.50 - 16|STANDARD|103 A6|5.50 F|810"
+   ],
+   "stock": [
+    "5.50-16 6PR",
+    "6.00-16 8PR",
+    "6.50-16 8PR",
+    "6.50-16 10PR",
+    "7.50-16 8PR"
+   ],
+   "groups": [
+    "front"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/5dd37d79-1001-4de4-a715-fcab6ce8a810"
+  },
+  {
+   "slug": "commander-twin-rib",
+   "name": "COMMANDER TWIN RIB",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "24d82b2614574ca3988a6fc5e5482b12",
+   "text": "COMMANDER TWIN RIB is a 4-rib pattern tyre with shoulder notches providing excellent grip. Its wider tread profile ensures good weight distribution. The strong casing along with a superior tread compound provide a longer tyre life. COMMANDER TWIN RIB is perfect for soil tillage and haulage applications.",
+   "machines": [
+    "Tractor",
+    "2WD Tractor"
+   ],
+   "applications": [
+    "Transport",
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Cut and Chip Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "5.00 - 15|STANDARD|82 A6|4.00 E|665",
+    "6.00 - 16|STANDARD|94 A6|4.50 E|750",
+    "6.50 - 20|STANDARD|101 A6|5.00 F|875"
+   ],
+   "stock": [
+    "5.00-15 6PR",
+    "6.00-16 8PR",
+    "6.50-20 8PR"
+   ],
+   "groups": [
+    "front"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/800d9356-f94b-49b5-ae3a-7bf570aeffe9"
+  },
+  {
+   "slug": "commander-3-rib",
+   "name": "COMMANDER 3 RIB",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "0931dc8758b348dc8cbfdb7ac0ef22bf",
+   "text": "COMMANDER 3 RIB is a 3-rib pattern front tyre designed for soil tillage and haulage operations. It provides excellent durability and load capacity thanks to the optimized weight distribution on center and shoulder ribs. The strong casing along with the cut-and-chip resistant compound ensure outstanding puncture resistance.",
+   "machines": [
+    "Tractor",
+    "2WD Tractor"
+   ],
+   "applications": [
+    "Transport",
+    "Soil Tillage"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Cut and Chip Resistance",
+    "Durability"
+   ],
+   "sizes": [
+    "6.00 - 16|STANDARD|94 A6|4.50 E|740"
+   ],
+   "stock": [
+    "6.00-16 8PR"
+   ],
+   "groups": [
+    "front"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/cc329e08-f88e-4561-b982-1dd40e6dc3cd"
+  },
+  {
+   "slug": "steer-farm",
+   "name": "STEER FARM",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "308d5826ac3644b883a4133b8572bea1",
+   "text": "STEER FARM has been designed for 2WD tractors in soil tillage applications, providing excellent steering performance.",
+   "machines": [
+    "Tractor",
+    "2WD Tractor"
+   ],
+   "applications": [
+    "Soil Tillage"
+   ],
+   "features": [
+    "Steering Control"
+   ],
+   "sizes": [
+    "5.20 - 14|STANDARD|75 A6|3.50 D|625",
+    "6.00 - 16|STANDARD|94 A6|4.50 E|740",
+    "6.50 - 16|STANDARD|98 A6|4.50 E|770",
+    "7.50 - 16|STANDARD|103 A6|5.50 F|805",
+    "7.50 - 16|STANDARD|109 A6|5.50 F|805",
+    "6.50 - 20|STANDARD|101 A6|5.50 F|878"
+   ],
+   "stock": [
+    "5.20-14 6PR",
+    "6.00-16 8PR",
+    "6.50-16 8PR",
+    "7.50-16 8PR",
+    "6.50-20 8PR"
+   ],
+   "groups": [
+    "front"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/187bb8d1-0b67-4025-922f-c6708a812947"
+  },
+  {
+   "slug": "tf-8181",
+   "name": "TF 8181",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "8d8ed588d0d245a4b67689e5e1652d8e",
+   "text": "TF 8181 is a field and road tyre designed for 2WD tractors in soil tillage and haulage applications. This tyre provides excellent steering performance.",
+   "machines": [
+    "Tractor",
+    "2WD Tractor",
+    "Trailer"
+   ],
+   "applications": [
+    "Transport",
+    "Soil Tillage",
+    "Field and Road Transport"
+   ],
+   "features": [
+    "Steering Control"
+   ],
+   "sizes": [
+    "5.00 - 15|SPECIAL|82 A6|4.00 E|655",
+    "5.00 - 15|STANDARD|73 A6|4.00 E|655",
+    "5.00 - 15|STANDARD|82 A6|4.00 E|655",
+    "5.00 - 16|STANDARD|76 A6|4.00 E|680",
+    "5.00 - 16|SPECIAL|84 A6|4.00 E|680",
+    "5.00 - 16|STANDARD|84 A6|4.00 E|680",
+    "6.00 - 16|SPECIAL|88 A6|4.50 E|745",
+    "6.00 - 16|STANDARD|94 A6|4.50 E|745",
+    "6.00 - 16|SPECIAL|94 A6|4.50 E|745",
+    "6.00 - 16|STANDARD|88 A6|4.50 E|745",
+    "7.50 - 20|STANDARD|103 A6|5.50 F|915",
+    "7.50 - 20|HD|109 A6|5.50 F|915",
+    "7.50 - 20|SPECIAL|109 A6|5.50 F|915",
+    "7.50 - 20|STANDARD|109 A6|5.50 F|915",
+    "7.50 - 20|HD|103 A6|5.50 F|915"
+   ],
+   "stock": [
+    "5.00-15 6PR",
+    "5.00-16 6PR",
+    "6.00-16 8PR",
+    "7.50-20 8PR"
+   ],
+   "groups": [
+    "front"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/504068a3-c44b-4526-8657-b717d8c56108"
+  },
+  {
+   "slug": "tf-9090",
+   "name": "TF 9090",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "6058e7f1244b45a59332a414cfbc5881",
+   "text": "TF 9090 is a tyre designed for small tractors in soil tillage operations. The special tread design provides excellent steering performance on loose soil.",
+   "machines": [
+    "Tractor",
+    "Small Tractor",
+    "Trailer"
+   ],
+   "applications": [
+    "Soil Tillage",
+    "Loose Soil",
+    "Transport"
+   ],
+   "features": [
+    "Steering Control"
+   ],
+   "sizes": [
+    "4.00 - 12|STANDARD|60 A6|3.00 D|530",
+    "4.00 - 12|STANDARD|68 A6|3.00 D|530",
+    "6.00 - 16|STANDARD|88 A6|4.50 E|735",
+    "6.00 - 16|SPECIAL|88 A6|4.50 E|735",
+    "6.00 - 16|STANDARD|94 A6|4.50 E|735",
+    "6.00 - 16|SPECIAL|94 A6|4.50 E|735",
+    "4.00 - 19|SPECIAL|78 A6|3.00 D|715",
+    "4.00 - 19|STANDARD|72 A6|3.00 D|715"
+   ],
+   "stock": [
+    "4.00-12 6PR",
+    "4.00-19 4PR",
+    "6.00-16 8PR"
+   ],
+   "groups": [
+    "front"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/0f50db44-cc05-45cc-a606-68e7d0624432"
+  },
+  {
+   "slug": "agri-trailer",
+   "name": "AGRI TRAILER",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "aa64c33e468440958a615737a65fac94",
+   "text": "AGRI TRAILER has been specially designed for tractor trailers. It is the ideal tyre for modern farming, suitable for transport applications both on and off the road. Its robust construction results in high load capacity, whereas its extra-deep tread allows for a better mileage and a longer service life.",
+   "machines": [
+    "Trailer",
+    "Implements"
+   ],
+   "applications": [
+    "Field and Road Transport"
+   ],
+   "features": [
+    "High Load Capacity",
+    "High Mileage",
+    "Durability"
+   ],
+   "sizes": [
+    "10.00 - 20|STANDARD||7.5|1080"
+   ],
+   "stock": [
+    "9.00-20 16PR",
+    "10.00-20 18PR"
+   ],
+   "groups": [
+    "trailer"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/ed5695f5-b281-484e-90bc-281bb974454a"
+  },
+  {
+   "slug": "arrow",
+   "name": "ARROW",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "ca69e163856d47c6baea26e256963884",
+   "text": "ARROW is suitable for transport applications with trailers. It is a road-oriented tyre that provides a better mileage and a longer service life. ARROW has a high load capacity also at high speeds. An HD version made of a special compound is also available for users that require advanced performance.",
+   "machines": [
+    "Trailer",
+    "Implements"
+   ],
+   "applications": [
+    "Transport",
+    "Road Oriented"
+   ],
+   "features": [
+    "High Load Capacity",
+    "High Mileage",
+    "Durability"
+   ],
+   "sizes": [
+    "9.00 - 20|STANDARD||7.0|1040",
+    "9.00 - 20|TRACTOR TRAILER||7.0|1040"
+   ],
+   "stock": [
+    "9.00-20 16PR"
+   ],
+   "groups": [
+    "trailer"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/1ba87498-b14d-4982-9c16-600962f1ad2f"
+  },
+  {
+   "slug": "bk-826",
+   "name": "BK 826",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "c743ab5868bb46309d7e274741a5b59a",
+   "text": "BK 826 has been specially designed for trailers in haulage applications. It is a bias tyre featuring high load capacity thanks to its reinforced carcass. BK 826 is also available as “industrial” version that shows particular cut and chip resistance and is also suitable for backhoe loaders.",
+   "machines": [
+    "Trailer",
+    "Implements",
+    "Harvester",
+    "Backhoe Loader"
+   ],
+   "applications": [
+    "Transport"
+   ],
+   "features": [
+    "High Load Capacity",
+    "Cut and Chip Resistance",
+    "Field Protection"
+   ],
+   "sizes": [
+    "8.25 - 16|STANDARD||6.50 H|863",
+    "8.25 - 16|INDUSTRIAL||6.50 H|863",
+    "8.25 - 16|TRACTOR TRAILER|134 A8|6.50 H|863",
+    "9.00 - 16|STANDARD||6.50 H|925",
+    "9.00 - 16|TRACTOR TRAILER|138 A8|6.50 H|925",
+    "9.00 - 16|HARVESTER SPECIAL||6.50 H|925",
+    "9.00 - 16|STUBBLE RESISTANT||6.50 H|925",
+    "9.00 - 16|INDUSTRIAL||6.50 H|925",
+    "9.00 - 16|TRACTOR TRAILER|138 A6|6.50 H|925"
+   ],
+   "stock": [
+    "8.25-16 16PR",
+    "9.00-16 16PR"
+   ],
+   "groups": [
+    "trailer"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/8adfc3e4-ae19-474f-9123-1a39b4906192"
+  },
+  {
+   "slug": "tuf-lug",
+   "name": "TUF LUG",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "a5830dfa01cc45d38fd04a1d2f4b6601",
+   "text": "TUF LUG is suitable for trailers and light trucks in transport applications. This tyre offers good traction and great durability and ensures a long product life-cycle.",
+   "machines": [
+    "Trailer",
+    "Implements",
+    "Light Truck"
+   ],
+   "applications": [
+    "Transport"
+   ],
+   "features": [
+    "Durability",
+    "Traction"
+   ],
+   "sizes": [
+    "7.50 - 16|STANDARD||6.00 G|830"
+   ],
+   "stock": [
+    "7.50-16 16PR"
+   ],
+   "groups": [
+    "trailer"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/6cb4dd07-eba2-484d-8b4a-117213f74add"
+  },
+  {
+   "slug": "d-405",
+   "name": "D 405",
+   "construction": "Bias",
+   "range": "",
+   "isNew": false,
+   "model": "ae1c197ce7e64d7f85b932c4b091cc73",
+   "text": "D 405 is a road-oriented tyre ideal for transport applications with trailers and light trucks. An excellent grip on the road along with regular wear turns into extra durability.",
+   "machines": [
+    "Trailer",
+    "Implements",
+    "Light Truck"
+   ],
+   "applications": [
+    "Transport"
+   ],
+   "features": [
+    "Road Oriented",
+    "Durability"
+   ],
+   "sizes": [
+    "7.50 - 16|STANDARD||6.00 G|810"
+   ],
+   "stock": [
+    "7.50-16 16PR"
+   ],
+   "groups": [
+    "trailer"
+   ],
+   "sizesFiltered": true,
+   "img": "https://storage.googleapis.com/bkt-prod-storage/0bfa3bc3-67fd-41e9-8a1b-5c193a658733"
+  }
+ ]
+}
