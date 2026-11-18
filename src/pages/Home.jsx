@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import TreadKicker from '../components/TreadKicker'
 
 /* BKT brand photography (client-supplied). */
 import tyreLineup from '../assets/bkt-banner.webp' // product lineup on the road
@@ -181,43 +182,13 @@ const fakeChecks = [
 
 const pad = (n) => String(n + 1).padStart(2, '0')
 
-/* Home's own section marker: a dot and a rule fading into the label on each
-   side. `tone` picks the glow green for the dark sections, `align` centers it
-   or lets it sit left. `className` is for per-instance nudges. */
-const Kicker = ({ children, tone = 'dark', align = 'center', className = '' }) => {
-  const light = tone === 'light'
-  return (
-    <div
-      className={`flex items-center gap-4 ${
-        align === 'center' ? 'justify-center' : ''
-      } ${className}`}
-    >
-      <span className="flex items-center gap-1.5" aria-hidden="true">
-        <span className={`h-1.5 w-1.5 rounded-full ${light ? 'bg-brand-glow' : 'bg-brand'}`} />
-        <span
-          className={`h-px w-10 bg-gradient-to-r from-transparent ${
-            light ? 'to-brand-glow' : 'to-brand'
-          }`}
-        />
-      </span>
-      <span
-        className={`font-sans text-sm font-bold uppercase tracking-[0.25em] ${
-          light ? 'text-brand-glow' : 'text-brand'
-        }`}
-      >
-        {children}
-      </span>
-      <span className="flex items-center gap-1.5" aria-hidden="true">
-        <span
-          className={`h-px w-10 bg-gradient-to-l from-transparent ${
-            light ? 'to-brand-glow' : 'to-brand'
-          }`}
-        />
-        <span className={`h-1.5 w-1.5 rounded-full ${light ? 'bg-brand-glow' : 'bg-brand'}`} />
-      </span>
-    </div>
-  )
-}
+/* Section marker: the site-wide tread ticks (TreadKicker). Here `tone =
+   'light'` means a light label for the dark sections. */
+const Kicker = ({ children, tone = 'dark', align = 'center', className = '' }) => (
+  <TreadKicker onDark={tone === 'light'} align={align} className={className}>
+    {children}
+  </TreadKicker>
+)
 
 /* ── Why BKT seal parts ──────────────────────────────────────────────
    Line icons on a 24px grid, drawn in currentColor. */

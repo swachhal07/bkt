@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import bktLogo from '../assets/pngfind.com-tire-marks-png-139014.png'
 import dugarLogo from '../assets/dugar-logo.png'
 
-/* NOTE: phone, address, social and legal links are placeholders — swap for the
-   client's real details when available. Email is the working contact address. */
+/* Address, phone and email are from the BKT Tire Nepal Distributor Facebook
+   page (facebook.com/bkttirenepal), kept in step with Contact. Social and
+   legal links are still placeholders. */
 
 /* ────────────────────────────────────────────────────────────────────
    FOOTER — rebuilt from a centred stack into a masthead.
@@ -53,9 +54,9 @@ const nav = [
 ]
 
 const contact = [
-  { label: 'Visit', value: 'Kathmandu, Nepal' },
-  { label: 'Call', value: '+977 00-000 0000', href: 'tel:+97700000000' },
-  { label: 'Email', value: 'info@bkttyres.com', href: 'mailto:info@bkttyres.com' },
+  { label: 'Visit', value: 'Balaju Industrial District, Kathmandu' },
+  { label: 'Office', value: '01-4982455', href: 'tel:+97714982455' },
+  { label: 'Email', value: 'nabin.p@mvdugar.com', href: 'mailto:nabin.p@mvdugar.com' },
 ]
 
 const Arrow = (p) => (

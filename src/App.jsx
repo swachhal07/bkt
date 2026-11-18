@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -9,6 +9,7 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
 import Leadership from './pages/Leadership'
+import ProductDetail from './pages/ProductDetail'
 import HeroLab from './pages/HeroLab'
 import GroupLab from './pages/GroupLab'
 import NotFound from './pages/NotFound'
@@ -23,13 +24,26 @@ import NotFound from './pages/NotFound'
      · 'instant' rather than the document's smooth scrolling, since this is an
        arrival, not a movement within a page. */
 function ScrollToTop() {
-  const { pathname, hash } = useLocation()
+  const { pathname, hash, key } = useLocation() // key: re-run on repeat clicks of the same link
   const navigationType = useNavigationType()
+  const prev = useRef({ pathname, hash })
 
   useEffect(() => {
-    if (navigationType === 'POP' || hash) return
+    const was = prev.current
+    prev.current = { pathname, hash }
+    /* Back/forward restores its own position; a first load with an anchor
+       (key 'default') still needs the jump, since content renders late. */
+    if (navigationType === 'POP' && !(hash && key === 'default')) return
+    /* Same page and no anchor (e.g. the Products sector filter changing the
+       query): leave the reader where they are. */
+    if (was.pathname === pathname && !hash) return
+    if (hash) {
+      /* SPA navigation does not scroll to the anchor by itself. */
+      setTimeout(() => document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'instant' }), 60)
+      return
+    }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-  }, [pathname, hash, navigationType])
+  }, [pathname, hash, key, navigationType])
 
   return null
 }
@@ -47,6 +61,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:slug" element={<ProductDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/about-heroes" element={<HeroLab />} />

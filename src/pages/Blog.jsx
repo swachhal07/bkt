@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import TreadKicker from '../components/TreadKicker'
 import { ISSUE, posts } from '../data/posts'
 
 /* Hallmark · genre: editorial · macrostructure: Photo-led magazine grid
@@ -186,20 +187,9 @@ export default function Blog() {
           is where About keeps its facts. */}
       <section className="flex min-h-[calc(100svh-6rem)] flex-col bg-white">
         <div className="mx-auto flex w-full max-w-[100rem] flex-1 flex-col items-center justify-center px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-10">
-          {/* Same marker Home and About use: dot and a rule fading into the
-              label on each side. */}
-          <div className="anim-rise flex items-center justify-center gap-4">
-            <span className="flex items-center gap-1.5" aria-hidden="true">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              <span className="h-px w-10 bg-gradient-to-r from-transparent to-brand" />
-            </span>
-            <span className="font-sans text-sm font-bold uppercase tracking-[0.25em] text-brand">
-              From the field
-            </span>
-            <span className="flex items-center gap-1.5" aria-hidden="true">
-              <span className="h-px w-10 bg-gradient-to-l from-transparent to-brand" />
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            </span>
+          {/* Site-wide section marker (tread ticks). */}
+          <div className="anim-rise">
+            <TreadKicker>From the field</TreadKicker>
           </div>
 
           {/* Three lines, each tracking down from behind its own mask on load —

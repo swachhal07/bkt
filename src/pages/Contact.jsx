@@ -1,18 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import TreadKicker from '../components/TreadKicker'
 import tyreDetail from '../assets/tyre-detail.webp'
 import bktTruck from '../assets/bkt-truck.webp'
 import tractorField from '../assets/tractor-field.webp'
 
-/* NOTE: phone, WhatsApp and address are placeholders — swap for the client's
-   real details when available. Email (info@bkttyres.com) is the working address,
-   consistent with the footer. The enquiry form composes a mailto to that address;
-   wire `handleSubmit` to a real form endpoint (Formspree / server route) when ready. */
-const PHONE_DISPLAY = '+977 00-000 0000'
-const PHONE_HREF = '+97700000000'
-const WHATSAPP_HREF = '97700000000'
-const EMAIL = 'info@bkttyres.com'
-const ADDRESS = 'Kathmandu, Nepal'
+/* Contact details from the BKT Tire Nepal Distributor Facebook page
+   (facebook.com/bkttirenepal), kept in step with the footer. The phone shown
+   is the office landline; WhatsApp needs a mobile, so it uses the number BKT
+   Nepal's posts give ("Contact Us: 9802902106"). The enquiry form composes a
+   mailto to EMAIL; wire `handleSubmit` to a real form endpoint (Formspree /
+   server route) when ready. */
+const PHONE_DISPLAY = '01-4982455'
+const PHONE_HREF = '+97714982455'
+const WHATSAPP_HREF = '9779802902106'
+const EMAIL = 'nabin.p@mvdugar.com'
+/* Address from the same Facebook page; the map pin below sits in the same
+   ward (Kathmandu-16, Banasthali/Balaju). */
+const ADDRESS = 'Balaju Industrial District, Kathmandu'
 
 /* Showroom position, client-supplied. Everything map-related derives from this one
    pair, so a correction is a one-line change.
@@ -106,13 +111,11 @@ const specs = [
   { label: 'Dispatch', value: 'Nationwide · 48h' },
 ]
 
-/* Visiting facts for the closing site plan. The notes are deliberate: until the
-   client's real street address and phone line land, saying so beats dressing a
-   placeholder up as live data. Drop the note when the value becomes real. */
+/* Visiting facts for the closing site plan. */
 const visitFacts = [
-  { label: 'Address', value: ADDRESS, note: 'Pinned on the map — street address to confirm' },
+  { label: 'Address', value: ADDRESS, note: 'Pinned on the map' },
   { label: 'Opening hours', value: 'Sun–Fri · 09:00–18:00', note: 'Closed Saturday' },
-  { label: 'Phone', value: PHONE_DISPLAY, note: 'Line to be confirmed' },
+  { label: 'Phone', value: PHONE_DISPLAY, note: 'Office line' },
 ]
 
 /* Closing wayfinding. Each blurb is drawn from the destination page's own
@@ -293,20 +296,9 @@ export default function Contact() {
                  Two columns split 7/5 on the same grid the form below uses. ── */}
           <div className="grid min-h-[calc(100svh-8.25rem)] items-center gap-x-10 gap-y-12 py-10 sm:py-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              {/* Same marker Home, About and Blog use: dot and a rule fading
-                  into the label on each side. */}
-              <div className="anim-rise flex items-center gap-4">
-                <span className="flex items-center gap-1.5" aria-hidden="true">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                  <span className="h-px w-10 bg-gradient-to-r from-transparent to-brand" />
-                </span>
-                <span className="font-sans text-sm font-bold uppercase tracking-[0.25em] text-brand">
-                  Contact desk
-                </span>
-                <span className="flex items-center gap-1.5" aria-hidden="true">
-                  <span className="h-px w-10 bg-gradient-to-l from-transparent to-brand" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                </span>
+              {/* Site-wide section marker (tread ticks). */}
+              <div className="anim-rise">
+                <TreadKicker align="left">Contact desk</TreadKicker>
               </div>
 
               {/* Fluid display type: sized to fill its column at any width, and
@@ -675,7 +667,7 @@ export default function Contact() {
               </h2>
 
               <p className="mt-7 max-w-lg font-sans text-base leading-relaxed text-white/65 sm:text-lg">
-                We&rsquo;re inside the Ring Road, in Kathmandu. Bring the tyre size
+                We&rsquo;re at Balaju Industrial District, Kathmandu. Bring the tyre size
                 &mdash; or a photo of the sidewall &mdash; and we&rsquo;ll match it
                 against stock while you wait.
               </p>
@@ -781,19 +773,7 @@ export default function Contact() {
               headline left, the count right, one hairline under both. */}
           <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6 border-b border-ink/20 pb-7">
             <div className="min-w-0">
-              <div className="flex items-center gap-4">
-                <span className="flex items-center gap-1.5" aria-hidden="true">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                  <span className="h-px w-10 bg-gradient-to-r from-transparent to-brand" />
-                </span>
-                <span className="font-sans text-sm font-bold uppercase tracking-[0.25em] text-brand">
-                  Elsewhere on the site
-                </span>
-                <span className="flex items-center gap-1.5" aria-hidden="true">
-                  <span className="h-px w-10 bg-gradient-to-l from-transparent to-brand" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                </span>
-              </div>
+              <TreadKicker align="left">Elsewhere on the site</TreadKicker>
               <h2 className="font-wide mt-6 min-w-0 text-[clamp(2rem,5vw,4.5rem)] font-extrabold uppercase leading-[0.92] tracking-tight text-ink [overflow-wrap:anywhere]">
                 Not what you
                 <br />
@@ -805,13 +785,11 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* Cards. The middle column drops on wide screens so the row reads as
-              a stagger rather than three matching boxes; `items-start` is what
-              lets a single card carry a top offset without dragging its
-              neighbours down with it. */}
-          <ul className="mt-16 grid list-none grid-cols-1 gap-x-8 gap-y-14 p-0 sm:grid-cols-2 lg:grid-cols-3 lg:items-start">
+          {/* Cards. All three share one top line and one size, so photos,
+              labels and titles sit level across the row. */}
+          <ul className="mt-16 grid list-none grid-cols-1 gap-x-8 gap-y-14 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map(({ to, kicker, title, desc, img, alt }, i) => (
-              <li key={to} className={i === 1 ? 'lg:mt-20' : i === 2 ? 'lg:mt-10' : ''}>
+              <li key={to}>
                 <Link
                   to={to}
                   className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"

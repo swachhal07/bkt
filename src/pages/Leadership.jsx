@@ -1,5 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import TreadKicker from '../components/TreadKicker'
+import motiLalDugarImg from '../assets/af0b8ecf-4ddc-41f9-9dd1-ba5c0df1b212.webp'
+import vivekDugarImg from '../assets/ae68fbad-4028-45aa-81d5-44d526f4f5af.webp'
+import shubhamDugarImg from '../assets/af5ea000-e8c5-4f03-ac64-9fd3a8bb8009.webp'
+import namanDugarImg from '../assets/eb7eb529-8d15-4359-8ac0-df51b7393d00.webp'
 
 /* ────────────────────────────────────────────────────────────────────
    LEADERSHIP — Board of Directors and Management Team.
@@ -8,34 +13,32 @@ import { Link } from 'react-router-dom'
                      and Blog (one screen, two wipe buttons, ruled facts rail)
      2  BOARD        carbon — four portrait cards
      3  MANAGEMENT   white — four portrait cards, same card, light tone
-     4  CLOSE        one line and a route to Contact
-
-   NOTE: every name, title and bio below is a PLACEHOLDER. Swap in the
-   client's real people, and drop a `photo` import onto each entry when
-   portraits arrive — until then the card shows the person's initials on a
-   brand slab rather than a stock face standing in for a real person.
    ──────────────────────────────────────────────────────────────────── */
 
 const board = [
   {
-    name: 'Director Name',
+    name: 'Moti Lal Dugar',
     role: 'Chairman',
-    bio: 'Leads the board and sets the long-term direction of the business within the MV Dugar Group.',
+    photo: motiLalDugarImg,
+    bio: 'Leads the board and sets the long-term vision of the MV Dugar Group, stewarding a multi-generational legacy across Nepal.',
   },
   {
-    name: 'Director Name',
-    role: 'Managing Director',
-    bio: 'Responsible for the company’s strategy, partnerships and growth across Nepal.',
+    name: 'Vivek Dugar',
+    role: 'Vice Chairman',
+    photo: vivekDugarImg,
+    bio: 'Drives the group’s strategic direction, automotive partnerships, and national distribution across Nepal.',
   },
   {
-    name: 'Director Name',
+    name: 'Shubham Dugar',
     role: 'Director',
-    bio: 'Oversees finance and governance, keeping the business accountable to its partners.',
+    photo: shubhamDugarImg,
+    bio: 'Oversees portfolio expansion, strategic operations, and brand partnerships connecting global leaders with local markets.',
   },
   {
-    name: 'Director Name',
+    name: 'Naman Dugar',
     role: 'Director',
-    bio: 'Brings experience in distribution and supply, guiding how stock reaches every region.',
+    photo: namanDugarImg,
+    bio: 'Guides commercial growth, operational excellence, and distribution networks across the group’s ventures.',
   },
 ]
 
@@ -104,46 +107,20 @@ const facts = [
   { label: 'Based', value: 'Kathmandu, Nepal' },
 ]
 
-const Kicker = ({ children, tone = 'light' }) => {
-  const c = tone === 'dark' ? 'bg-brand-glow' : 'bg-brand'
-  const from = tone === 'dark' ? 'to-brand-glow' : 'to-brand'
-  return (
-    <div className="flex items-center justify-center gap-4">
-      <span className="flex items-center gap-1.5" aria-hidden="true">
-        <span className={`h-1.5 w-1.5 rounded-full ${c}`} />
-        <span className={`h-px w-10 bg-gradient-to-r from-transparent ${from}`} />
-      </span>
-      <span className={`font-sans text-sm font-bold uppercase tracking-[0.25em] ${tone === 'dark' ? 'text-brand-glow' : 'text-brand'}`}>
-        {children}
-      </span>
-      <span className="flex items-center gap-1.5" aria-hidden="true">
-        <span className={`h-px w-10 bg-gradient-to-l from-transparent ${from}`} />
-        <span className={`h-1.5 w-1.5 rounded-full ${c}`} />
-      </span>
-    </div>
-  )
-}
+const Kicker = ({ children, tone = 'light' }) => (
+  <TreadKicker onDark={tone === 'dark'}>{children}</TreadKicker>
+)
 
-/* Portrait card. The bio sits on a brand-green panel that rises from the
-   foot of the portrait on hover or keyboard focus; on touch, a tap toggles
-   it. Below the portrait, name and role are always visible so nothing
-   depends on hovering. */
+/* Portrait card. On hover the photo frame leans into a skewed slab — motion
+   lives in index.css under "Leadership portrait card: skewed slab". */
 function PersonCard({ person, index, tone }) {
-  const [open, setOpen] = useState(false)
   const onDark = tone === 'dark'
 
   return (
     <li className="reveal" style={{ transitionDelay: `${index * 90}ms` }}>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className={`group block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${
-          onDark ? 'focus-visible:outline-brand-glow' : 'focus-visible:outline-brand'
-        }`}
-      >
+      <div className="pcard block w-full text-left">
         <div
-          className={`relative aspect-[4/5] overflow-hidden ${
+          className={`pcard-frame relative aspect-[4/5] overflow-hidden ${
             onDark ? 'bg-steel' : 'bg-fog'
           }`}
         >
@@ -151,12 +128,12 @@ function PersonCard({ person, index, tone }) {
             <img
               src={person.photo}
               alt={`${person.name}, ${person.role}`}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              className="pcard-img absolute inset-0 h-full w-full object-cover"
             />
           ) : (
             <span
               aria-hidden="true"
-              className={`absolute inset-0 flex items-center justify-center font-wide text-[clamp(4rem,9vw,7rem)] font-extrabold tracking-tight transition-transform duration-700 ease-out group-hover:scale-[1.06] ${
+              className={`pcard-img absolute inset-0 flex items-center justify-center font-wide text-[clamp(4rem,9vw,7rem)] font-extrabold tracking-tight ${
                 onDark ? 'text-white/10' : 'text-ink/[0.07]'
               }`}
             >
@@ -172,18 +149,9 @@ function PersonCard({ person, index, tone }) {
           >
             {String(index + 1).padStart(2, '0')}
           </span>
-
-          {/* Bio panel */}
-          <div
-            className={`absolute inset-x-0 bottom-0 bg-brand p-6 text-white transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:translate-y-0 group-focus-visible:translate-y-0 ${
-              open ? 'translate-y-0' : 'translate-y-full'
-            }`}
-          >
-            <p className="font-sans text-sm leading-relaxed sm:text-[15px]">{person.bio}</p>
-          </div>
         </div>
 
-        <div className={`mt-5 border-t pt-4 ${onDark ? 'border-white/15' : 'border-ink/12'}`}>
+        <div className={`pcard-meta mt-5 border-t pt-4 ${onDark ? 'border-white/15' : 'border-ink/12'}`}>
           <h3
             className={`font-wide text-xl font-bold uppercase leading-tight tracking-tight sm:text-2xl ${
               onDark ? 'text-white' : 'text-ink'
@@ -199,7 +167,7 @@ function PersonCard({ person, index, tone }) {
             {person.role}
           </p>
         </div>
-      </button>
+      </div>
     </li>
   )
 }
@@ -226,7 +194,7 @@ function TeamSection({ id, kicker, title, lede, people, tone }) {
           </p>
         </div>
 
-        <ul className="mt-16 grid grid-cols-1 gap-x-6 gap-y-14 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-16 grid grid-cols-1 gap-x-8 gap-y-14 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
           {people.map((p, i) => (
             <PersonCard key={`${p.role}-${i}`} person={p} index={i} tone={tone} />
           ))}
@@ -344,16 +312,6 @@ export default function Leadership() {
         lede="The people who run the business day to day — from the warehouse floor to the dealer’s counter."
         people={management}
       />
-
-      {/* ══ 4 · CLOSE ════════════════════════════════════════════════ */}
-      <section className="border-t border-ink/12 bg-fog py-20 sm:py-24">
-        <div className="reveal mx-auto flex max-w-[100rem] flex-col items-center gap-8 px-4 text-center sm:px-6 lg:px-10">
-          <p className="font-wide text-[clamp(1.75rem,4vw,3rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-brand">
-            Want to talk to the team?
-          </p>
-          <WipeLink to="/contact">Get in touch</WipeLink>
-        </div>
-      </section>
     </>
   )
 }

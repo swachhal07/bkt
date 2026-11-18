@@ -4,16 +4,8 @@ import logo from '../assets/pngfind.com-tire-marks-png-139014.png'
 import logoSolid from '../assets/logo-solid.png'
 import dugarLogo from '../assets/dugar-logo.png'
 
-const productMenu = [
-  { to: '/products', label: 'Passenger & Highway' },
-  { to: '/products', label: 'SUV & Performance' },
-  { to: '/products', label: 'Truck & Fleet' },
-  { to: '/products', label: 'View all products' },
-]
-
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const [productsOpen, setProductsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [hovered, setHovered] = useState(false)
   const [tucked, setTucked] = useState(false)
@@ -75,12 +67,6 @@ export default function Navbar() {
           ? 'text-brand'
           : 'text-ink hover:text-brand'
     }`
-
-  const caret = (
-    <svg className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-  )
 
   return (
     <header
@@ -144,30 +130,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-10 md:ml-auto md:flex">
           <NavLink to="/" end className={linkClass}>Home</NavLink>
 
-          {/* Products dropdown */}
-          <div className="group relative">
-            <NavLink
-              to="/products"
-              className={({ isActive }) =>
-                `${linkClass({ isActive })} flex items-center gap-1`
-              }
-            >
-              Products {caret}
-            </NavLink>
-            <div className="invisible absolute left-1/2 top-full z-50 w-60 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div className="overflow-hidden rounded-xl border border-gray-100 bg-white py-2 shadow-xl shadow-black/5">
-                {productMenu.map((p) => (
-                  <Link
-                    key={p.label}
-                    to={p.to}
-                    className="block px-4 py-2.5 text-sm text-ash transition-colors hover:bg-fog hover:text-brand"
-                  >
-                    {p.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
+          <NavLink to="/products" className={linkClass}>Products</NavLink>
 
           <NavLink to="/about" className={linkClass}>About</NavLink>
 
@@ -206,31 +169,9 @@ export default function Navbar() {
               <span className="block py-3">Home</span>
             </NavLink>
 
-            <button
-              type="button"
-              className="flex items-center justify-between py-3 text-base font-medium text-ink"
-              aria-expanded={productsOpen}
-              onClick={() => setProductsOpen((v) => !v)}
-            >
-              Products
-              <svg className={`h-4 w-4 transition-transform ${productsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {productsOpen && (
-              <div className="mb-1 flex flex-col border-l border-gray-200 pl-4">
-                {productMenu.map((p) => (
-                  <Link
-                    key={p.label}
-                    to={p.to}
-                    onClick={() => setOpen(false)}
-                    className="py-2 text-sm text-ash hover:text-brand"
-                  >
-                    {p.label}
-                  </Link>
-                ))}
-              </div>
-            )}
+            <NavLink to="/products" onClick={() => setOpen(false)} className="text-base font-medium text-ink hover:text-brand">
+              <span className="block py-3">Products</span>
+            </NavLink>
 
             <NavLink to="/about" onClick={() => setOpen(false)} className="text-base font-medium text-ink hover:text-brand">
               <span className="block py-3">About</span>

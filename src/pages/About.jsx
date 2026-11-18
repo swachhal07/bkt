@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import TreadKicker from '../components/TreadKicker'
 
 /* Client-supplied photography — each photograph used once. */
 import tyreDetail from '../assets/tyre-detail.webp' // BKT sidewall close-up
@@ -81,23 +82,9 @@ const WipeLink = ({ to, children, tone = 'light' }) => {
   )
 }
 
-/* Same marker Home uses: a dot and a rule fading into the label on each
-   side. Used once on this page, in the hero — not above every section. */
-const Kicker = ({ children }) => (
-  <div className="flex items-center justify-center gap-4">
-    <span className="flex items-center gap-1.5" aria-hidden="true">
-      <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-      <span className="h-px w-10 bg-gradient-to-r from-transparent to-brand" />
-    </span>
-    <span className="font-sans text-sm font-bold uppercase tracking-[0.25em] text-brand">
-      {children}
-    </span>
-    <span className="flex items-center gap-1.5" aria-hidden="true">
-      <span className="h-px w-10 bg-gradient-to-l from-transparent to-brand" />
-      <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-    </span>
-  </div>
-)
+/* Section marker: the site-wide tread ticks (TreadKicker). Used once on
+   this page, in the hero. */
+const Kicker = ({ children }) => <TreadKicker>{children}</TreadKicker>
 
 /* Ruled along the bottom edge of the hero: label above value, divided by
    hairlines. The instrument-panel reading Home's ticker rail gets, but
