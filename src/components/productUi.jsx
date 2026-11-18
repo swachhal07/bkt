@@ -13,8 +13,8 @@ export const Arrow = (p) => (
   </svg>
 )
 
-export const Kicker = ({ children, tone = 'light', align = 'center' }) => (
-  <TreadKicker onDark={tone === 'dark'} align={align}>
+export const Kicker = ({ children, tone = 'light', align = 'center', className = '' }) => (
+  <TreadKicker onDark={tone === 'dark'} align={align} className={className}>
     {children}
   </TreadKicker>
 )

@@ -227,7 +227,7 @@ export default function Blog() {
         {/* Facts rail — ruled top and bottom, since the section below it is
             also white and there is no photograph edge to divide them. */}
         <div
-          className="anim-rise border-y border-ink/12"
+          className="anim-rise hidden border-y border-ink/12 sm:block"
           style={{ animationDelay: '620ms' }}
         >
           <dl className="mx-auto grid max-w-[100rem] grid-cols-2 divide-ink/10 px-4 sm:px-6 lg:grid-cols-4 lg:divide-x lg:px-10">

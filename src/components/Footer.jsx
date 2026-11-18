@@ -81,15 +81,6 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-black text-white">
-      {/* Atmosphere: one soft wash of the light green from the logo, bled off
-          the bottom-left corner so it lights the statement it sits under. On
-          black it reads as depth; the same device on white read as a smudge,
-          which is why it is only used here. */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-64 -left-40 h-[46rem] w-[46rem] rounded-full bg-[radial-gradient(circle,rgba(140,198,63,0.11),transparent_65%)]"
-      />
-
       <div className="relative mx-auto max-w-[100rem] px-4 sm:px-6 lg:px-10">
         {/* ══ A · IDENTITY ═══════════════════════════════════════════ */}
         {/* Marks and contact on one strip. Both are reference material — who
@@ -100,7 +91,7 @@ export default function Footer() {
             {/* The two marks, kept as a lockup and divided by the same
                 hairline as before — the one part of the old footer that was
                 already doing its job. */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center gap-4 lg:justify-start">
               <Link to="/" aria-label="BKT Tyres — home" className="inline-flex">
                 <img src={bktLogo} alt="BKT Tyres" className="h-11 w-auto sm:h-12" />
               </Link>
@@ -112,9 +103,9 @@ export default function Footer() {
           {/* Contact as three ruled cells rather than three items strung on one
               line with bullets between them. Laid across the row, they fill
               the measure the statement used to leave half-empty. */}
-          <dl className="grid grid-cols-1 gap-px bg-white/10 lg:col-span-8 lg:grid-cols-3">
+          <dl className="grid grid-cols-1 gap-px bg-white/10 text-center lg:col-span-8 lg:grid-cols-3 lg:text-left">
             {contact.map((c) => (
-              <div key={c.label} className="bg-black px-0 py-4 lg:px-6 lg:first:pl-0">
+              <div key={c.label} className="bg-black px-0 py-5 lg:px-6 lg:py-4 lg:first:pl-0">
                 <dt className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">
                   {c.label}
                 </dt>
@@ -141,16 +132,16 @@ export default function Footer() {
             use, turned to run along the rule instead of across a panel. */}
         <nav
           aria-label="Footer"
-          className="grid grid-cols-1 border-t border-white/10 lg:grid-cols-6"
+          className="grid grid-cols-2 gap-px border-t border-white/10 bg-white/10 lg:grid-cols-6 lg:gap-0 lg:bg-transparent"
         >
           {nav.map((item, i) => (
-            /* One column until the row can hold all five. Two- and three-column
-               intermediates are worse than stacking: five items never fill
-               them, and the empty cell shows up as a rule that stops short. */
+            /* Below lg: a 2×3 grid of centred cells (six pages fill it evenly),
+               ruled by the 1px gap over the white/10 backdrop. From lg up: one
+               row of six, ruled by left borders. */
             <Link
               key={item.label}
               to={item.to}
-              className={`group relative flex items-baseline gap-3 border-b border-white/10 py-5 transition-colors last:border-b-0 hover:text-brand-glow sm:py-6 lg:border-b-0 lg:border-l lg:border-white/10 lg:py-7 ${
+              className={`group relative flex items-baseline justify-center gap-2.5 bg-black py-5 transition-colors hover:text-brand-glow sm:py-6 lg:justify-start lg:gap-3 lg:border-l lg:border-white/10 lg:py-7 ${
                 i === 0 ? 'lg:border-l-0 lg:pl-0' : 'lg:pl-8'
               }`}
             >
@@ -161,10 +152,10 @@ export default function Footer() {
               <span className="font-mono text-[10px] tabular-nums text-white/30 transition-colors group-hover:text-brand-glow/70">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <span className="font-wide text-lg font-bold uppercase tracking-tight sm:text-xl">
+              <span className="font-wide text-base font-bold uppercase tracking-tight sm:text-xl">
                 {item.label}
               </span>
-              <Arrow className="ml-auto mr-4 h-4 w-4 shrink-0 self-center opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 motion-reduce:transition-none lg:mr-6" />
+              <Arrow className="ml-auto mr-4 hidden h-4 w-4 lg:block shrink-0 self-center opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 motion-reduce:transition-none lg:mr-6" />
             </Link>
           ))}
         </nav>
@@ -181,7 +172,7 @@ export default function Footer() {
               clears the shell's padding at every width and keeps it on one
               line. 12.4 wrapped "Road." onto a second line at 1440. The cap
               holds it to the measure once the shell stops growing at 100rem. */}
-          <h2 className="font-wide text-[clamp(2.25rem,12vw,12.4rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.02em]">
+          <h2 className="font-wide text-center text-[clamp(2.25rem,12vw,12.4rem)] lg:text-left font-extrabold uppercase leading-[0.82] tracking-[-0.02em]">
             Grip the <span className="text-brand-glow">Road.</span>
           </h2>
         </div>
@@ -189,12 +180,14 @@ export default function Footer() {
         {/* ══ D · COLOPHON ═══════════════════════════════════════════ */}
         {/* Everything that is small print, set as small print and on one line,
             rather than as three centred paragraphs at reading size. */}
-        <div className="flex flex-col gap-5 border-t border-white/10 py-8 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+        {/* Phones: centred stack — links, copyright, credit. From sm up: one
+            line, spread across the measure. */}
+        <div className="flex flex-col items-center gap-4 border-t border-white/10 pb-10 pt-8 text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.2em] text-white/40 sm:flex-row sm:justify-between sm:gap-8 sm:pb-8 sm:text-left">
           <p className="order-2 sm:order-1">
             © {year} BKT Tyres. All rights reserved.
           </p>
 
-          <div className="order-1 flex flex-wrap items-center gap-x-6 gap-y-2 sm:order-2">
+          <div className="order-1 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 sm:order-2">
             <a href="#" className="transition-colors hover:text-brand-glow">
               Privacy Policy
             </a>

@@ -351,22 +351,31 @@ textarea:-webkit-autofill {
   transition: background-color 100000s ease-in-out 0s;
 }
 
-/* ── Home · range flip cards ────────────────────────────────────── */
-/* Hover turns a card over on devices that can hover; a tap sets
-   data-flipped for touch screens. Plain CSS so the timing is exact. */
-.range-flip { perspective: 1600px; }
-.range-flip-inner {
-  transform-style: preserve-3d;
-  transition: transform 800ms cubic-bezier(0.65, 0, 0.35, 1);
+/* ── Home · range photo cards ─────────────────────────────────────
+   Hover / keyboard focus leans the card into the site's slanted slab —
+   skewed, with the slab's rounded top-left and bottom-right corners —
+   while the photo counter-skews to stay upright. Same move as the
+   Leadership portrait cards. */
+.range-card-frame {
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.range-flip[data-flipped="true"] .range-flip-inner { transform: rotateY(180deg); }
-@media (hover: hover) {
-  .range-flip:hover .range-flip-inner { transform: rotateY(180deg); }
+.range-card-photo {
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.range-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.range-back { transform: rotateY(180deg); }
+.range-card:is(:hover, :focus-visible) .range-card-frame {
+  transform: scale(0.97) skewX(-6deg);
+  border-radius: 2.4rem 0.6rem 2.4rem 0.6rem;
+}
+.range-card:is(:hover, :focus-visible) .range-card-photo {
+  transform: skewX(6deg) scale(1.12);
+}
 @media (prefers-reduced-motion: reduce) {
-  .range-flip-inner { transition: none; }
+  .range-card-frame,
+  .range-card-photo {
+    transition: none;
+  }
 }
 
 /* ── Home · Why BKT seal ─────────────────────────────────────────── */
@@ -409,8 +418,13 @@ textarea:-webkit-autofill {
   opacity: 0;
   transition: opacity 0.8s ease var(--why-delay, 0.75s), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--why-delay, 0.75s);
 }
-.why-from-l { transform: translateX(-2.5rem); }
-.why-from-r { transform: translateX(2.5rem); }
+/* Stacked (mobile/tablet): promises rise into place as a timeline.
+   Side-by-side (lg+): they slide in toward the seal. */
+.why-item { transform: translateY(1.25rem); }
+@media (min-width: 1024px) {
+  .why-from-l { transform: translateX(-2.5rem); }
+  .why-from-r { transform: translateX(2.5rem); }
+}
 
 .why-stage.is-visible .why-ring { opacity: 1; transform: none; }
 .why-stage.is-visible .why-disc { transform: none; }

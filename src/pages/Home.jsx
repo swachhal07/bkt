@@ -1,11 +1,12 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import TreadKicker from '../components/TreadKicker'
+import agriSector from '../assets/sector-agriculture.webp' // BKT key visual: tractor + combine at harvest
+import otrSector from '../assets/sector-otr.webp' // BKT key visual: haul truck + loader in a quarry
 
 /* BKT brand photography (client-supplied). */
 import tyreLineup from '../assets/bkt-banner.webp' // product lineup on the road
 import tractorField from '../assets/tractor-field.webp' // John Deere on BKT flotation tyres
-import monsterTruck from '../assets/bkt-truck.webp' // BKT Monster Jam truck
 import tyreDetail from '../assets/tyre-detail.webp' // macro tyre sidewall detail
 /* "BKT Monster Truck Tire" by TaurusEmerald, CC BY-SA 4.0, via Wikimedia
    Commons — resized to 1600px. Credited under the Spot a fake photo. */
@@ -18,30 +19,22 @@ const marqueeItems = [
   'Experienced Technical Assistance',
 ]
 
-const categories = [
+/* Our Range: the two sectors on the Products page, each with BKT's own
+   key-visual photo for that sector (from commercial.bkt-tires.com). */
+const rangeSectors = [
   {
-    index: '01',
-    kicker: 'Agriculture',
-    name: 'Field & Farm',
-    desc: 'Deep-lug traction that protects the soil and pulls through the season.',
-    image: tractorField,
-    pos: 'object-center',
+    id: 'agriculture',
+    name: 'Agriculture',
+    line: 'Tractors, harvesters, implements and trailers — traction in the field, comfort on the road.',
+    photo: agriSector,
+    alt: 'A tractor and a combine harvester working a field at sunset',
   },
   {
-    index: '02',
-    kicker: 'On / Off Highway',
-    name: 'Haul & Transport',
-    desc: 'Built to carry heavy loads mile after mile, on the road and off it.',
-    image: monsterTruck,
-    pos: 'object-center',
-  },
-  {
-    index: '03',
-    kicker: 'Industrial & OTR',
-    name: 'Site & Handling',
-    desc: 'Cut-resistant compounds engineered for the hardest working ground.',
-    image: tyreDetail,
-    pos: 'object-left',
+    id: 'otr',
+    name: 'OTR',
+    line: 'Tippers, loaders, graders, cranes, port machines and forklifts — built for sites and quarries.',
+    photo: otrSector,
+    alt: 'A haul truck and a wheel loader working in a quarry',
   },
 ]
 
@@ -224,14 +217,22 @@ const REASON_ICONS = {
 
 /* One promise beside the seal. Left-hand items mirror (icon nearest the
    seal) and slide in from the left; right-hand ones from the right. */
-const WhyItem = ({ reason, side, order }) => (
+const WhyItem = ({ reason, side, order, last = false }) => (
   <li
-    className={`why-item group flex items-start gap-5 ${
+    className={`why-item group relative flex items-start gap-4 sm:gap-5 ${
       side === 'left' ? 'why-from-l lg:flex-row-reverse lg:text-right' : 'why-from-r'
     }`}
     style={{ '--why-delay': `${750 + order * 150}ms` }}
   >
-    <span data-why-icon className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-white/15 bg-white/5 text-brand-glow transition-colors duration-300 group-hover:border-brand-glow group-hover:bg-brand group-hover:text-white">
+    {/* Mobile timeline spine: links this icon down to the next one (the
+        gap between promises is 2rem below lg, hence -bottom-8). */}
+    {!last && (
+      <span
+        aria-hidden="true"
+        className="absolute left-[22px] top-11 -bottom-8 w-px bg-gradient-to-b from-brand-glow/50 to-white/10 sm:left-6 sm:top-12 lg:hidden"
+      />
+    )}
+    <span data-why-icon className="relative grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/15 bg-carbon text-brand-glow transition-colors duration-300 group-hover:border-brand-glow group-hover:bg-brand group-hover:text-white sm:h-12 sm:w-12 lg:bg-white/5">
       <svg
         viewBox="0 0 24 24"
         className="h-6 w-6"
@@ -245,11 +246,11 @@ const WhyItem = ({ reason, side, order }) => (
         {REASON_ICONS[reason.icon]}
       </svg>
     </span>
-    <div>
-      <h3 className="font-display text-3xl font-bold uppercase leading-none">
+    <div className="pt-1 lg:pt-0">
+      <h3 className="font-display text-2xl font-bold uppercase leading-none sm:text-3xl">
         {reason.title}
       </h3>
-      <p className="mt-2 max-w-xs font-sans text-base leading-relaxed text-white/65 lg:ml-auto">
+      <p className="mt-2 max-w-sm font-sans text-[15px] leading-relaxed text-white/65 sm:text-base lg:ml-auto lg:max-w-xs">
         {reason.desc}
       </p>
     </div>
@@ -329,7 +330,7 @@ const WhyConnectors = () => {
 /* The seal: a ring of sidewall lettering that turns slowly around a
    solid green disc. */
 const WhySeal = () => (
-  <div data-why-seal className="why-seal relative mx-auto aspect-square w-64 sm:w-72">
+  <div data-why-seal className="why-seal relative mx-auto aspect-square w-48 sm:w-60 lg:w-72">
     <div className="why-ring absolute inset-0">
       <svg viewBox="0 0 200 200" className="why-spin h-full w-full text-white/80" aria-hidden="true">
         <defs>
@@ -489,7 +490,6 @@ const SpotFake = () => {
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(0)
-  const [flipped, setFlipped] = useState(-1) // range card turned over by tap
 
   /* Reveal-on-scroll: toggle `.is-visible` as `.reveal` elements enter view.
      Content must never stay hidden — if IntersectionObserver never reports
@@ -571,9 +571,10 @@ export default function Home() {
       </section>
 
       {/* ── Our Range ────────────────────────────────────────── */}
-      {/* Heading, then flip cards: photo on the front; hover (or tap on touch screens)
-          turns a card over to a brand-green back with the details and the
-          link. Flip styles live in index.css under "range flip cards". */}
+      {/* Heading, then two photo cards — one per sector on the Products page,
+          using BKT's own key visual for it and a dark fade at the foot for the
+          text. Hover leans the card into the site's slanted slab shape (the same
+          hover as the Leadership cards) — see "Home · range photo cards". */}
       <section className="relative overflow-hidden bg-white pt-12 pb-24 sm:pt-16 sm:pb-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="reveal">
@@ -585,98 +586,39 @@ export default function Home() {
             <span className="text-brand">terrain you work</span>
           </h2>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {categories.map((cat, i) => (
-              <div
-                key={cat.index}
-                className="reveal"
+          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+            {rangeSectors.map((r, i) => (
+              <Link
+                key={r.id}
+                to={`/products?sector=${r.id}#range`}
+                className="range-card reveal group relative block text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
-                <div
-                  className="range-flip aspect-[3/4] cursor-pointer"
-                  data-flipped={flipped === i}
-                  onClick={() => setFlipped((f) => (f === i ? -1 : i))}
-                >
-                  <div className="range-flip-inner relative h-full w-full">
-                    {/* front */}
-                    <div className="range-face absolute inset-0 overflow-hidden rounded-3xl bg-steel">
-                      <img
-                        src={cat.image}
-                        alt={`${cat.kicker} tyre application`}
-                        className={`h-full w-full object-cover ${cat.pos}`}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-carbon/90 via-transparent to-transparent" />
-                      <span className="absolute left-6 top-6 rounded-full bg-white px-3 py-1 font-mono text-xs font-bold text-ink">
-                        {cat.index}
-                      </span>
-                      <span
-                        className="absolute right-6 top-6 grid h-10 w-10 place-items-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm"
-                        aria-hidden="true"
-                      >
-                        <svg
-                          viewBox="0 0 24 24"
-                          className="h-5 w-5"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M21 12a9 9 0 1 1-3-6.7L21 8" />
-                          <path d="M21 3v5h-5" />
-                        </svg>
-                      </span>
-                      <div className="absolute inset-x-0 bottom-0 p-7">
-                        <span className="font-sans text-xs font-bold uppercase tracking-[0.22em] text-brand-glow">
-                          {cat.kicker}
-                        </span>
-                        <h3 className="mt-2 font-display text-5xl font-bold uppercase leading-[0.9] text-white">
-                          {cat.name}
-                        </h3>
-                      </div>
-                    </div>
-
-                    {/* back */}
-                    <div className="range-face range-back absolute inset-0 flex flex-col overflow-hidden rounded-3xl bg-brand p-8 text-white">
-                      <span className="pointer-events-none absolute -bottom-10 -right-4 font-display text-[14rem] font-bold leading-none text-white/10">
-                        {cat.index}
-                      </span>
-                      <span className="font-sans text-xs font-bold uppercase tracking-[0.22em] text-white/70">
-                        {cat.kicker}
-                      </span>
-                      <h3 className="mt-3 font-display text-5xl font-bold uppercase leading-[0.9]">
-                        {cat.name}
-                      </h3>
-                      <div className="mt-6 h-px bg-white/25" />
-                      <p className="mt-6 max-w-xs font-sans text-base leading-relaxed text-white/85">
-                        {cat.desc}
-                      </p>
-                      <Link
-                        to="/products"
-                        onClick={(e) => e.stopPropagation()}
-                        className="group relative mt-auto inline-flex w-fit items-center gap-2 overflow-hidden rounded-full bg-white px-5 py-2.5 font-sans text-sm font-bold uppercase tracking-wide text-brand"
-                      >
-                        <span className="absolute inset-0 origin-left scale-x-0 bg-carbon transition-transform duration-500 ease-out group-hover:scale-x-100" />
-                        <span className="relative transition-colors duration-500 group-hover:text-white">
-                          Explore range
-                        </span>
-                        <svg
-                          className="relative h-4 w-4 transition-[transform,color] duration-500 group-hover:translate-x-1.5 group-hover:text-white"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M5 12h14M13 6l6 6-6 6" />
-                        </svg>
-                      </Link>
-                    </div>
+                <div className="range-card-frame relative aspect-[4/5] overflow-hidden rounded-3xl bg-carbon sm:aspect-[5/4] lg:aspect-[4/3]">
+                <img
+                  src={r.photo}
+                  alt={r.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="range-card-photo absolute inset-0 h-full w-full object-cover"
+                />
+                <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/25 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-6 p-7 sm:p-10">
+                  <div className="max-w-md">
+                    <h3 className="font-wide text-4xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-5xl">
+                      {r.name}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/85">{r.line}</p>
                   </div>
+                  <span className="relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white/10 px-5 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] backdrop-blur-sm">
+                    <span className="relative">See the range</span>
+                    <svg className="relative h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </span>
                 </div>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
 
@@ -719,7 +661,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-carbon via-carbon/60 to-carbon" />
 
-        <div className="relative mx-auto max-w-7xl px-4 pt-16 pb-24 sm:px-6 sm:pt-20 sm:pb-32 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 pt-16 pb-20 sm:px-6 sm:pt-20 sm:pb-32 lg:px-8">
           <div className="reveal mx-auto max-w-3xl text-center">
             <Kicker tone="light">Why BKT</Kicker>
             <h2 className="font-wide mt-6 text-balance text-[clamp(2.5rem,5vw,4.25rem)] font-bold uppercase leading-[0.95] tracking-tight">
@@ -732,21 +674,23 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="reveal why-stage relative mt-20 grid items-center gap-14 lg:grid-cols-[1fr_auto_1fr] lg:gap-16">
+          {/* Below lg: seal on top, then the four promises as one compact
+              timeline (gap-8 everywhere so the spines meet the next icon). */}
+          <div className="reveal why-stage relative mx-auto mt-12 grid max-w-md items-center gap-8 sm:mt-16 lg:mt-20 lg:max-w-none lg:grid-cols-[1fr_auto_1fr] lg:gap-16">
             <WhyConnectors />
-            <ul className="grid gap-12">
+            <ul className="grid gap-8 lg:gap-12">
               {reasons.slice(0, 2).map((reason, i) => (
                 <WhyItem key={reason.title} reason={reason} side="left" order={i} />
               ))}
             </ul>
 
-            <div className="relative order-first lg:order-none">
+            <div className="relative order-first mb-4 lg:order-none lg:mb-0">
               <WhySeal />
             </div>
 
-            <ul className="grid gap-12">
-              {reasons.slice(2).map((reason, i) => (
-                <WhyItem key={reason.title} reason={reason} side="right" order={i} />
+            <ul className="grid gap-8 lg:gap-12">
+              {reasons.slice(2).map((reason, i, arr) => (
+                <WhyItem key={reason.title} reason={reason} side="right" order={i} last={i === arr.length - 1} />
               ))}
             </ul>
           </div>
@@ -819,8 +763,10 @@ export default function Home() {
           {/* Left: heading + contact card, sticky on desktop. Pulled a little
               outside the container's gutter from `lg` up so the block sits
               closer to the page edge than the section padding allows. */}
-          <div className="reveal self-start lg:sticky lg:top-28">
-            <Kicker align="left" className="ml-4">
+          {/* Centred while stacked (matches the other section intros on
+              mobile); left-aligned beside the accordion from `lg` up. */}
+          <div className="reveal self-start text-center lg:sticky lg:top-28 lg:text-left">
+            <Kicker className="lg:ml-4 lg:justify-start">
               FAQ
             </Kicker>
             <h2 className="font-wide mt-6 text-5xl font-bold uppercase leading-[0.88] tracking-tight sm:text-6xl xl:text-7xl">
@@ -834,7 +780,7 @@ export default function Home() {
             {/* Measure capped just above the column width, so from `lg` up the
                 paragraph fills the same block the headline does — the two
                 shared a left edge already but not a right one. */}
-            <p className="mt-6 max-w-lg font-sans text-lg leading-relaxed text-ash">
+            <p className="mx-auto mt-6 max-w-lg font-sans text-lg leading-relaxed text-ash lg:mx-0">
               Everything people ask us most about buying and running BKT tyres.
               Can&apos;t find yours? Our team is here to help.
             </p>

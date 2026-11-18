@@ -278,13 +278,15 @@ export default function Contact() {
         {/* ── Document header strip ── */}
         <div className="relative border-y border-ink/12">
           <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-4 px-4 py-2.5 sm:px-6 lg:px-10">
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink">
+            {/* One line each on phones: tighter tracking below sm, and the
+                left label truncates rather than wrapping on very narrow screens. */}
+            <span className="min-w-0 truncate font-mono text-[10px] uppercase tracking-[0.16em] text-ink sm:tracking-[0.28em]">
               BKT Tyres <span className="text-ash">/</span> Customer enquiry
             </span>
             <span className="hidden font-mono text-[10px] uppercase tracking-[0.28em] text-ash sm:block">
               Form WEB–CTC–01
             </span>
-            <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-ash">
+            <span className="flex shrink-0 items-center gap-2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.16em] text-ash sm:tracking-[0.28em]">
               <span className="h-1.5 w-1.5 animate-pulse bg-brand" aria-hidden="true" />
               Desk open
             </span>
@@ -295,10 +297,11 @@ export default function Contact() {
           {/* ── Masthead: headline, lead copy and spec block share one screen.
                  Two columns split 7/5 on the same grid the form below uses. ── */}
           <div className="grid min-h-[calc(100svh-8.25rem)] items-center gap-x-10 gap-y-12 py-10 sm:py-12 lg:grid-cols-12">
-            <div className="lg:col-span-7">
+            {/* Centred while stacked; left-aligned beside the spec block from lg. */}
+            <div className="text-center lg:col-span-7 lg:text-left">
               {/* Site-wide section marker (tread ticks). */}
               <div className="anim-rise">
-                <TreadKicker align="left">Contact desk</TreadKicker>
+                <TreadKicker className="lg:justify-start">Contact desk</TreadKicker>
               </div>
 
               {/* Fluid display type: sized to fill its column at any width, and
@@ -317,13 +320,13 @@ export default function Contact() {
                 </span>
               </h1>
 
-              <p className="anim-rise mt-8 max-w-xl font-sans text-base leading-relaxed text-ash sm:text-lg" style={{ animationDelay: '420ms' }}>
+              <p className="anim-rise mx-auto mt-8 max-w-xl font-sans text-base leading-relaxed text-ash sm:text-lg lg:mx-0" style={{ animationDelay: '420ms' }}>
                 Sizing advice, a fleet quote, or a dealership enquiry — fill in the
                 sheet below and it lands with the person who can actually answer it.
                 Genuine BKT stock, straight answers, no runaround.
               </p>
 
-              <div className="anim-rise mt-8 flex flex-wrap items-center gap-x-8 gap-y-3" style={{ animationDelay: '520ms' }}>
+              <div className="anim-rise mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 lg:justify-start" style={{ animationDelay: '520ms' }}>
                 <a
                   href={`tel:${PHONE_HREF}`}
                   className="group inline-flex items-center gap-3 border-b-2 border-ink/15 pb-1.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-ink transition-colors hover:border-brand hover:text-brand"
@@ -345,7 +348,7 @@ export default function Contact() {
 
             {/* Spec block */}
             <div className="anim-rise lg:col-span-5 lg:border-l lg:border-ink/12 lg:pl-10" style={{ animationDelay: '620ms' }}>
-              <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-ash">
+              <span className="block text-center font-mono text-[11px] uppercase tracking-[0.28em] text-ash lg:text-left">
                 At a glance
               </span>
               <div className="mt-4 divide-y divide-ink/10 border-y border-ink/10">
@@ -662,11 +665,12 @@ export default function Contact() {
                   On carbon that's 3.42:1 — under AA for body copy, but over the 3:1
                   large-text threshold, which this clears at 36px+ extrabold. Don't
                   reuse this pairing at body sizes; use brand-glow there. */}
-              <h2 className="font-wide min-w-0 text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-white [overflow-wrap:anywhere]">
+              {/* Centred while stacked over the map; left-aligned beside it from lg. */}
+              <h2 className="font-wide min-w-0 text-center lg:text-left text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-white [overflow-wrap:anywhere]">
                 Find the <span className="text-brand">showroom</span>
               </h2>
 
-              <p className="mt-7 max-w-lg font-sans text-base leading-relaxed text-white/65 sm:text-lg">
+              <p className="mx-auto mt-7 max-w-lg text-center font-sans text-base leading-relaxed text-white/65 sm:text-lg lg:mx-0 lg:text-left">
                 We&rsquo;re at Balaju Industrial District, Kathmandu. Bring the tyre size
                 &mdash; or a photo of the sidewall &mdash; and we&rsquo;ll match it
                 against stock while you wait.
@@ -679,7 +683,7 @@ export default function Contact() {
                 {visitFacts.map(({ label, value, note }) => (
                   <div
                     key={label}
-                    className="grid gap-x-6 gap-y-1 border-b border-white/12 py-4 sm:grid-cols-[8.5rem_minmax(0,1fr)]"
+                    className="grid gap-x-6 gap-y-1 border-b border-white/12 py-4 text-center sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:text-left"
                   >
                     <dt className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40 sm:pt-1">
                       {label}
@@ -714,7 +718,7 @@ export default function Contact() {
                 </span>
                 <Icon.arrow className="relative h-4 w-4 shrink-0 text-white transition-transform duration-300 group-hover:translate-x-1.5" />
               </a>
-              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
+              <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-white/35 lg:text-left">
                 Opens Google Maps
               </p>
             </div>
@@ -771,9 +775,10 @@ export default function Contact() {
         <div className="relative mx-auto max-w-[100rem] px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
           {/* Head sits on the baseline of the row it introduces: label and
               headline left, the count right, one hairline under both. */}
-          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6 border-b border-ink/20 pb-7">
+          {/* Below lg: a centred stack. From lg: headline left, note right. */}
+          <div className="flex flex-col items-center gap-x-10 gap-y-6 border-b border-ink/20 pb-7 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
             <div className="min-w-0">
-              <TreadKicker align="left">Elsewhere on the site</TreadKicker>
+              <TreadKicker className="lg:justify-start">Elsewhere on the site</TreadKicker>
               <h2 className="font-wide mt-6 min-w-0 text-[clamp(2rem,5vw,4.5rem)] font-extrabold uppercase leading-[0.92] tracking-tight text-ink [overflow-wrap:anywhere]">
                 Not what you
                 <br />

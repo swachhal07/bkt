@@ -14,8 +14,8 @@ import { Kicker, WipeLink, ProductCard, useReveal } from '../components/productU
    ──────────────────────────────────────────────────────────────────── */
 
 /* Infinite scroll, as on BKT's product list: 12 tyres first, then 10 more
-   each time the end of the grid comes within 600px of the screen, with the
-   loading overlay up while a batch lands. Sector changes show it too. */
+   each time the end of the grid comes within 600px of the screen — appended
+   straight away, no overlay. The loading overlay is for sector changes only. */
 const FIRST = 12
 const NEXT = 10
 const AHEAD = 600
@@ -47,12 +47,8 @@ export default function Products() {
   }, [active])
 
   const loadMore = () => {
-    if (loading || !more) return
-    setLoading(true)
-    setTimeout(() => {
-      setCount((c) => c + NEXT)
-      setLoading(false)
-    }, reduced() ? 0 : LOAD_MS)
+    if (!more) return
+    setCount((c) => c + NEXT)
   }
 
   /* Watch the end of the grid. An IntersectionObserver with BKT's 600px
@@ -99,9 +95,10 @@ export default function Products() {
       {/* ══ 1 · HERO ═════════════════════════════════════════════════ */}
       <section className="flex min-h-[calc(100svh-6rem)] flex-col overflow-hidden bg-white">
         <div className="mx-auto grid w-full max-w-[100rem] flex-1 items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:gap-6 lg:px-10 lg:py-16">
-          <div className="lg:col-span-6">
+          {/* Centred while stacked over the lineup; left-aligned beside it from lg. */}
+          <div className="text-center lg:col-span-6 lg:text-left">
             <div className="anim-rise">
-              <Kicker align="left">Products</Kicker>
+              <Kicker className="lg:justify-start">Products</Kicker>
             </div>
             <h1 className="font-wide anim-lines mt-8 text-[clamp(2.4rem,9.5vw,4.25rem)] lg:text-[clamp(2.5rem,min(4.7vw,10vh),5.75rem)] font-extrabold uppercase leading-[0.88] tracking-tight text-ink">
               <span className="line-mask">
@@ -115,14 +112,14 @@ export default function Products() {
               </span>
             </h1>
             <p
-              className="anim-rise mt-8 max-w-[50ch] text-base leading-relaxed text-ash sm:text-lg text-pretty"
+              className="anim-rise mx-auto mt-8 max-w-[50ch] lg:mx-0 text-base leading-relaxed text-ash sm:text-lg text-pretty"
               style={{ animationDelay: '420ms' }}
             >
               The BKT range we supply across Nepal — agricultural and
               off-the-road tyres, each with its full size table — and most with a 3D model you
               can turn and inspect before you buy.
             </p>
-            <div className="anim-rise mt-10 flex flex-wrap gap-4" style={{ animationDelay: '520ms' }}>
+            <div className="anim-rise mt-10 flex flex-wrap justify-center gap-4 lg:justify-start" style={{ animationDelay: '520ms' }}>
               <WipeLink href="#range">Browse the range</WipeLink>
               <WipeLink to="/contact">Ask for a size</WipeLink>
             </div>
@@ -156,7 +153,7 @@ export default function Products() {
             <Kicker>The range</Kicker>
             <h2
               id="range-title"
-              className="mt-6 font-wide text-[clamp(2.25rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-brand"
+              className="mt-6 font-wide text-[clamp(2.25rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink"
             >
               Pick your ground
             </h2>
