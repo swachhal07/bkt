@@ -209,7 +209,7 @@ export default function Products() {
             className="mt-16 grid grid-cols-1 gap-x-10 gap-y-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-14"
           >
             {shown.slice(0, count).map((p, i) => (
-              <li key={p.slug} className="anim-rise" style={{ animationDelay: `${Math.min(i < FIRST ? i : (i - FIRST) % NEXT, 8) * 60}ms` }}>
+              <li key={p.slug} className="anim-rise [contain-intrinsic-size:auto_520px] [content-visibility:auto]" style={{ animationDelay: `${Math.min(i < FIRST ? i : (i - FIRST) % NEXT, 8) * 60}ms` }}>
                 <ProductCard product={p} index={i} />
               </li>
             ))}

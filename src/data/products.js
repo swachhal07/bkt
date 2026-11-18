@@ -18,6 +18,9 @@ import agriRange from './agriRange.json'
 
 const images = import.meta.glob('../assets/products/*.webp', { eager: true, import: 'default' })
 const imageFor = (slug) => images[`../assets/products/${slug}.webp`]
+/* 560px-tall copies for the grid cards — the full renders are ~1100px. */
+const thumbs = import.meta.glob('../assets/products/thumb/*.webp', { eager: true, import: 'default' })
+const thumbFor = (slug) => thumbs[`../assets/products/thumb/${slug}.webp`] || imageFor(slug)
 
 export const sectors = [
   {
@@ -191,6 +194,7 @@ export const products = [...raw, ...rangeRaw].map((p) => {
   return {
     ...p,
     image: imageFor(p.slug),
+    thumb: thumbFor(p.slug),
     summary: p.text.split(/(?<=\.)\s/)[0],
     sizes,
     /* distinct nominal sizes, for the "N sizes" count on cards */

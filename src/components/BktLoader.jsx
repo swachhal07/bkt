@@ -81,46 +81,49 @@ function SlabTrace({ size = 48 }) {
     let raf = 0
     let start = 0
 
+    /* Everything that doesn't change between frames is worked out once:
+       the outline in canvas pixels and the faint track as a Path2D. */
+    const w = canvas.width
+    const h = canvas.height
+    const boxW = W + PAD * 2
+    const boxH = H + PAD * 2
+    const k = Math.min(w / boxW, h / boxH)
+    const ox = (w - boxW * k) / 2 + (PAD - 2.33044) * k
+    const oy = (h - boxH * k) / 2 + (PAD - 2) * k
+    const pts = POINTS.map((p) => [ox + p.x * k, oy + p.y * k])
+    const track = new Path2D()
+    track.moveTo(pts[0][0], pts[0][1])
+    for (let i = 1; i < N; i++) track.lineTo(pts[i][0], pts[i][1])
+    track.closePath()
+    ctx.lineWidth = LINE * k
+    ctx.lineCap = 'round'
+    ctx.lineJoin = 'round'
+
+    /* The streak is drawn in CHUNKS pieces (one colour/alpha each) rather
+       than one stroke per sample — same look, ~20× fewer draw calls. */
+    const CHUNKS = 28
+    const per = Math.ceil(TAIL_N / CHUNKS)
+
     const frame = (now) => {
       if (!start) start = now
-      const w = canvas.width
-      const h = canvas.height
       ctx.clearRect(0, 0, w, h)
-      const boxW = W + PAD * 2
-      const boxH = H + PAD * 2
-      const k = Math.min(w / boxW, h / boxH)
-      const ox = (w - boxW * k) / 2 + (PAD - 2.33044) * k
-      const oy = (h - boxH * k) / 2 + (PAD - 2) * k
-      const at = (p) => ({ x: ox + p.x * k, y: oy + p.y * k })
-      ctx.lineWidth = LINE * k
-      ctx.lineCap = 'round'
-      ctx.lineJoin = 'round'
-
-      /* faint track */
       ctx.strokeStyle = 'rgba(0, 119, 52, 0.09)'
-      ctx.beginPath()
-      const first = at(POINTS[0])
-      ctx.moveTo(first.x, first.y)
-      for (let i = 1; i < N; i++) {
-        const p = at(POINTS[i])
-        ctx.lineTo(p.x, p.y)
-      }
-      ctx.closePath()
-      ctx.stroke()
+      ctx.stroke(track)
 
-      /* streak: segments fade in alpha and shift colour along its length */
       const head = Math.floor(ease(((now - start) % PERIOD) / PERIOD) * N)
-      for (let j = 1; j < TAIL_N; j++) {
-        const i = (head - TAIL_N + j + N * 4) % N
-        const prev = (i - 1 + N) % N
-        const t = j / TAIL_N
-        const [r, g, b] = colourAt(t)
-        const a = at(POINTS[prev])
-        const c = at(POINTS[i])
-        ctx.strokeStyle = `rgba(${r | 0}, ${g | 0}, ${b | 0}, ${(t * t).toFixed(3)})`
+      for (let c = 0; c < CHUNKS; c++) {
+        const j0 = c * per
+        const j1 = Math.min(TAIL_N - 1, j0 + per)
+        if (j0 >= j1) break
+        const t = (j0 + j1) / 2 / TAIL_N
+        const [r, g, bl] = colourAt(t)
+        ctx.strokeStyle = `rgba(${r | 0}, ${g | 0}, ${bl | 0}, ${(t * t).toFixed(3)})`
         ctx.beginPath()
-        ctx.moveTo(a.x, a.y)
-        ctx.lineTo(c.x, c.y)
+        for (let j = j0; j <= j1; j++) {
+          const [x, y] = pts[(head - TAIL_N + j + N * 4) % N]
+          if (j === j0) ctx.moveTo(x, y)
+          else ctx.lineTo(x, y)
+        }
         ctx.stroke()
       }
       raf = requestAnimationFrame(frame)

@@ -91,10 +91,17 @@ export function ProductCard({ product: p, index = 0, tile = 'bg-white' }) {
           aria-hidden="true"
           className="prod-slab absolute inset-x-[17%] bottom-0 h-[86%] rounded-[1.6rem_0.4rem_1.6rem_0.4rem] bg-brand"
         />
+        {/* soft ground shadow — a static blurred ellipse, cheaper than a
+            drop-shadow filter recalculated on every hover and scroll */}
+        <span
+          aria-hidden="true"
+          className="absolute bottom-[5%] left-1/2 h-[5%] w-[52%] -translate-x-1/2 rounded-[50%] bg-carbon/25 blur-[10px]"
+        />
         <img
-          src={p.image}
+          src={p.thumb}
           alt={`${p.name} tyre`}
           loading="lazy"
+          decoding="async"
           className="prod-tyre absolute inset-x-[12%] top-[9%] bottom-[7%] m-auto h-[84%] w-auto max-w-[76%] object-contain"
         />
 
