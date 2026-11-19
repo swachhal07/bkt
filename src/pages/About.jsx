@@ -178,7 +178,7 @@ const TerrainSlabs = () => {
         <h2 className="reveal text-center font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight">
           Built for the roads
           <br />
-          <span className="text-brand-glow">Nepal actually has.</span>
+          <span className="text-brand">Nepal actually has.</span>
         </h2>
 
         <div className="mt-16 flex flex-col gap-3 lg:h-[34rem] lg:flex-row lg:gap-4 lg:px-6" onPointerLeave={() => clearTimeout(timer.current)}>

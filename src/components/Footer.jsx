@@ -86,12 +86,12 @@ export default function Footer() {
         {/* Marks and contact on one strip. Both are reference material — who
             this is and how to reach them — so they belong on the same line at
             the same rank, not in a tall column each. */}
-        <div className="grid items-center gap-x-12 gap-y-10 py-12 lg:grid-cols-12 lg:py-14">
-          <div className="lg:col-span-4">
+        <div className="grid items-center gap-y-10 py-12 lg:py-14 xl:grid-cols-6 xl:gap-y-0">
+          <div className="xl:col-span-2">
             {/* The two marks, kept as a lockup and divided by the same
                 hairline as before — the one part of the old footer that was
                 already doing its job. */}
-            <div className="flex items-center justify-center gap-4 lg:justify-start">
+            <div className="flex items-center justify-center gap-4 xl:justify-start">
               <Link to="/" aria-label="BKT Tyres — home" className="inline-flex">
                 <img src={bktLogo} alt="BKT Tyres" className="h-11 w-auto sm:h-12" />
               </Link>
@@ -100,16 +100,22 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact as three ruled cells rather than three items strung on one
-              line with bullets between them. Laid across the row, they fill
-              the measure the statement used to leave half-empty. */}
-          <dl className="grid grid-cols-1 gap-px bg-white/10 text-center lg:col-span-8 lg:grid-cols-3 lg:text-left">
+          {/* Contact (xl and up): pushed to the right edge so the email ends
+              flush with CONTACT in the page index below. Each cell is sized to
+              its content with the same padding either side of every rule, so
+              the gaps stay even however long the address is. Below xl the
+              three cells sit centred, side by side from sm, stacked on
+              phones. */}
+          <dl className="grid grid-cols-1 text-center sm:grid-cols-3 xl:col-span-4 xl:flex xl:justify-end xl:text-left">
             {contact.map((c) => (
-              <div key={c.label} className="bg-black px-0 py-5 lg:px-6 lg:py-4 lg:first:pl-0">
+              <div
+                key={c.label}
+                className="border-t border-white/10 py-5 first:border-t-0 sm:border-t-0 sm:border-l sm:px-4 sm:py-2 sm:first:border-l-0 xl:whitespace-nowrap xl:px-8 xl:py-4 xl:first:pl-0 xl:last:pr-0 2xl:px-12"
+              >
                 <dt className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">
                   {c.label}
                 </dt>
-                <dd className="mt-2 font-sans text-base text-white/85 sm:text-[17px]">
+                <dd className="mt-2 font-sans text-base text-white/85 sm:text-[17px] xl:text-base">
                   {c.href ? (
                     <a
                       href={c.href}

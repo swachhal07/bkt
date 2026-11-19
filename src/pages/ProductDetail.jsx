@@ -68,7 +68,8 @@ function Stage({ p }) {
             onLoad={() => setLoaded(true)}
             className={`absolute inset-0 h-full w-full border-0 transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           />
-          <p className="pointer-events-none absolute bottom-4 left-5 font-mono text-[10px] uppercase tracking-[0.18em] text-ash">
+          {/* Bottom-right: Sketchfab pins its logo badge bottom-left inside the embed. */}
+          <p className="pointer-events-none absolute bottom-4 right-5 font-mono text-[10px] uppercase tracking-[0.18em] text-ash">
             Drag to rotate · Scroll to zoom
           </p>
         </div>
@@ -99,17 +100,6 @@ function Stage({ p }) {
           </button>
         ))}
       </div>
-      )}
-
-      {p.model && !is3d && (
-        <button
-          type="button"
-          onClick={() => setMode('3d')}
-          className="group absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-carbon px-5 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-white transition-colors duration-300 hover:bg-brand"
-        >
-          <Cube className="h-4 w-4 transition-transform duration-500 group-hover:rotate-[30deg]" />
-          Turn it in 3D
-        </button>
       )}
     </div>
   )
@@ -382,7 +372,7 @@ export default function ProductDetail() {
             <Kicker>Features</Kicker>
             <h2
               id="features-title"
-              className="mt-5 font-wide text-[clamp(2.25rem,5.5vw,4rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-brand"
+              className="mt-5 font-wide text-[clamp(2.25rem,5.5vw,4rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink"
             >
               Built to do
             </h2>
@@ -407,7 +397,7 @@ export default function ProductDetail() {
             <Kicker>Technical data</Kicker>
             <h2
               id="sizes-title"
-              className="mt-6 font-wide text-[clamp(2.25rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-brand"
+              className="mt-6 font-wide text-[clamp(2.25rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink"
             >
               Sizes &amp; specs
             </h2>
@@ -450,7 +440,7 @@ export default function ProductDetail() {
                 <Kicker align="left">{p.sectorName}</Kicker>
                 <h2
                   id="more-title"
-                  className="mt-6 font-wide text-[clamp(2rem,5vw,3.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-brand"
+                  className="mt-6 font-wide text-[clamp(2rem,5vw,3.5rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink"
                 >
                   More for the job
                 </h2>
