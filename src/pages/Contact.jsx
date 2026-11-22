@@ -6,15 +6,16 @@ import bktTruck from '../assets/bkt-truck.webp'
 import tractorField from '../assets/tractor-field.webp'
 
 /* Contact details from the BKT Tire Nepal Distributor Facebook page
-   (facebook.com/bkttirenepal), kept in step with the footer. The phone shown
-   is the office landline; WhatsApp needs a mobile, so it uses the number BKT
-   Nepal's posts give ("Contact Us: 9802902106"). The enquiry form composes a
+   (facebook.com/bkttirenepal), kept in step with the footer. The phones shown
+   are the two sales lines. The enquiry form composes a
    mailto to EMAIL; wire `handleSubmit` to a real form endpoint (Formspree /
    server route) when ready. */
-const PHONE_DISPLAY = '01-4982455'
-const PHONE_HREF = '+97714982455'
-const WHATSAPP_HREF = '9779802902106'
-const EMAIL = 'nabin.p@mvdugar.com'
+const PHONES = [
+  { display: '9802780690', href: '+9779802780690' },
+  { display: '9802952894', href: '+9779802952894' },
+]
+const PHONE_DISPLAY = PHONES.map((p) => p.display).join(' / ')
+const EMAIL = 'bktservice@mvdugar.com'
 /* Address from the same Facebook page; the map pin below sits in the same
    ward (Kathmandu-16, Banasthali/Balaju). */
 const ADDRESS = 'Balaju Industrial District, Kathmandu'
@@ -34,11 +35,6 @@ const Icon = {
   phone: (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...p}>
       <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />
-    </svg>
-  ),
-  whatsapp: (p) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>
-      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.4-8.23 8.4Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42-.14-.01-.31-.01-.47-.01a.9.9 0 0 0-.65.3c-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.17 1.73 2.64 4.19 3.7.59.26 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z" />
     </svg>
   ),
   arrow: (p) => (
@@ -115,7 +111,7 @@ const specs = [
 const visitFacts = [
   { label: 'Address', value: ADDRESS, note: 'Pinned on the map' },
   { label: 'Opening hours', value: 'Sun–Fri · 09:00–18:00', note: 'Closed Saturday' },
-  { label: 'Phone', value: PHONE_DISPLAY, note: 'Office line' },
+  { label: 'Sales', value: PHONE_DISPLAY, note: 'Call either line' },
 ]
 
 /* Closing wayfinding. Each blurb is drawn from the destination page's own
@@ -327,22 +323,19 @@ export default function Contact() {
               </p>
 
               <div className="anim-rise mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 lg:justify-start" style={{ animationDelay: '520ms' }}>
-                <a
-                  href={`tel:${PHONE_HREF}`}
-                  className="group inline-flex items-center gap-3 border-b-2 border-ink/15 pb-1.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-ink transition-colors hover:border-brand hover:text-brand"
-                >
+                {/* One phone line, both sales numbers; each number is its own
+                    tap-to-call link. */}
+                <span className="inline-flex items-center gap-3 border-b-2 border-ink/15 pb-1.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-ink">
                   <Icon.phone className="h-4 w-4" />
-                  {PHONE_DISPLAY}
-                </a>
-                <a
-                  href={`https://wa.me/${WHATSAPP_HREF}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 border-b-2 border-ink/15 pb-1.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-ink transition-colors hover:border-brand hover:text-brand"
-                >
-                  <Icon.whatsapp className="h-4 w-4" />
-                  WhatsApp
-                </a>
+                  {PHONES.map((p, i) => (
+                    <span key={p.href} className="inline-flex items-center gap-3">
+                      {i > 0 && <span aria-hidden="true" className="text-ash">/</span>}
+                      <a href={`tel:${p.href}`} className="transition-colors hover:text-brand">
+                        {p.display}
+                      </a>
+                    </span>
+                  ))}
+                </span>
               </div>
             </div>
 

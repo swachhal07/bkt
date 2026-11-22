@@ -13,6 +13,7 @@ import ProductDetail from './pages/ProductDetail'
 import HeroLab from './pages/HeroLab'
 import GroupLab from './pages/GroupLab'
 import NotFound from './pages/NotFound'
+import { PrivacyPolicy, Terms } from './pages/Legal'
 
 /* A route change is a new page, so it starts at the top. React Router keeps
    the window's scroll position by default, which meant following a link from
@@ -69,6 +70,8 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

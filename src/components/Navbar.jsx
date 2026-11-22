@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
-import logo from '../assets/pngfind.com-tire-marks-png-139014.png'
-import logoSolid from '../assets/logo-solid.png'
+import logo from '../assets/bkt-logo-elevate-on-dark.png' // tagline whitened for the transparent bar
+import logoSolid from '../assets/logo-consumer-on_light@2x-1.png'
 import dugarLogo from '../assets/dugar-logo.png'
 
 export default function Navbar() {
@@ -119,7 +119,7 @@ export default function Navbar() {
             <img
               src={transparent ? logo : logoSolid}
               alt="BKT Tyres"
-              className={`h-11 w-auto transition-[filter] duration-300 sm:h-12 ${
+              className={`h-12 w-auto transition-[filter] duration-300 sm:h-14 ${
                 transparent ? '[filter:drop-shadow(0_1px_3px_rgba(0,0,0,0.55))]' : ''
               }`}
             />

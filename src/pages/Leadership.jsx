@@ -12,7 +12,7 @@ import namanDugarImg from '../assets/eb7eb529-8d15-4359-8ac0-df51b7393d00.webp'
      1  HERO         white, centred, type only — same masthead spec as About
                      and Blog (one screen, two wipe buttons, ruled facts rail)
      2  BOARD        carbon — four portrait cards
-     3  MANAGEMENT   white — four portrait cards, same card, light tone
+     3  MANAGEMENT   white — business head centred on top, four cards below
    ──────────────────────────────────────────────────────────────────── */
 
 const board = [
@@ -43,26 +43,11 @@ const board = [
 ]
 
 const management = [
-  {
-    name: 'Manager Name',
-    role: 'Chief Executive Officer',
-    bio: 'Runs day-to-day operations and turns the board’s direction into delivery.',
-  },
-  {
-    name: 'Manager Name',
-    role: 'Head of Sales',
-    bio: 'Leads the dealer network and the teams who match each customer to the right tyre.',
-  },
-  {
-    name: 'Manager Name',
-    role: 'Head of Operations',
-    bio: 'Owns warehousing and dispatch, so genuine stock is where it needs to be on time.',
-  },
-  {
-    name: 'Manager Name',
-    role: 'Head of Finance',
-    bio: 'Manages accounts, credit and reporting across the business.',
-  },
+  { name: 'Nabin Parajuli', role: 'Business Head' },
+  { name: 'Bibek Gupta', role: 'Sales Head — OTR Division' },
+  { name: 'Keshabraj Pudasaini', role: 'Sales Head — Agri Division' },
+  { name: 'Sunny Passawn', role: 'Finance Head' },
+  { name: 'Munna Miya Dhuniya', role: 'Service Manager' },
 ]
 
 const Arrow = (p) => (
@@ -102,7 +87,7 @@ const WipeLink = ({ to, href, children }) => {
 /* Ruled along the foot of the hero, as on About and Blog. */
 const facts = [
   { label: 'Board', value: '4 Directors' },
-  { label: 'Management', value: '4 Leaders' },
+  { label: 'Management', value: `${management.length} Leaders` },
   { label: 'Group', value: 'MV Dugar Group' },
   { label: 'Based', value: 'Kathmandu, Nepal' },
 ]
@@ -172,7 +157,7 @@ function PersonCard({ person, index, tone }) {
   )
 }
 
-function TeamSection({ id, kicker, title, lede, people, tone }) {
+function TeamSection({ id, kicker, title, lede, people, tone, leadFirst = false }) {
   const onDark = tone === 'dark'
   return (
     <section
@@ -194,10 +179,23 @@ function TeamSection({ id, kicker, title, lede, people, tone }) {
           </p>
         </div>
 
-        <ul className="mt-16 grid grid-cols-1 gap-x-8 gap-y-14 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
-          {people.map((p, i) => (
-            <PersonCard key={`${p.role}-${i}`} person={p} index={i} tone={tone} />
-          ))}
+        {/* With `leadFirst`, the first person heads the team: a card of the
+            same column width, centred on its own row above the rest. */}
+        {leadFirst && (
+          <ul className="mx-auto mt-16 w-full sm:mt-20 sm:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-9rem)/4)]">
+            <PersonCard person={people[0]} index={0} tone={tone} />
+          </ul>
+        )}
+
+        <ul
+          className={`grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12 ${
+            leadFirst ? 'mt-14 sm:mt-16' : 'mt-16 sm:mt-20'
+          }`}
+        >
+          {(leadFirst ? people.slice(1) : people).map((p, i) => {
+            const index = leadFirst ? i + 1 : i
+            return <PersonCard key={`${p.role}-${index}`} person={p} index={index} tone={tone} />
+          })}
         </ul>
       </div>
     </section>
@@ -311,6 +309,7 @@ export default function Leadership() {
         title="Management Team"
         lede="The people who run the business day to day — from the warehouse floor to the dealer’s counter."
         people={management}
+        leadFirst
       />
     </>
   )

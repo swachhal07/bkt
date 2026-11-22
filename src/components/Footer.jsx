@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import bktLogo from '../assets/pngfind.com-tire-marks-png-139014.png'
+import bktLogo from '../assets/bkt-logo-elevate-on-dark.png'
 import dugarLogo from '../assets/dugar-logo.png'
 
 /* Address, phone and email are from the BKT Tire Nepal Distributor Facebook
@@ -55,8 +55,14 @@ const nav = [
 
 const contact = [
   { label: 'Visit', value: 'Balaju Industrial District, Kathmandu' },
-  { label: 'Office', value: '01-4982455', href: 'tel:+97714982455' },
-  { label: 'Email', value: 'nabin.p@mvdugar.com', href: 'mailto:nabin.p@mvdugar.com' },
+  {
+    label: 'Sales',
+    links: [
+      { value: '9802780690', href: 'tel:+9779802780690' },
+      { value: '9802952894', href: 'tel:+9779802952894' },
+    ],
+  },
+  { label: 'Email', value: 'bktservice@mvdugar.com', href: 'mailto:bktservice@mvdugar.com' },
 ]
 
 const Arrow = (p) => (
@@ -93,7 +99,7 @@ export default function Footer() {
                 already doing its job. */}
             <div className="flex items-center justify-center gap-4 xl:justify-start">
               <Link to="/" aria-label="BKT Tyres — home" className="inline-flex">
-                <img src={bktLogo} alt="BKT Tyres" className="h-11 w-auto sm:h-12" />
+                <img src={bktLogo} alt="BKT Tyres" className="h-12 w-auto sm:h-14" />
               </Link>
               <span className="h-9 w-px bg-white/20" aria-hidden="true" />
               <img src={dugarLogo} alt="MV Dugar Group" className="h-11 w-auto sm:h-12" />
@@ -116,7 +122,16 @@ export default function Footer() {
                   {c.label}
                 </dt>
                 <dd className="mt-2 font-sans text-base text-white/85 sm:text-[17px] xl:text-base">
-                  {c.href ? (
+                  {c.links ? (
+                    c.links.map((l, i) => (
+                      <span key={l.href}>
+                        {i > 0 && <span className="text-white/35"> / </span>}
+                        <a href={l.href} className="transition-colors hover:text-brand-glow">
+                          {l.value}
+                        </a>
+                      </span>
+                    ))
+                  ) : c.href ? (
                     <a
                       href={c.href}
                       className="transition-colors hover:text-brand-glow"
@@ -194,12 +209,12 @@ export default function Footer() {
           </p>
 
           <div className="order-1 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 sm:order-2">
-            <a href="#" className="transition-colors hover:text-brand-glow">
+            <Link to="/privacy-policy" className="transition-colors hover:text-brand-glow">
               Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-brand-glow">
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-brand-glow">
               Terms &amp; Conditions
-            </a>
+            </Link>
           </div>
 
           <p className="order-3">
