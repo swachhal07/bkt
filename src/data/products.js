@@ -167,8 +167,8 @@ const ranges = [
 
 /* Machine groups from both PDFs (e.g. "Tipper", "Tractor rear"), for the
    "Stocked in Nepal" line on tyre pages. */
-export const rangeGroups = ranges.flatMap(({ data }) =>
-  Object.entries(data.groups).map(([id, name]) => ({ id, name })),
+export const rangeGroups = ranges.flatMap(({ sector, data }) =>
+  Object.entries(data.groups).map(([id, name]) => ({ id, name, sector })),
 )
 
 /* slug → { sector, groups, stock } from whichever PDF lists it */

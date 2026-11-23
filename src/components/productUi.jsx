@@ -80,10 +80,15 @@ export function useReveal(key) {
 /* Tyre tile. The cut-out render stands on a skewed brand-green slab (Home's
    stat-tile shape) that sits low like a plinth and rises behind the tyre on
    hover, while the tyre lifts and turns a few degrees. */
-export function ProductCard({ product: p, index = 0, tile = 'bg-white' }) {
+/* `matches`: sizes the finder matched on this tyre. When given, they show
+   under the card and the link opens the tyre page with that size searched. */
+export function ProductCard({ product: p, index = 0, tile = 'bg-white', matches = [], sizeQuery = '' }) {
+  const to = matches.length && sizeQuery
+    ? `/products/${p.slug}?size=${encodeURIComponent(sizeQuery)}#sizes`
+    : `/products/${p.slug}`
   return (
     <Link
-      to={`/products/${p.slug}`}
+      to={to}
       className="prod-card group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
     >
       <div className={`relative aspect-[4/5] overflow-hidden rounded-3xl ${tile}`}>
@@ -143,6 +148,20 @@ export function ProductCard({ product: p, index = 0, tile = 'bg-white' }) {
           </span>
         </span>
       </div>
+
+      {matches.length > 0 && (
+        <div className="mt-4 flex flex-wrap items-center gap-1.5">
+          <span className="mr-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ash">Matches</span>
+          {matches.slice(0, 4).map((s) => (
+            <span key={s} className="rounded-full bg-mist px-2.5 py-1 font-mono text-[11px] font-medium text-brand">
+              {s}
+            </span>
+          ))}
+          {matches.length > 4 && (
+            <span className="font-mono text-[11px] text-ash">+{matches.length - 4} more</span>
+          )}
+        </div>
+      )}
     </Link>
   )
 }

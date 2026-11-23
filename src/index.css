@@ -240,6 +240,18 @@ body {
 .anim-fade {
   animation: fade 1.2s ease-out both;
 }
+/* Dropdown panels: a short drop and fade from the trigger. */
+@keyframes pop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+.anim-pop {
+  animation: pop 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: top right;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-pop { animation: none; }
+}
 .animate-marquee {
   animation: marquee 22s linear infinite;
 }
@@ -580,3 +592,4 @@ textarea:-webkit-autofill {
     transform: none;
   }
 }
+

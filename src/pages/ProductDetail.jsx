@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { productBySlug, relatedTo, sketchfabSrc, rangeGroups } from '../data/products'
+import { hasSizeQuery, sizeMatches, enquiryHref } from '../data/sizeMatch'
 import { Kicker, WipeLink, ProductCard, useReveal } from '../components/productUi'
 import NotFound from './NotFound'
 import { FeatureNut } from '../components/featureGlyphs'
@@ -105,11 +106,16 @@ function Stage({ p }) {
   )
 }
 
-function SizeTable({ p }) {
-  const [q, setQ] = useState('')
+/* Sizes are matched by their numbers (sizeMatch.js), so "12.4-28" finds
+   "12.4 - 28"; words like "steel belted" still match as plain text. Each row
+   ends in an enquiry link that carries the tyre and that size to Contact. */
+function SizeTable({ p, initial = '' }) {
+  const [q, setQ] = useState(initial)
   const rows = useMemo(() => {
-    const t = q.trim().toLowerCase().replace(/\s+/g, '')
-    if (!t) return p.sizes
+    const raw = q.trim()
+    if (!raw) return p.sizes
+    if (hasSizeQuery(raw)) return p.sizes.filter((s) => sizeMatches(s.size, raw))
+    const t = raw.toLowerCase().replace(/\s+/g, '')
     return p.sizes.filter((s) => `${s.size}${s.version}${s.rim}`.toLowerCase().replace(/\s+/g, '').includes(t))
   }, [q, p.sizes])
 
@@ -135,7 +141,7 @@ function SizeTable({ p }) {
         <table className="w-full min-w-[640px] border-collapse text-left">
           <thead>
             <tr className="border-b border-ink/20">
-              {['Size', 'Version', 'Load index / speed', 'Rim (rec.)', 'Outer Ø (mm)'].map((h) => (
+              {['Size', 'Version', 'Load index / speed', 'Rim (rec.)', 'Outer Ø (mm)', ''].map((h) => (
                 <th key={h} scope="col" className="py-3 pr-6 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-ash">
                   {h}
                 </th>
@@ -152,12 +158,28 @@ function SizeTable({ p }) {
                 <td className="py-3.5 pr-6 font-mono text-xs text-ink">{s.load || '—'}</td>
                 <td className="py-3.5 pr-6 font-mono text-xs text-ink">{s.rim || '—'}</td>
                 <td className="py-3.5 pr-6 font-mono text-xs tabular-nums text-ink">{s.od || '—'}</td>
+                <td className="py-2 text-right">
+                  <Link
+                    to={enquiryHref({ tyre: p.name, size: s.size })}
+                    aria-label={`Enquire about ${p.name} ${s.size}`}
+                    className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-ink/15 px-3.5 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink transition-colors hover:border-brand hover:bg-brand hover:text-white"
+                  >
+                    Enquire
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-3 w-3">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </Link>
+                </td>
               </tr>
             ))}
             {rows.length === 0 && (
               <tr>
-                <td colSpan={5} className="py-10 text-center text-sm text-ash">
-                  No size matches “{q}”. Try fewer characters, or ask our team.
+                <td colSpan={6} className="py-10 text-center text-sm text-ash">
+                  No size matches “{q}”. Try fewer characters, or{' '}
+                  <Link to={enquiryHref({ tyre: p.name, size: q.trim() })} className="font-medium text-brand underline underline-offset-4">
+                    ask our team about it
+                  </Link>
+                  .
                 </td>
               </tr>
             )}
@@ -274,6 +296,8 @@ const otrGroupName = (id) => rangeGroups.find((g) => g.id === id)?.name ?? id
 
 export default function ProductDetail() {
   const { slug } = useParams()
+  const [params] = useSearchParams()
+  const askedSize = params.get('size')?.trim() ?? '' // from the finder
   const p = productBySlug(slug)
   useReveal(slug)
 
@@ -354,7 +378,7 @@ export default function ProductDetail() {
               </dl>
 
               <div className="anim-rise mt-6 flex flex-wrap gap-4" style={{ animationDelay: '400ms' }}>
-                <WipeLink to="/contact">Enquire about this tyre</WipeLink>
+                <WipeLink to={enquiryHref({ tyre: p.name, size: askedSize })}>Enquire about this tyre</WipeLink>
                 <WipeLink href="#sizes">See all sizes</WipeLink>
               </div>
               </div>
@@ -411,15 +435,21 @@ export default function ProductDetail() {
               </p>
               <ul className="mt-4 flex flex-wrap justify-center gap-2">
                 {p.stock.map((s) => (
-                  <li key={s} className="rounded-full bg-mist px-3.5 py-1.5 font-mono text-[11px] font-medium tracking-[0.04em] text-brand">
-                    {s}
+                  <li key={s}>
+                    <Link
+                      to={enquiryHref({ tyre: p.name, size: s })}
+                      title={`Enquire about ${s}`}
+                      className="block rounded-full bg-mist px-3.5 py-1.5 font-mono text-[11px] font-medium tracking-[0.04em] text-brand transition-colors hover:bg-brand hover:text-white"
+                    >
+                      {s}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           )}
           <div className="reveal mt-12">
-            <SizeTable p={p} />
+            <SizeTable key={p.slug} p={p} initial={askedSize} />
           </div>
           <p className="mx-auto mt-8 max-w-[70ch] text-center text-xs leading-relaxed text-ash">
             Specifications as published by BKT. Always confirm fitment and load

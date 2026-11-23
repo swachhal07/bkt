@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import TreadKicker from '../components/TreadKicker'
 import tyreDetail from '../assets/tyre-detail.webp'
 import bktTruck from '../assets/bkt-truck.webp'
@@ -160,16 +160,28 @@ const steps = [
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-const REQUIRED_FIELDS = ['name', 'email', 'message']
+/* The message is only required when the visitor hasn't named a tyre or size —
+   an enquiry that arrives from a size row already says what it's about. */
+const requiredFor = (form) =>
+  form.tyre.trim() || form.size.trim() ? ['name', 'email'] : ['name', 'email', 'message']
+
+/* A fresh sheet. Arriving from a tyre page or the finder (/contact?tyre=&size=)
+   fills in the tyre and size and switches the job to a quote. */
+const blankForm = (tyre = '', size = '') => ({
+  name: '',
+  email: '',
+  phone: '',
+  tyre,
+  size,
+  quantity: '',
+  type: tyre || size ? 'Request a quote' : enquiryTypes[0],
+  message: '',
+})
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    type: enquiryTypes[0],
-    message: '',
-  })
+  const [params] = useSearchParams()
+  const [form, setForm] = useState(() => blankForm(params.get('tyre') ?? '', params.get('size') ?? ''))
+  const required = requiredFor(form)
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const successRef = useRef(null)
@@ -222,8 +234,10 @@ export default function Contact() {
     if (!form.name.trim()) next.name = 'Please tell us your name.'
     if (!form.email.trim()) next.email = 'We need an email to reply to you.'
     else if (!EMAIL_RE.test(form.email.trim())) next.email = 'That email doesn’t look right.'
-    if (!form.message.trim()) next.message = 'Let us know how we can help.'
-    else if (form.message.trim().length < 10) next.message = 'A little more detail helps us help you.'
+    if (required.includes('message')) {
+      if (!form.message.trim()) next.message = 'Let us know how we can help.'
+      else if (form.message.trim().length < 10) next.message = 'A little more detail helps us help you.'
+    }
     return next
   }
 
@@ -237,12 +251,16 @@ export default function Contact() {
       return
     }
 
-    const subject = `Website enquiry — ${form.type}`
+    const tyreLine = [form.tyre.trim(), form.size.trim()].filter(Boolean).join(' — ')
+    const subject = `Website enquiry — ${form.type}${tyreLine ? ` — ${tyreLine}` : ''}`
     const body = [
       `Name: ${form.name}`,
       `Email: ${form.email}`,
       form.phone.trim() && `Phone: ${form.phone}`,
       `Enquiry type: ${form.type}`,
+      form.tyre.trim() && `Tyre: ${form.tyre}`,
+      form.size.trim() && `Size: ${form.size}`,
+      form.quantity.trim() && `Quantity: ${form.quantity}`,
       '',
       form.message,
     ]
@@ -263,7 +281,7 @@ export default function Contact() {
     }`
 
 
-  const filled = REQUIRED_FIELDS.filter((k) => form[k].trim()).length
+  const filled = required.filter((k) => form[k].trim()).length
 
   return (
     <>
@@ -358,7 +376,7 @@ export default function Contact() {
           </div>
 
           {/* ── Enquiry sheet ── */}
-          <div className="relative reveal border-t border-ink/20 pb-24 pt-16 sm:pb-32">
+          <div id="enquiry" className="relative reveal scroll-mt-24 border-t border-ink/20 pb-24 pt-16 sm:pb-32">
             {/* Heading sits on its own grid row so the side rail can centre
                 against the notebook itself, not against heading + notebook. */}
             <div className="grid gap-x-10 gap-y-8 lg:grid-cols-12">
@@ -400,7 +418,7 @@ export default function Contact() {
                       onClick={() => {
                         setSubmitted(false)
                         setErrors({})
-                        setForm({ name: '', email: '', phone: '', type: enquiryTypes[0], message: '' })
+                        setForm(blankForm())
                       }}
                       className="group mt-8 inline-flex items-center gap-3 border-b-2 border-ink/15 pb-1.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-ink transition-colors hover:border-brand hover:text-brand"
                     >
@@ -481,6 +499,34 @@ export default function Contact() {
                       )}
                     </div>
 
+                    {/* Tyre, size and quantity — filled in when the visitor
+                        comes from a tyre page, a size row or the finder. */}
+                    <div className="mt-7 grid gap-7 sm:grid-cols-[1.3fr_1.3fr_0.7fr] sm:gap-x-8">
+                      {[
+                        { k: 'tyre', label: 'Tyre', hint: 'e.g. Agrimax RT 855', type: 'text' },
+                        { k: 'size', label: 'Size', hint: 'e.g. 12.4-28', type: 'text' },
+                        { k: 'quantity', label: 'Quantity', hint: 'e.g. 4', type: 'number' },
+                      ].map((f) => (
+                        <div key={f.k}>
+                          <FieldLabel htmlFor={`field-${f.k}`}>
+                            {f.label} <span className="text-ink/35">(optional)</span>
+                          </FieldLabel>
+                          <div className="relative mt-2">
+                            <input
+                              id={`field-${f.k}`}
+                              type={f.type}
+                              {...(f.type === 'number' ? { min: 1, inputMode: 'numeric' } : {})}
+                              value={form[f.k]}
+                              onChange={update(f.k)}
+                              placeholder={f.hint}
+                              className={fieldCls(false)}
+                            />
+                            {focusRule}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
                     {/* Nature of job. Two versions failed here for opposite
                         reasons: soft pills, the only rounded thing on a page of
                         right angles, and then a hairline grid, which left a
@@ -527,7 +573,7 @@ export default function Contact() {
                     <div className="mt-8">
                       <FieldLabel htmlFor="field-message">
                         Message — machine, size, and where it works
-                        <Req />
+                        {required.includes('message') ? <Req /> : <span className="text-ink/35"> (optional)</span>}
                       </FieldLabel>
                       <div className="relative mt-2">
                         <textarea
@@ -558,7 +604,7 @@ export default function Contact() {
                     <div className="mt-10 h-[3px] w-full bg-ink/10" aria-hidden="true">
                       <span
                         className="block h-full bg-brand transition-[width] duration-700 ease-out"
-                        style={{ width: `${(filled / REQUIRED_FIELDS.length) * 100}%` }}
+                        style={{ width: `${(filled / required.length) * 100}%` }}
                       />
                     </div>
 
@@ -573,7 +619,7 @@ export default function Contact() {
                       </span>
                       <span className="relative flex items-center gap-4">
                         <span className="hidden font-mono text-[10px] uppercase tracking-[0.24em] text-white/50 sm:block">
-                          {filled === 3 ? 'Ready to send' : `${3 - filled} to fill`}
+                          {filled === required.length ? 'Ready to send' : `${required.length - filled} to fill`}
                         </span>
                         <Icon.arrow className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1.5" />
                       </span>
