@@ -5,6 +5,13 @@ import motiLalDugarImg from '../assets/af0b8ecf-4ddc-41f9-9dd1-ba5c0df1b212.webp
 import vivekDugarImg from '../assets/ae68fbad-4028-45aa-81d5-44d526f4f5af.webp'
 import shubhamDugarImg from '../assets/af5ea000-e8c5-4f03-ac64-9fd3a8bb8009.webp'
 import namanDugarImg from '../assets/eb7eb529-8d15-4359-8ac0-df51b7393d00.webp'
+/* Management portraits: cropped to the card's 4:5 from the supplied photos
+   (frames, scan borders and a scanner watermark trimmed off). */
+import nabinImg from '../assets/team/nabin-parajuli.webp'
+import bibekImg from '../assets/team/bibek-gupta.webp'
+import keshabrajImg from '../assets/team/keshabraj-pudasaini.webp'
+import sunnyImg from '../assets/team/sunny-passawn.webp'
+import munnaImg from '../assets/team/munna-miya-dhuniya.webp'
 
 /* ────────────────────────────────────────────────────────────────────
    LEADERSHIP — Board of Directors and Management Team.
@@ -43,11 +50,11 @@ const board = [
 ]
 
 const management = [
-  { name: 'Nabin Parajuli', role: 'Business Head' },
-  { name: 'Bibek Gupta', role: 'Sales Head — OTR Division' },
-  { name: 'Keshabraj Pudasaini', role: 'Sales Head — Agri Division' },
-  { name: 'Sunny Passawn', role: 'Finance Head' },
-  { name: 'Munna Miya Dhuniya', role: 'Service Manager' },
+  { name: 'Nabin Parajuli', role: 'Business Head', photo: nabinImg },
+  { name: 'Bibek Gupta', role: 'Sales Head — OTR Division', photo: bibekImg },
+  { name: 'Keshabraj Pudasaini', role: 'Sales Head — Agri Division', photo: keshabrajImg },
+  { name: 'Sunny Passawn', role: 'Finance Head', photo: sunnyImg },
+  { name: 'Munna Miya Dhuniya', role: 'Service Manager', photo: munnaImg },
 ]
 
 const Arrow = (p) => (
@@ -125,15 +132,6 @@ function PersonCard({ person, index, tone }) {
               {initials(person.name)}
             </span>
           )}
-
-          {/* Index tag, top-left */}
-          <span
-            className={`absolute left-4 top-4 font-mono text-[11px] tabular-nums tracking-[0.18em] ${
-              onDark ? 'text-white/45' : 'text-ash'
-            }`}
-          >
-            {String(index + 1).padStart(2, '0')}
-          </span>
         </div>
 
         <div className={`pcard-meta mt-5 border-t pt-4 ${onDark ? 'border-white/15' : 'border-ink/12'}`}>

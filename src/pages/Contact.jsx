@@ -4,6 +4,7 @@ import TreadKicker from '../components/TreadKicker'
 import tyreDetail from '../assets/tyre-detail.webp'
 import bktTruck from '../assets/bkt-truck.webp'
 import tractorField from '../assets/tractor-field.webp'
+import sectorOtr from '../assets/sector-otr.webp'
 
 /* Contact details from the BKT Tire Nepal Distributor Facebook page
    (facebook.com/bkttirenepal), kept in step with the footer. The phones shown
@@ -44,31 +45,33 @@ const Icon = {
   ),
 }
 
-/* Green underline that wipes in under a focused field */
-const focusRule = (
-  <span
-    aria-hidden="true"
-    className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand transition-transform duration-500 ease-out peer-focus:scale-x-100"
-  />
+/* Boxed field: a fog-filled tile with its label set inside, which turns white
+   with a brand edge while it has focus. The whole tile is the label, so a tap
+   anywhere on it lands in the input. */
+const Box = ({ id, label, required = false, error, className = '', children }) => (
+  <div className={className}>
+    <label
+      htmlFor={id}
+      className={`block cursor-text rounded-xl border px-4 pb-3 pt-3 transition-colors duration-300 focus-within:border-brand focus-within:bg-white ${
+        error ? 'border-rust bg-white' : 'border-transparent bg-fog hover:border-ink/15'
+      }`}
+    >
+      <span className="block font-sans text-xs font-semibold text-ash">
+        {label}
+        {required && <span className="ml-0.5 text-brand">*</span>}
+      </span>
+      {children}
+    </label>
+    {error && (
+      <p id={`err-${id}`} className="mt-1.5 pl-1 font-sans text-sm text-rust">
+        {error}
+      </p>
+    )}
+  </div>
 )
 
-/* Required-field marker. Square, not a disc: every other marker on this page
-   is a square, and the disc was the form's only rounded mark. */
-const Req = () => (
-  <span className="ml-1.5 inline-block h-1.5 w-1.5 bg-brand align-middle" aria-hidden="true" />
-)
-
-/* Field label. Deliberately quiet and in the body face: an earlier pass set
-   every label, option and footnote in letterspaced mono caps, and with a dozen
-   of them stacked the sheet flattened into one texture with no hierarchy left
-   to read. Mono caps are the accent on this page — the document strip, the
-   section legends — so they are spent on those and nowhere else. What should
-   carry weight in a form is the answer, not the caption above it. */
-const FieldLabel = ({ htmlFor, children }) => (
-  <label htmlFor={htmlFor} className="block font-sans text-sm text-ash">
-    {children}
-  </label>
-)
+const inputCls =
+  'mt-1 block w-full appearance-none rounded-none border-0 bg-transparent p-0 font-sans text-base text-ink placeholder:text-ink/30 focus:outline-none'
 
 /* Dotted-leader row, as used on a printed spec sheet. `tone` follows the same
    convention as Cross: 'dark' = dark marks on light stock, 'light' = the inverse. */
@@ -182,6 +185,7 @@ export default function Contact() {
   const [params] = useSearchParams()
   const [form, setForm] = useState(() => blankForm(params.get('tyre') ?? '', params.get('size') ?? ''))
   const required = requiredFor(form)
+  const prefilled = !!(params.get('tyre') || params.get('size'))
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const successRef = useRef(null)
@@ -271,15 +275,6 @@ export default function Contact() {
     setSubmitted(true)
     requestAnimationFrame(() => successRef.current?.focus())
   }
-
-  /* Ruled field: no box, just a hairline that thickens in brand green on focus.
-     `block` matters — an inline-block field leaves a baseline gap under it, which
-     would drop the green focus rule below the hairline as a second thin line. */
-  const fieldCls = (hasError) =>
-    `peer block w-full appearance-none rounded-none border-0 border-b bg-transparent px-0 pb-2.5 pt-1.5 font-sans text-[17px] text-ink transition-colors duration-300 placeholder:text-ink/25 focus:outline-none ${
-      hasError ? 'border-rust' : 'border-ink/25 focus:border-brand/60'
-    }`
-
 
   const filled = required.filter((k) => form[k].trim()).length
 
@@ -375,26 +370,80 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* ── Enquiry sheet ── */}
-          <div id="enquiry" className="relative reveal scroll-mt-24 border-t border-ink/20 pb-24 pt-16 sm:pb-32">
-            {/* Heading sits on its own grid row so the side rail can centre
-                against the notebook itself, not against heading + notebook. */}
-            <div className="grid gap-x-10 gap-y-8 lg:grid-cols-12">
-              <div className="flex flex-wrap items-end justify-between gap-4 border-b border-ink/20 pb-4 lg:col-span-7 lg:row-start-1">
-                <h2 className="font-wide text-3xl font-extrabold uppercase leading-none tracking-tight text-ink sm:text-4xl">
-                  Enquiry sheet
-                </h2>
-                <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ash">
-                  <span className="h-1.5 w-1.5 bg-brand" aria-hidden="true" />
-                  Required
-                </span>
-              </div>
+          {/* ── Enquiry ──
+                 Two halves of one block: a carbon panel that says what happens
+                 (closing on real BKT quarry photography rather than empty
+                 column), and the form itself on boxed fields grouped by what
+                 they're about. The job choice uses the site's skewed-slab
+                 shape so the sheet speaks the same language as Home and About. */}
+          <div id="enquiry" className="relative reveal scroll-mt-24 border-t border-ink/12 pb-24 pt-14 sm:pb-32 sm:pt-20">
+            <div className="grid gap-x-12 gap-y-10 lg:grid-cols-12 xl:gap-x-16">
+              {/* ── Carbon panel ── */}
+              <aside className="relative flex flex-col overflow-hidden rounded-[1.6rem] bg-carbon text-white lg:col-span-5">
+                {/* @container: the one-line heading is sized against the panel's
+                    own width (cqw), so it fills the line without wrapping. */}
+                <div className="@container relative z-10 px-6 pt-8 sm:px-10 sm:pt-10">
+                  <TreadKicker onDark align="left">Enquiry</TreadKicker>
+                  <h2 className="font-wide mt-6 whitespace-nowrap text-[clamp(1.5rem,9.6cqw,3.75rem)] font-extrabold uppercase leading-[0.92] tracking-tight">
+                    Send us <span className="text-brand">the job.</span>
+                  </h2>
+                  <p className="mt-5 max-w-[36ch] font-sans text-base leading-relaxed text-white/60">
+                    Whatever you know is enough to start. We&rsquo;ll fill in the rest.
+                  </p>
 
-              {/* Form column — no panel: the fields are ruled straight onto the
-                  page, kept compact so the sheet reads as a form, not a slab. */}
-              <div className="lg:col-span-7 lg:row-start-2">
+                  <ol className="mt-9 border-t border-white/10">
+                    {steps.map((s) => (
+                      <li key={s.n} className="flex items-baseline gap-5 border-b border-white/10 py-5">
+                        <span className="font-display w-8 shrink-0 text-2xl font-bold italic leading-none text-brand-glow tabular-nums">
+                          {s.n}
+                        </span>
+                        <div>
+                          <h3 className="font-sans text-[15px] font-bold text-white">{s.title}</h3>
+                          <p className="mt-1 font-sans text-sm leading-relaxed text-white/55">{s.desc}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
+                {/* Photo fills whatever height the form leaves, fading up into
+                    the carbon so the steps above stay on a flat surface. */}
+                <div className="relative mt-auto min-h-64 flex-1 sm:min-h-72">
+                  <img
+                    src={sectorOtr}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover object-[60%_center]"
+                  />
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-carbon via-carbon/40 to-carbon/80" />
+                  <div className="relative flex h-full flex-col justify-end px-6 pb-8 pt-16 sm:px-10 sm:pb-10">
+                    <span className="font-sans text-sm font-semibold text-white/70">Rather talk it through?</span>
+                    <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
+                      {PHONES.map((p) => (
+                        <a
+                          key={p.href}
+                          href={`tel:${p.href}`}
+                          className="font-display text-2xl font-bold tracking-wide text-white transition-colors hover:text-brand-glow sm:text-[1.75rem]"
+                        >
+                          {p.display}
+                        </a>
+                      ))}
+                    </div>
+                    <a
+                      href={`mailto:${EMAIL}`}
+                      className="mt-1 w-fit font-sans text-sm text-white/70 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-brand-glow"
+                    >
+                      {EMAIL}
+                    </a>
+                  </div>
+                </div>
+              </aside>
+
+              {/* ── Form ── */}
+              <div className="lg:col-span-7 lg:py-2">
                 {submitted ? (
-                  <div ref={successRef} tabIndex={-1} className="outline-none">
+                  <div ref={successRef} tabIndex={-1} className="flex h-full flex-col justify-center outline-none">
                     <div className="anim-stamp w-fit border-[3px] border-brand px-7 py-3.5">
                       <span className="font-wide block text-3xl font-extrabold uppercase leading-none tracking-wide text-brand sm:text-4xl">
                         Received
@@ -420,129 +469,20 @@ export default function Contact() {
                         setErrors({})
                         setForm(blankForm())
                       }}
-                      className="group mt-8 inline-flex items-center gap-3 border-b-2 border-ink/15 pb-1.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-ink transition-colors hover:border-brand hover:text-brand"
+                      className="group mt-8 inline-flex w-fit items-center gap-3 border-b-2 border-ink/15 pb-1.5 font-sans text-sm font-bold text-ink transition-colors hover:border-brand hover:text-brand"
                     >
-                      Start a new sheet
+                      Start a new enquiry
                       <Icon.arrow className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} noValidate>
-                    {/* Name + phone */}
-                    <div className="grid gap-7 sm:grid-cols-2 sm:gap-x-8">
-                      <div>
-                        <FieldLabel htmlFor="field-name">
-                          Name
-                          <Req />
-                        </FieldLabel>
-                        <div className="relative mt-2">
-                          <input
-                            id="field-name"
-                            type="text"
-                            autoComplete="name"
-                            value={form.name}
-                            onChange={update('name')}
-                            aria-invalid={!!errors.name}
-                            aria-describedby={errors.name ? 'err-name' : undefined}
-                            className={fieldCls(errors.name)}
-                          />
-                          {focusRule}
-                        </div>
-                        {errors.name && (
-                          <p id="err-name" className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-rust">
-                            ! {errors.name}
-                          </p>
-                        )}
-                      </div>
-
-                      <div>
-                        <FieldLabel htmlFor="field-phone">
-                          Phone <span className="text-ink/35">(optional)</span>
-                        </FieldLabel>
-                        <div className="relative mt-2">
-                          <input
-                            id="field-phone"
-                            type="tel"
-                            autoComplete="tel"
-                            value={form.phone}
-                            onChange={update('phone')}
-                            className={fieldCls(false)}
-                          />
-                          {focusRule}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Email */}
-                    <div className="mt-7">
-                      <FieldLabel htmlFor="field-email">
-                        Email
-                        <Req />
-                      </FieldLabel>
-                      <div className="relative mt-2">
-                        <input
-                          id="field-email"
-                          type="email"
-                          autoComplete="email"
-                          value={form.email}
-                          onChange={update('email')}
-                          aria-invalid={!!errors.email}
-                          aria-describedby={errors.email ? 'err-email' : undefined}
-                          className={fieldCls(errors.email)}
-                        />
-                        {focusRule}
-                      </div>
-                      {errors.email && (
-                        <p id="err-email" className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-rust">
-                          ! {errors.email}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Tyre, size and quantity — filled in when the visitor
-                        comes from a tyre page, a size row or the finder. */}
-                    <div className="mt-7 grid gap-7 sm:grid-cols-[1.3fr_1.3fr_0.7fr] sm:gap-x-8">
-                      {[
-                        { k: 'tyre', label: 'Tyre', hint: 'e.g. Agrimax RT 855', type: 'text' },
-                        { k: 'size', label: 'Size', hint: 'e.g. 12.4-28', type: 'text' },
-                        { k: 'quantity', label: 'Quantity', hint: 'e.g. 4', type: 'number' },
-                      ].map((f) => (
-                        <div key={f.k}>
-                          <FieldLabel htmlFor={`field-${f.k}`}>
-                            {f.label} <span className="text-ink/35">(optional)</span>
-                          </FieldLabel>
-                          <div className="relative mt-2">
-                            <input
-                              id={`field-${f.k}`}
-                              type={f.type}
-                              {...(f.type === 'number' ? { min: 1, inputMode: 'numeric' } : {})}
-                              value={form[f.k]}
-                              onChange={update(f.k)}
-                              placeholder={f.hint}
-                              className={fieldCls(false)}
-                            />
-                            {focusRule}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Nature of job. Two versions failed here for opposite
-                        reasons: soft pills, the only rounded thing on a page of
-                        right angles, and then a hairline grid, which left a
-                        dead sixth cell because there are five options and no
-                        column count divides them. Flow-laid squared tabs answer
-                        both — the corners match the rest of the sheet, and
-                        content-width tabs wrap to whatever is there, so five
-                        options never leave a hole. */}
-                    <fieldset className="mt-8">
-                      <legend className="font-sans text-sm text-ash">Nature of job</legend>
-                      <div className="mt-3 flex flex-wrap gap-2">
+                    {/* What it's about — first, because it changes how the
+                        rest reads (a quote wants sizes, a claim wants a story). */}
+                    <fieldset>
+                      <legend className="font-wide text-lg font-bold text-ink">What do you need?</legend>
+                      <div className="mt-4 flex flex-wrap gap-2.5 pl-1">
                         {enquiryTypes.map((t) => {
-                          /* Checked state is driven from React rather than from
-                             peer-checked: the label's span is the input's only
-                             sibling, so peer-* cannot reach anything nested
-                             inside it. */
                           const active = form.type === t
                           return (
                             <label key={t} className="cursor-pointer">
@@ -555,13 +495,13 @@ export default function Contact() {
                                 className="peer sr-only"
                               />
                               <span
-                                className={`block border px-4 py-2 font-sans text-[13px] transition-colors duration-300 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand ${
+                                className={`block -skew-x-[9deg] rounded-[0.7rem_0.2rem_0.7rem_0.2rem] border px-4 py-2.5 transition-colors duration-300 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand sm:px-5 ${
                                   active
                                     ? 'border-brand bg-brand text-white'
-                                    : 'border-ink/20 text-ash hover:border-ink/45 hover:text-ink'
+                                    : 'border-ink/15 bg-white text-ink hover:border-ink/40'
                                 }`}
                               >
-                                {t}
+                                <span className="block skew-x-[9deg] font-sans text-sm font-semibold">{t}</span>
                               </span>
                             </label>
                           )
@@ -569,117 +509,138 @@ export default function Contact() {
                       </div>
                     </fieldset>
 
-                    {/* Message */}
-                    <div className="mt-8">
-                      <FieldLabel htmlFor="field-message">
-                        Message — machine, size, and where it works
-                        {required.includes('message') ? <Req /> : <span className="text-ink/35"> (optional)</span>}
-                      </FieldLabel>
-                      <div className="relative mt-2">
-                        <textarea
-                          id="field-message"
-                          rows={4}
-                          value={form.message}
-                          onChange={update('message')}
-                          aria-invalid={!!errors.message}
-                          aria-describedby={errors.message ? 'err-message' : undefined}
-                          className={`${fieldCls(errors.message)} resize-y leading-relaxed`}
-                        />
-                        {focusRule}
+                    {/* About you */}
+                    <div className="mt-10">
+                      <div className="flex items-baseline justify-between gap-4">
+                        <h3 className="font-wide text-lg font-bold text-ink">About you</h3>
+                        <span className="font-sans text-xs text-ash">
+                          <span className="text-brand">*</span> required
+                        </span>
                       </div>
-                      {errors.message && (
-                        <p id="err-message" className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-rust">
-                          ! {errors.message}
+                      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                        <Box id="field-name" label="Name" required error={errors.name}>
+                          <input
+                            id="field-name"
+                            type="text"
+                            autoComplete="name"
+                            value={form.name}
+                            onChange={update('name')}
+                            aria-invalid={!!errors.name}
+                            aria-describedby={errors.name ? 'err-field-name' : undefined}
+                            className={inputCls}
+                          />
+                        </Box>
+                        <Box id="field-phone" label="Phone">
+                          <input
+                            id="field-phone"
+                            type="tel"
+                            autoComplete="tel"
+                            value={form.phone}
+                            onChange={update('phone')}
+                            placeholder="98XXXXXXXX"
+                            className={inputCls}
+                          />
+                        </Box>
+                        <Box id="field-email" label="Email" required error={errors.email} className="sm:col-span-2">
+                          <input
+                            id="field-email"
+                            type="email"
+                            autoComplete="email"
+                            value={form.email}
+                            onChange={update('email')}
+                            aria-invalid={!!errors.email}
+                            aria-describedby={errors.email ? 'err-field-email' : undefined}
+                            className={inputCls}
+                          />
+                        </Box>
+                      </div>
+                    </div>
+
+                    {/* The tyre — pre-filled when arriving from a tyre page or
+                        the finder, and the panel says so. */}
+                    <div className="mt-10">
+                      <div className="flex items-baseline justify-between gap-4">
+                        <h3 className="font-wide text-lg font-bold text-ink">The tyre</h3>
+                        <span className="font-sans text-xs text-ash">if you know it</span>
+                      </div>
+                      {prefilled && (
+                        <p className="mt-3 flex items-center gap-2.5 rounded-lg bg-mist px-4 py-2.5 font-sans text-sm text-brand">
+                          <span className="h-2 w-2 shrink-0 -skew-x-[20deg] bg-brand" aria-hidden="true" />
+                          Filled in from the tyre you were looking at — change anything that&rsquo;s off.
                         </p>
                       )}
+                      <div className="mt-4 grid gap-3 sm:grid-cols-[1.4fr_1.2fr_0.7fr]">
+                        {[
+                          { k: 'tyre', label: 'Pattern', hint: 'Agrimax RT 855', type: 'text' },
+                          { k: 'size', label: 'Size', hint: '12.4-28', type: 'text' },
+                          { k: 'quantity', label: 'Qty', hint: '4', type: 'number' },
+                        ].map((f) => (
+                          <Box key={f.k} id={`field-${f.k}`} label={f.label}>
+                            <input
+                              id={`field-${f.k}`}
+                              type={f.type}
+                              {...(f.type === 'number' ? { min: 1, inputMode: 'numeric' } : {})}
+                              value={form[f.k]}
+                              onChange={update(f.k)}
+                              placeholder={f.hint}
+                              className={inputCls}
+                            />
+                          </Box>
+                        ))}
+                      </div>
                     </div>
 
-                    {/* Completion, as a single hairline filling along the top
-                        edge of the sign-off bar. The rail's standalone "0/3"
-                        left a hole in the column; a labelled three-cell strip
-                        in its place just added a third stacked band saying what
-                        the field markers already say. One rule loading up is
-                        the whole message, and it rhymes with the green rule
-                        that wipes in under a focused field. */}
-                    <div className="mt-10 h-[3px] w-full bg-ink/10" aria-hidden="true">
-                      <span
-                        className="block h-full bg-brand transition-[width] duration-700 ease-out"
-                        style={{ width: `${(filled / required.length) * 100}%` }}
-                      />
+                    {/* The job */}
+                    <div className="mt-10">
+                      <h3 className="font-wide text-lg font-bold text-ink">The job</h3>
+                      <div className="mt-4">
+                        <Box
+                          id="field-message"
+                          label={required.includes('message') ? 'Machine, size, and where it works' : 'Anything else we should know'}
+                          required={required.includes('message')}
+                          error={errors.message}
+                        >
+                          <textarea
+                            id="field-message"
+                            rows={5}
+                            value={form.message}
+                            onChange={update('message')}
+                            aria-invalid={!!errors.message}
+                            aria-describedby={errors.message ? 'err-field-message' : undefined}
+                            placeholder="e.g. Two Mahindra 575s on rice paddy in Chitwan, rears worn through."
+                            className={`${inputCls} resize-y leading-relaxed`}
+                          />
+                        </Box>
+                      </div>
                     </div>
 
-                    {/* Sign-off — full-width bar, green wipes across on hover. */}
+                    {/* Send — dark bar, green wipes in on hover (site button
+                        grammar), with a plain count of what's still missing. */}
                     <button
                       type="submit"
-                      className="group relative flex w-full items-center justify-between overflow-hidden bg-ink px-6 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-8"
+                      className="group relative mt-10 flex w-full items-center justify-between overflow-hidden rounded-xl bg-ink px-6 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-8"
                     >
                       <span aria-hidden="true" className="absolute inset-0 origin-left scale-x-0 bg-brand transition-transform duration-500 ease-out group-hover:scale-x-100" />
                       <span className="font-display relative text-2xl font-bold uppercase tracking-wide text-white sm:text-3xl">
-                        Submit enquiry
+                        Send enquiry
                       </span>
                       <span className="relative flex items-center gap-4">
-                        <span className="hidden font-mono text-[10px] uppercase tracking-[0.24em] text-white/50 sm:block">
-                          {filled === required.length ? 'Ready to send' : `${required.length - filled} to fill`}
+                        <span className="hidden font-sans text-sm text-white/55 sm:block">
+                          {filled === required.length
+                            ? 'Ready to send'
+                            : `${required.length - filled} required ${required.length - filled === 1 ? 'field' : 'fields'} left`}
                         </span>
                         <Icon.arrow className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1.5" />
                       </span>
                     </button>
 
-                    {/* Set on the sheet's left margin rather than centred under
-                        the bar, where it hung as a stray line of prose. */}
-                    <p className="mt-4 font-sans text-sm text-ash">
-                      Typically answered within one business day.
+                    <p className="mt-4 font-sans text-sm leading-relaxed text-ash">
+                      Opens your email app with everything filled in. Usually answered
+                      within one business day — and your details go nowhere else.
                     </p>
                   </form>
                 )}
               </div>
-
-              {/* Side rail — the process, and nothing else. It used to open on
-                  a standalone progress widget: a 60px "0/3" with a bar beside
-                  it and a stretch of empty column beneath, which is what made
-                  this half of the sheet read as unfinished. That readout now
-                  sits on the form where the fields it counts are, and the three
-                  steps are set at a scale that fills the column on their own.
-                  Stretches both grid rows so its divider runs the form's
-                  length. */}
-              <aside className="mt-10 lg:col-span-5 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:border-l lg:border-ink/12 lg:pl-10">
-                <span className="block border-b border-ink/20 pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-ash">
-                  What happens next
-                </span>
-
-                {/* The index carries the weight, the title stays in the body
-                    face. Setting these titles in wide caps as well put three
-                    more shouting lines next to a heading that is already
-                    shouting, which is half of why the sheet read as flat. */}
-                <ol className="divide-y divide-ink/10">
-                  {steps.map((s) => (
-                    <li key={s.n} className="flex gap-6 py-7">
-                      <span className="font-display text-3xl font-bold leading-none text-brand tabular-nums">
-                        {s.n}
-                      </span>
-                      <div className="flex-1">
-                        <h3 className="font-sans text-[15px] font-bold text-ink">{s.title}</h3>
-                        <p className="mt-2 max-w-[38ch] font-sans text-sm leading-relaxed text-ash">
-                          {s.desc}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-
-                {/* Footnote, labelled the way the spec rows above it are, so it
-                    ends the rail on the page's own vocabulary instead of on a
-                    loose sentence. */}
-                <div className="border-t border-ink/20 pt-6">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ash">
-                    Your details
-                  </span>
-                  <p className="mt-3 max-w-[42ch] font-sans text-sm leading-relaxed text-ash">
-                    We never pass your details on, and we don&rsquo;t run a mailing list.
-                    One enquiry, one reply.
-                  </p>
-                </div>
-              </aside>
             </div>
           </div>
         </div>
