@@ -176,7 +176,7 @@ const TerrainSlabs = () => {
     <section className="overflow-hidden bg-carbon py-24 text-white sm:py-32">
       <div className="mx-auto max-w-[100rem] px-4 sm:px-6 lg:px-10">
         <TreadKicker onDark className="reveal">The ground we cover</TreadKicker>
-        <h2 className="reveal mt-6 text-center font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight">
+        <h2 className="reveal mt-8 text-center font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight">
           Built for the roads
           <br />
           <span className="text-brand">Nepal actually has.</span>
@@ -293,7 +293,7 @@ const GroupDiscs = () => {
     <section className="overflow-hidden bg-carbon py-24 text-white sm:py-32">
       <div className="mx-auto max-w-[100rem] px-4 text-center sm:px-6 lg:px-10">
         <TreadKicker onDark className="reveal">Our group</TreadKicker>
-        <h2 className="reveal mt-6 font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight">
+        <h2 className="reveal mt-8 font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight">
           Part of the <span className="text-brand">MV Dugar Group.</span>
         </h2>
         <div className="reveal mt-16 flex items-center justify-center gap-4 sm:gap-10">
@@ -455,7 +455,7 @@ export default function About() {
       <section className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <TreadKicker className="reveal">Our commitments</TreadKicker>
-          <h2 className="reveal mt-6 text-center font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink">
+          <h2 className="reveal mt-8 text-center font-wide text-[clamp(2.2rem,5vw,4.75rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink">
             What we <span className="text-brand">stand for</span>
           </h2>
 
