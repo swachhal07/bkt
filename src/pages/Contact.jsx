@@ -660,14 +660,15 @@ export default function Contact() {
             <div className="min-w-0">
               {/* Fluid rather than stepped: the column is a 5fr track, so the
                   headline has to size against the column, not the breakpoint. The
-                  36px floor keeps "SHOWROOM" on one line at 320px. */}
+                  36px floor keeps "FIND THE OFFICE" tidy at 320px. */}
               {/* Brand green (#007735), matching the masthead's "we'll fit it."
                   On carbon that's 3.42:1 — under AA for body copy, but over the 3:1
                   large-text threshold, which this clears at 36px+ extrabold. Don't
                   reuse this pairing at body sizes; use brand-glow there. */}
               {/* Centred while stacked over the map; left-aligned beside it from lg. */}
-              <h2 className="font-wide min-w-0 text-center lg:text-left text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-white [overflow-wrap:anywhere]">
-                Find the <span className="text-brand">showroom</span>
+              <TreadKicker onDark className="lg:justify-start">Visit us</TreadKicker>
+              <h2 className="font-wide mt-6 min-w-0 text-center lg:text-left text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-white [overflow-wrap:anywhere]">
+                Find the <span className="text-brand">office</span>
               </h2>
 
               <p className="mx-auto mt-7 max-w-lg text-center font-sans text-base leading-relaxed text-white/65 sm:text-lg lg:mx-0 lg:text-left">
@@ -732,7 +733,7 @@ export default function Contact() {
             <figure className="m-0 min-w-0">
               <div className="relative aspect-[4/3] w-full border border-white/15 bg-steel sm:aspect-[3/2]">
                 <iframe
-                  title={`Map showing the BKT Tyres showroom in ${ADDRESS}`}
+                  title={`Map showing the BKT Tyres office in ${ADDRESS}`}
                   src={MAP_EMBED}
                   className="absolute inset-0 block h-full w-full border-0"
                   loading="lazy"
@@ -744,7 +745,7 @@ export default function Contact() {
               <figcaption className="mt-5 flex flex-wrap items-center justify-between gap-x-7 gap-y-2 border-t border-white/12 pt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">
                 <span className="flex items-center gap-2.5">
                   <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-brand-glow" />
-                  Pin marks the showroom
+                  Pin marks the office
                 </span>
                 <span className="text-white/25">{COORDS}</span>
               </figcaption>

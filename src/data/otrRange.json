@@ -47,40 +47,6 @@
    "img": "https://storage.googleapis.com/bkt-prod-storage/76c7864d-5aba-4fa2-8e1f-493fa6233877"
   },
   {
-   "slug": "xl-grip-t",
-   "name": "XL GRIP (T)",
-   "construction": "Bias",
-   "range": "",
-   "isNew": false,
-   "model": "2a7745201324483f9f061db35aa37b36",
-   "text": "XL GRIP (E-3) best suits on/off trucks carrying heavy loads in mining applications. Its tread compound is designed to minimize cuts and punctures on harshest ground conditions. XL GRIP (E-3) offers exceptional traction and provides an extended tyre life- cycle.",
-   "machines": [
-    "On/Off Truck"
-   ],
-   "applications": [
-    "Transport"
-   ],
-   "features": [
-    "Heavy Duty",
-    "Traction",
-    "Cut Resistance",
-    "Durability"
-   ],
-   "sizes": [
-    "10.00 - 20|STANDARD||7.5|1075",
-    "11.00 - 20|STANDARD||8.0|1115"
-   ],
-   "stock": [
-    "10.00-20 18PR",
-    "11.00-20 18PR"
-   ],
-   "groups": [
-    "tipper"
-   ],
-   "sizesFiltered": true,
-   "img": "https://storage.googleapis.com/bkt-prod-storage/881254d1-57b2-4549-8cf3-4f3ae9cd42fe"
-  },
-  {
    "slug": "xl-grip-ultra",
    "name": "XL GRIP ULTRA",
    "construction": "Bias",
