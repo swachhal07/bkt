@@ -2,6 +2,8 @@
    line glyph per feature label; colour and container come from the style
    that renders them — the site uses FeatureNut below. */
 
+import { Children, Fragment, cloneElement } from 'react'
+
 const G = {
   'High Load Capacity': (
     <>
@@ -169,6 +171,33 @@ const G = {
 
 export const featureGlyphNames = Object.keys(G)
 
+/* How each glyph moves when its feature is hovered (index.css, .nut-glyph
+   [data-motion]): spin = wheels turn, push = surges forward, bob = floats,
+   lift = rises under load, shake = heat/rough-ground jitter. Anything not
+   listed gets a small pop. Every glyph also redraws its strokes. */
+const MOTION = {
+  'Handling & Comfort': 'spin',
+  'Steering Control': 'spin',
+  'Low Rolling Resistance': 'push',
+  Traction: 'push',
+  'Fuel Economy': 'push',
+  'Road Oriented': 'push',
+  'Excellent Flotation': 'bob',
+  Comfort: 'bob',
+  'Reduced Soil Compaction': 'bob',
+  'High Load Capacity': 'lift',
+  'Heavy Duty': 'lift',
+  'Heat Resistance': 'shake',
+  'Hard Rocky Surface': 'shake',
+}
+
+/* pathLength=1 on every stroke lets one dash rule redraw any shape, however
+   long its path is. */
+const withLength = (node) =>
+  node.type === Fragment
+    ? Children.map(node.props.children, (c) => cloneElement(c, { pathLength: 1 }))
+    : cloneElement(node, { pathLength: 1 })
+
 export function FeatureGlyph({ name, className = 'h-8 w-8', strokeWidth = 1.75 }) {
   return (
     <svg
@@ -180,8 +209,9 @@ export function FeatureGlyph({ name, className = 'h-8 w-8', strokeWidth = 1.75 }
       strokeLinejoin="round"
       aria-hidden="true"
       className={className}
+      data-motion={MOTION[name] || 'pop'}
     >
-      {G[name] || <circle cx="12" cy="12" r="8" />}
+      {withLength(G[name] || <circle cx="12" cy="12" r="8" />)}
     </svg>
   )
 }

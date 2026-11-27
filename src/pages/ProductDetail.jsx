@@ -141,8 +141,8 @@ function SizeTable({ p, initial = '' }) {
         <table className="w-full min-w-[640px] border-collapse text-left">
           <thead>
             <tr className="border-b border-ink/20">
-              {['Size', 'Version', 'Load index / speed', 'Rim (rec.)', 'Outer Ø (mm)', ''].map((h) => (
-                <th key={h} scope="col" className="py-3 pr-6 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-ash">
+              {['Size', 'Version', 'Load index / speed', 'Rim (rec.)', 'Outer Ø (mm)', ''].map((h, i) => (
+                <th key={h} scope="col" className={`py-3 pr-6 ${i === 0 ? 'pl-5' : ''} font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-ash`}>
                   {h}
                 </th>
               ))}
@@ -150,11 +150,21 @@ function SizeTable({ p, initial = '' }) {
           </thead>
           <tbody>
             {rows.map((s, i) => (
-              <tr key={i} className="border-b border-ink/10 transition-colors hover:bg-mist">
-                <th scope="row" className="py-3.5 pr-6 font-wide text-sm font-bold uppercase tracking-tight text-ink">
-                  {s.size}
+              /* Row hover: no fill. A brand bar grows up the left edge in its own
+                 lane (the Size column's pl-5, so it never meets the text), the
+                 size nudges right and turns green, the rule under the row
+                 greens, and the Enquire pill gets the site's green wipe. */
+              <tr key={i} className="group/row border-b border-ink/10 transition-colors duration-300 hover:border-brand/50">
+                <th scope="row" className="relative py-3.5 pl-5 pr-6 font-wide text-sm font-bold uppercase tracking-tight text-ink">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-y-2.5 left-0 w-[3px] origin-center scale-y-0 rounded-full bg-brand opacity-0 transition-[scale,opacity] duration-300 ease-out group-hover/row:scale-y-100 group-hover/row:opacity-100 motion-reduce:transition-none"
+                  />
+                  <span className="inline-block transition-[color,translate] duration-300 ease-out group-hover/row:translate-x-1 group-hover/row:text-brand motion-reduce:transition-none">
+                    {s.size}
+                  </span>
                 </th>
-                <td className="py-3.5 pr-6 font-mono text-xs uppercase tracking-[0.06em] text-ash">{s.version || '—'}</td>
+                <td className="py-3.5 pr-6 font-mono text-xs uppercase tracking-[0.06em] text-ash transition-colors duration-300 group-hover/row:text-ink">{s.version || '—'}</td>
                 <td className="py-3.5 pr-6 font-mono text-xs text-ink">{s.load || '—'}</td>
                 <td className="py-3.5 pr-6 font-mono text-xs text-ink">{s.rim || '—'}</td>
                 <td className="py-3.5 pr-6 font-mono text-xs tabular-nums text-ink">{s.od || '—'}</td>
@@ -162,10 +172,14 @@ function SizeTable({ p, initial = '' }) {
                   <Link
                     to={enquiryHref({ tyre: p.name, size: s.size })}
                     aria-label={`Enquire about ${p.name} ${s.size}`}
-                    className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-ink/15 px-3.5 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink transition-colors hover:border-brand hover:bg-brand hover:text-white"
+                    className="relative inline-flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-ink/15 bg-ink/[0.02] px-3.5 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink transition-colors duration-300 group-hover/row:border-brand group-hover/row:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
                   >
-                    Enquire
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-3 w-3">
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 origin-left scale-x-0 bg-brand transition-transform duration-500 ease-out group-hover/row:scale-x-100 motion-reduce:transition-none"
+                    />
+                    <span className="relative">Enquire</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="relative h-3 w-3 transition-transform duration-300 group-hover/row:translate-x-1 motion-reduce:transition-none">
                       <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>
                   </Link>

@@ -8,7 +8,8 @@ import { useEffect, useRef, useState } from 'react'
    Panel:   white card under the bar; Agriculture and OTR side by side from
             sm (stacked on phones), each opening with "All … tyres", every
             option with its live tyre count; the chosen one turns green
-            with a slanted tread-block marker.
+            with a slanted tread-block marker, and hovering or tabbing onto
+            any option previews that same green treatment.
    Keys:    ↑/↓ move, Home/End jump, Enter/Space choose, Esc closes and
             hands focus back to the trigger. A click outside also closes.
 
@@ -29,18 +30,26 @@ function Option({ v, label, strong = false, value, countFor, choose }) {
         aria-selected={on}
         data-value={v}
         onClick={() => choose(v)}
-        className={`relative flex w-full items-center gap-3 rounded-lg py-2 pl-5 pr-3 text-left text-[15px] outline-none transition-colors focus-visible:bg-fog ${
-          on ? 'text-brand' : n ? 'text-ink hover:bg-fog' : 'text-ash/60 hover:bg-fog'
+        className={`group/opt relative flex w-full items-center gap-3 rounded-lg py-2 pl-5 pr-3 text-left text-[15px] outline-none transition-colors duration-200 hover:text-brand focus-visible:text-brand ${
+          on ? 'text-brand' : n ? 'text-ink' : 'text-ash/60'
         } ${strong || on ? 'font-semibold' : ''}`}
       >
         <span
           aria-hidden="true"
-          className={`absolute left-1.5 top-1/2 h-3.5 w-1.5 -translate-y-1/2 -skew-x-[20deg] rounded-[1px] bg-brand transition-opacity ${
-            on ? 'opacity-100' : 'opacity-0'
+          className={`absolute left-1.5 top-1/2 h-3.5 w-1.5 -translate-y-1/2 -skew-x-[20deg] rounded-[1px] bg-brand transition-[opacity,scale] duration-200 ease-out motion-reduce:transition-none ${
+            on
+              ? 'opacity-100'
+              : 'scale-y-50 opacity-0 group-hover/opt:scale-y-100 group-hover/opt:opacity-100 group-focus-visible/opt:scale-y-100 group-focus-visible/opt:opacity-100'
           }`}
         />
         <span className="flex-1">{label}</span>
-        <span className={`text-sm tabular-nums ${on ? 'text-brand' : 'text-ash'}`}>{n}</span>
+        <span
+          className={`text-sm tabular-nums transition-colors duration-200 ${
+            on ? 'text-brand' : 'text-ash group-hover/opt:text-brand group-focus-visible/opt:text-brand'
+          }`}
+        >
+          {n}
+        </span>
       </button>
     </li>
   )
